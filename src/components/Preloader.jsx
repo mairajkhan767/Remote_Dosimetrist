@@ -2,10 +2,10 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
 export default function Preloader() {
-    const videoRef = useRef(null);
-    const logoImg = useRef(null);
-    const wrapperRef = useRef(null);
-    const alreadyShown = sessionStorage.getItem("preloaderShown");
+  const videoRef = useRef(null);
+  const logoImg = useRef(null);
+  const wrapperRef = useRef(null);
+  const alreadyShown = sessionStorage.getItem("preloaderShown");
 
   useEffect(() => {
     const tl = gsap.timeline({
@@ -24,45 +24,45 @@ export default function Preloader() {
       duration: 2,
       ease: "power4.inOut",
     })
-    .to(
-      videoRef.current,
-      {
-        transform: "translateX(-150px)",
-        duration: 1,
-        ease: "power3.out",
-      },
-      "+=1"
-    )
-    .to(
-      logoImg.current,
-      {
-        clipPath: "inset(0% 0% 0% 0%)",
-        duration: 1,
-        ease: "power3.out",
-      },
-      "+=0"
-    )
-    .to(
-      logoImg.current,
-      {
-        // top: 20,
-        transform: "translateY(-400px)",
-        duration: 1,
-        ease: "power3.out",
-        opacity: 0
-      }
-    )
-    .to(
-      videoRef.current,
-      {
-        // top: 20,
-        transform: "translate(-150px,-400px)",
-        duration: 1,
-        ease: "power3.out",
-        opacity: 0
-      },
+      .to(
+        videoRef.current,
+        {
+          transform: "translateX(-150px)",
+          duration: 1,
+          ease: "power3.out",
+        },
+        "+=1"
+      )
+      .to(
+        logoImg.current,
+        {
+          clipPath: "inset(0% 0% 0% 0%)",
+          duration: 1,
+          ease: "power3.out",
+        },
+        "+=0"
+      )
+      .to(
+        logoImg.current,
+        {
+          // top: 20,
+          transform: "translateY(-400px)",
+          duration: 1,
+          ease: "power3.out",
+          opacity: 0
+        }
+      )
+      .to(
+        videoRef.current,
+        {
+          // top: 20,
+          transform: "translate(-150px,-400px)",
+          duration: 1,
+          ease: "power3.out",
+          opacity: 0
+        },
         "<"
-    );
+      );
 
   }, []);
 
@@ -71,7 +71,7 @@ export default function Preloader() {
   return (
     <div
       ref={wrapperRef}
-      className="z-[9999] bg-black absolute w-screen h-screen flex left-[0px] justify-center items-center"
+      className="z-[9999] absolute w-screen h-screen flex left-[0px] justify-center items-center"
     >
       {/* VIDEO */}
       <video
