@@ -157,3 +157,133 @@ button:focus-visible {
     height: 50%;
   }
 }
+
+.review-slider .swiper{
+  padding: 0px 50px;
+}
+
+.review-slider .swiper-button-prev svg, 
+.review-slider .swiper-button-next svg,
+.modules-slider .swiper-button-prev svg, 
+.modules-slider .swiper-button-next svg {
+    display: none;
+}
+.review-slider .swiper-button-next:before,
+.modules-slider .swiper-button-next:before {
+    transform: rotate(180deg);
+}
+.review-slider .swiper-button-prev:before, 
+.modules-slider .swiper-button-prev:before,
+.review-slider .swiper-button-next:before,
+.modules-slider .swiper-button-next:before {
+    content: "";
+    background: url(assets/slide-arrow.svg);
+    width: 90px;
+    height: 80px;
+    position: absolute;
+    background-size: cover;
+}
+/* .s-3-div-1, 
+.s-3-div-3 {
+    width: 620px;
+    height: 566px;
+}
+.s-3-div-2 {
+    width: 620px;
+} */
+
+.area-main {
+    width: 100%;
+    height: 625px;
+    max-width: 650px;
+    position: relative;
+}
+.area-main img {
+    width: 100%;
+    max-width: 60%;
+}
+.image-01 {
+    position: absolute;
+    top: 0.5%;
+    left: 39%;
+}
+.image-02 {
+    position: absolute;
+    right: -3%;
+    top: 12%;
+}
+.image-03 {
+    position: absolute;
+    right: -13.5%;
+    top: 39%;
+}
+.image-04 {
+    position: absolute;
+    right: -2.5%;
+    top: 65.5%;
+}
+.image-05 {
+    position: absolute;
+    bottom: 0.4%;
+    left: 39%;
+}
+.image-06 {
+    position: absolute;
+    left: 14%;
+    top: 10%;
+}
+.image-07 {
+    position: absolute;
+    left: 2%;
+    top: 37%;
+}
+.image-08 {
+    position: absolute;
+    left: 12%;
+    top: 65%;
+}
+.image-01 img {
+    cursor: pointer;
+}
+.image-02 img {
+    transform: rotate(47deg);
+    cursor: pointer;
+}
+.image-03 img {
+    transform: rotate(90deg);
+    cursor: pointer;
+}
+.image-04 img {
+    transform: rotate(136deg);
+    cursor: pointer;
+}
+.image-05 img {
+    transform: rotate(180deg);
+    cursor: pointer;
+}
+.image-06 img {
+    transform: rotate(-45deg);
+    cursor: pointer;
+}
+.image-07 img {
+    transform: rotate(-90deg);
+    cursor: pointer;
+}
+.image-08 img {
+    transform: rotate(-134deg);
+    cursor: pointer;
+}
+.content-main {
+    position: absolute;
+    width: 100%;
+    max-width: 40%;
+    left: 30%;
+    top: 48%;
+}
+.content-main .innter-content {
+    position: relative;
+}
+.btn-circle button {
+    background-color: #fff;
+    color: #003777;
+}

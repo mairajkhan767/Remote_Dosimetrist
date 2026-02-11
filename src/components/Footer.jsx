@@ -41,16 +41,16 @@ export default function Footer() {
           {/* Navigation Links */}
           <div className="flex justify-center md:justify-start space-x-12 pt-8 md:pt-14 mx-auto">
             <div className="flex flex-col space-y-4 text-xs font-bold tracking-widest text-[#595959] uppercase">
-              <a href="#home" className="hover:text-[#003777]">Home</a>
-              <a href="#about" className="hover:text-[#003777]">About</a>
-              <a href="#focus" className="hover:text-[#003777]">Areas of Focus</a>
-              <a href="#plans" className="hover:text-[#003777]">Our Plans</a>
+              <a href="/" className="hover:text-[#003777]">Home</a>
+              <a href="/about" className="hover:text-[#003777]">About</a>
+              <a href="/areas" className="hover:text-[#003777]">Areas of Focus</a>
+              <a href="/plans" className="hover:text-[#003777]">Our Plans</a>
             </div>
             <div className="flex flex-col space-y-4 text-xs font-bold tracking-widest text-[#595959] uppercase">
-              <a href="#process" className="hover:text-[#003777]">Process</a>
-              <a href="#systems" className="hover:text-[#003777]">Systems</a>
+              <a href="/process" className="hover:text-[#003777]">Process</a>
+              <a href="/systems" className="hover:text-[#003777]">Systems</a>
               <a href="#blog" className="hover:text-[#003777]">Our Blog</a>
-              <a href="#contact" className="hover:text-[#003777]">Contact</a>
+              <a href="/contact" className="hover:text-[#003777]">Contact</a>
             </div>
           </div>
 

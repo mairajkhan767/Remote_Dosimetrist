@@ -1,29 +1,29 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 
-export default function Preloader() {
+export default function Preloader( { alreadyShown, setAlreadyShown }) {
   const videoRef = useRef(null);
   const logoImg = useRef(null);
   const wrapperRef = useRef(null);
-  const alreadyShown = sessionStorage.getItem("preloaderShown");
 
   useEffect(() => {
-    const tl = gsap.timeline({
-      delay: 2,
-      onComplete: () => {
-        sessionStorage.setItem("preloaderShown", "true");
-        videoRef.current.pause();
-        videoRef.current.currentTime = 0;
-      },
-    });
+    if(!alreadyShown){
+      const tl = gsap.timeline({
+        delay: 2,
+        onComplete: () => {
+          setAlreadyShown(true);
+          videoRef.current.pause();
+          videoRef.current.currentTime = 0;
+        },
+      });
 
-    tl.to(videoRef.current, {
-      width: "4%",
-      height: "10%",
-      borderRadius: "50px 999px 999px 50px",
-      duration: 2,
-      ease: "power4.inOut",
-    })
+      tl.to(videoRef.current, {
+        width: "4%",
+        height: "10%",
+        borderRadius: "50px 999px 999px 50px",
+        duration: 2,
+        ease: "power4.inOut",
+      })
       .to(
         videoRef.current,
         {
@@ -63,7 +63,8 @@ export default function Preloader() {
         },
         "<"
       );
-
+    }
+    
   }, []);
 
   if (alreadyShown) return null;

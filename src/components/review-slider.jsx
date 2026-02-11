@@ -75,7 +75,7 @@ function ReviewCard({ review }) {
 
 export default function ReviewSlider() {
   return (
-    <div className="w-full py-50 px-50 flex flex-col gap-[47px] review-slider">
+    <div className="w-full py-50 px-30 flex flex-col gap-[47px] review-slider">
       <div className="flex flex-col justify-center items-center gap-5.75">
         <div className="flex flex-col justify-center items-center">
           <p className="bg-[#434961] text-[22px] text-white p-0.75 text-center w-[201px]">Five Star Reviews</p>
