@@ -1,34 +1,35 @@
-import React, { useEffect, useRef, useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 
-
-export default function Header( { alreadyShown } ) {
+export default function Header({ alreadyShown }) {
   const wrapperRef = useRef(null);
   useEffect(() => {
     if (alreadyShown) {
       wrapperRef.current.style.top = "0px";
     }
-  }, [alreadyShown])
+  }, [alreadyShown]);
   return (
     <header className="relative w-full bg-white z-5">
-      <div ref={wrapperRef} className="mx-auto px-6 flex items-center justify-between h-20 py-[22px] px-[140px] relative -top-20"
-        style={{
-          transition: 'top 1s ease-in',
-        }}>
+      <div
+        ref={wrapperRef}
+        className="mx-auto px-6 flex items-center justify-between h-20 py-[22px] px-[140px] relative -top-20"
+        style={{ transition: "top 1s ease-in" }}
+      >
         <nav className="flex space-x-[65px] text-gray-800 font-medium text-sm">
-          <a href="/" className="hover:text-purple-700 transition-colors">Home</a>
-          <a href="/about" className="hover:text-purple-700 transition-colors">About Us</a>
-          <a href="/areas" className="hover:text-purple-700 transition-colors">Areas of Focus</a>
-          <a href="/plans" className="hover:text-purple-700 transition-colors">Our Plans</a>
+          <Link to="/" className="hover:text-purple-700 transition-colors">Home</Link>
+          <Link to="/about" className="hover:text-purple-700 transition-colors">About Us</Link>
+          <Link to="/areas" className="hover:text-purple-700 transition-colors">Areas of Focus</Link>
+          <Link to="/plans" className="hover:text-purple-700 transition-colors">Our Plans</Link>
         </nav>
         <div className="flex-shrink-0">
-          <img src="assets/logo-main.png" alt="Remote Dosimetrist Logo" className="h-12 w-auto" />
+          <Link to="/">
+            <img src="assets/logo-main.png" alt="Remote Dosimetrist Logo" className="h-12 w-auto" />
+          </Link>
         </div>
         <div className="flex items-center space-x-[20px]">
           <nav className="flex space-x-[65px] text-gray-800 font-medium text-sm">
-            <a href="/process" className="hover:text-purple-700 transition-colors">Process</a>
-            <a href="/contact" className="hover:text-purple-700 transition-colors">Contact Us</a>
+            <Link to="/process" className="hover:text-purple-700 transition-colors">Process</Link>
+            <Link to="/contact" className="hover:text-purple-700 transition-colors">Contact Us</Link>
           </nav>
           <div>
             <img src="assets/search-icon.svg" alt="" />
@@ -36,7 +37,9 @@ export default function Header( { alreadyShown } ) {
           <a
             href="#get-in-touch"
             className="bg-gray-800 !text-white px-5 py-2 rounded-full shadow-lg hover:bg-gray-700 transition-colors text-sm font-medium"
-          > GET IN TOUCH </a>
+          >
+            GET IN TOUCH
+          </a>
         </div>
       </div>
     </header>
