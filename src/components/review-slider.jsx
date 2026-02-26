@@ -8,32 +8,38 @@ import "swiper/css/navigation";
 const reviews = [
   {
     rating: 5,
-    text: "Nathan is very professional and a proficient medical dosimetrist. Nathan is very easy to work with. I would definitely use his expertise again! Thank you Nathan!",
-    name: "Janine M. RTT, Lead Therapist (Spokane, WA)",
+    text: "Working for a busy radiation oncology department, it became quite difficult to manage the workload when a staff member decided to move onto a new venture. We needed help with the spikes we had in planning but really didn't need someone full time. We were very fortunate to have taken on Nathan and his team as a contractor for our clinic as he fit himself in perfectly to meet our needs. ",
+    name: "Richard K, CMD (Auburn, WA)",
     image: "/assets/review-img.png",
   },
   {
     rating: 4,
-    text: "Nathan is very professional and a proficient medical dosimetrist. Nathan is very easy to work with. I would definitely use his expertise again! Thank you Nathan!",
-    name: "Janine M. RTT, Lead Therapist (Spokane, WA)",
+    text: "Nathan is an honest and dependable Dosimetrist.  He filled in for our Varian platform clinic when we were overwhelmed by the high volume of patients.  Nathan is pleasant to work with and easily accommodated the way our clinic provides dosimetry to our community.  I would highly recommend him and his team for Dosimetry in any clinic.  He is smart, has great insight and easily assembles into a team environment.",
+    name: "Monique W, CMD (Tacoma, WA)",
     image: "/assets/review-img.png",
   },
   {
     rating: 5,
     text: "Nathan is very professional and a proficient medical dosimetrist. Nathan is very easy to work with. I would definitely use his expertise again! Thank you Nathan!",
-    name: "Janine M. RTT, Lead Therapist (Spokane, WA)",
+    name: "Janine M, RTT, Lead Therapist (Spokane, WA)",
+    image: "/assets/review-img.png",
+  },
+  {
+    rating: 5,
+    text: "Working for a busy radiation oncology department, it became quite difficult to manage the workload when a staff member decided to move onto a new venture. We needed help with the spikes we had in planning but really didn't need someone full time. We were very fortunate to have taken on Nathan and his team as a contractor for our clinic as he fit himself in perfectly to meet our needs. ",
+    name: "Richard K, CMD (Auburn, WA)",
+    image: "/assets/review-img.png",
+  },
+  {
+    rating: 4,
+    text: "Nathan is an honest and dependable Dosimetrist.  He filled in for our Varian platform clinic when we were overwhelmed by the high volume of patients.  Nathan is pleasant to work with and easily accommodated the way our clinic provides dosimetry to our community.  I would highly recommend him and his team for Dosimetry in any clinic.  He is smart, has great insight and easily assembles into a team environment.",
+    name: "Monique W, CMD (Tacoma, WA)",
     image: "/assets/review-img.png",
   },
   {
     rating: 5,
     text: "Nathan is very professional and a proficient medical dosimetrist. Nathan is very easy to work with. I would definitely use his expertise again! Thank you Nathan!",
-    name: "Janine M. RTT, Lead Therapist (Spokane, WA)",
-    image: "/assets/review-img.png",
-  },
-  {
-    rating: 4,
-    text: "Nathan is very professional and a proficient medical dosimetrist. Nathan is very easy to work with. I would definitely use his expertise again! Thank you Nathan!",
-    name: "Janine M. RTT, Lead Therapist (Spokane, WA)",
+    name: "Janine M, RTT, Lead Therapist (Spokane, WA)",
     image: "/assets/review-img.png",
   }
 ];
@@ -106,7 +112,7 @@ export default function ReviewSlider() {
           className="w-full review-slider"
         >
           {reviews.map((review, index) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} className="h-162.5!">
               <ReviewCard review={review} />
             </SwiperSlide>
           ))}

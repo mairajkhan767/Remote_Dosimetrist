@@ -35,29 +35,31 @@ export default function Home({ alreadyShown }) {
   useGSAP(() => {
 
     gsap.set(".s-3-div-1, .s-3-div-3", { width: 620, height: 566 });
+    gsap.set('.s-4-bg-image', { scale: 1.05 });
     gsap.set(".s-3-div-2", { width: 620 });
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".first-container",
-        start: "bottom 70%",
-        end: "+=300",
+        start: "top+=100 top",
+        end: "+=400",
         scrub: 1,
+        // markers: true,
         // toggleActions: "play none none reverse"
       },
-      delay: 0,
+      // delay: 0,
       onComplete: () => { },
     });
     tl.to(videoRef.current, {
       opacity: 0.5,
-      duration: 1,
+      // duration: 1,
       ease: "power4.inOut",
     });
     tl.to(
       ".fCH1",
       {
         y: 200,
-        duration: 2,
-        ease: "power4.inOut",
+        // duration: 2,
+        ease: "power1.inOut",
       },
       "<",
     );
@@ -65,7 +67,7 @@ export default function Home({ alreadyShown }) {
       ".second-c-div",
       {
         y: 0,
-        duration: 2,
+        // duration: 2,
         ease: "power4.inOut",
       },
       "<",
@@ -74,18 +76,19 @@ export default function Home({ alreadyShown }) {
       ".s-3-video",
       {
         y: -200,
-        duration: 2,
+        // duration: 2,
         ease: "power1.inOut",
       },
-      ">",
+      "<",
     );
 
     const tls3 = gsap.timeline({
       scrollTrigger: {
         trigger: ".section-3",
         start: "top 70%",
-        end: "top 10%",
+        end: "+=500",
         scrub: 1,
+        // markers: true
         // toggleActions: "play none none reverse",
       },
       delay: 0,
@@ -97,14 +100,17 @@ export default function Home({ alreadyShown }) {
       height: "100%",
       top: "0%",
       y: 0,
-      duration: 1,
+      // duration: 1,
       ease: "power4.inOut",
+    })
+    .to(".s-3-video", {
+      y: 0,
     });
     tls3.to(
       ".s-3-video-overlay",
       {
         opacity: 0.8,
-        duration: 1,
+        // duration: 1,
       },
       "<",
     );
@@ -129,7 +135,7 @@ export default function Home({ alreadyShown }) {
       ".s-3-content",
       {
         y: 0,
-        duration: 1,
+        // duration: 1,
       },
       "<",
     );
@@ -139,7 +145,7 @@ export default function Home({ alreadyShown }) {
         y: 0,
         width: "532px",
         height: "532px",
-        duration: 1,
+        // duration: 1,
       },
       "<",
     );
@@ -208,7 +214,7 @@ export default function Home({ alreadyShown }) {
         duration: 2
       }, "<")
       .to(".s-4-bg-image", {
-        scale: 1,
+        scale: 1.8,
         rotate: -180,
         duration: 2
       }, "<")
@@ -220,7 +226,8 @@ export default function Home({ alreadyShown }) {
       .to(".content-main", {
         opacity: 1,
         duration: 2
-      }, ">");
+      }, ">")
+      ;
   });
   return (
     <section
@@ -378,7 +385,7 @@ export default function Home({ alreadyShown }) {
                 Areas of Focus
               </h2>
               <div className="area-main">
-                <div className="content-main opacity-0">
+                <div className="content-main z-5 opacity-0">
                   <div className="innter-content">
                     <h2 className="text-[#003777] s-4-heading-change text-[24px] text-center font-extrabold">
                       {hoverData.heading}
@@ -386,36 +393,36 @@ export default function Home({ alreadyShown }) {
                     <p className="text-[#003777] s-4-para-change text-center !text-[18px]">
                       {hoverData.para}
                     </p>
-                    <div className="m-auto flex justify-center btn-circle">
-                      <button className="w-[223px] h-[54px] rounded-full">
+                    <div className="m-auto flex justify-center">
+                      <button className="w-[223px] h-[54px] rounded-full bg-[#003777]! text-white! hover:bg-white! hover:text-[#003777]! border border-[#003777] transition-all! duration-500!">
                         Discover More
                       </button>
                     </div>
                   </div>
                 </div>
-                <div className="image-01">
-                  <img src="assets/img-1.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Head & Neck" data-para="Lorem Ipsum Lorem set dummy buy to lorem" />
-                </div>
                 <div className="image-02">
-                  <img src="assets/img-2.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Thoracic" data-para="Lorem Ipsum Lorem set dummy buy to lorem" />
+                  <img src="assets/focus-images/Pelvis.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pelvis" data-para="Focusing on larger and more irregularly shaped pelvic target volumes" />
+                </div>
+                <div className="image-01">
+                  <img src="assets/focus-images/Head-Neck.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Head & Neck" data-para="Head and neck cancers have often been associated with very difficult and time-consuming radiation" />
                 </div>
                 <div className="image-03">
-                  <img src="assets/img-3.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Abdominal" data-para="Lorem Ipsum Lorem set dummy buy to lorem" />
+                  <img src="assets/focus-images/Pediatrics.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pediatrics" data-para="Radiation has always been a cancer treatment that has been attempted to be reduced and/or avoided" />
                 </div>
                 <div className="image-04">
-                  <img src="assets/img-4.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pelvic" data-para="Lorem Ipsum Lorem set dummy buy to lorem" />
+                  <img src="assets/focus-images/Breast.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Breast" data-para="One of the few radiation dosimetry techniques that has not thoroughly changed over time" />
                 </div>
                 <div className="image-05">
-                  <img src="assets/img-5.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Other" data-para="Lorem Ipsum Lorem set dummy buy to lorem" />
+                  <img src="assets/focus-images/Chest.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Chest" data-para="Lung irradiation has always presented a dosimetry problem with doses above 20Gy to the nearby healthy lung" />
                 </div>
                 <div className="image-06">
-                  <img src="assets/img-1.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Head & Neck" data-para="Lorem Ipsum Lorem set dummy buy to lorem" />
+                  <img src="assets/focus-images/CNS.png" alt="Area 01" onMouseEnter={handleHover} data-heading="CNS" data-para="Standard of care for primary brain tumors is VMAT" />
                 </div>
                 <div className="image-07">
-                  <img src="assets/img-2.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Thoracic" data-para="Lorem Ipsum Lorem set dummy buy to lorem" />
+                  <img src="assets/focus-images/Pelvis.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pelvis" data-para="Focusing on larger and more irregularly shaped pelvic target volumes" />
                 </div>
                 <div className="image-08">
-                  <img src="assets/img-3.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Abdominal" data-para="Lorem Ipsum Lorem set dummy buy to lorem" />
+                  <img src="assets/focus-images/Head-Neck.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Head & Neck" data-para="Head and neck cancers have often been associated with very difficult and time-consuming radiation" />
                 </div>
               </div>
             </div>

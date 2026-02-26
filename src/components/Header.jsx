@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 
 export default function Header({ alreadyShown }) {
   const wrapperRef = useRef(null);
+  const animatedUnderlineClass =
+    "relative inline-block pb-[2px] after:content-[''] after:absolute after:left-0 after:bottom-0 after:h-[1.5px] after:w-full after:bg-[#003777] after:origin-left after:scale-x-0 after:transition-transform after:duration-300 hover:after:scale-x-100";
+
   useEffect(() => {
     if (alreadyShown) {
       wrapperRef.current.style.top = "0px";
@@ -15,11 +18,11 @@ export default function Header({ alreadyShown }) {
         className="mx-auto px-6 flex items-center justify-between h-20 py-[22px] px-[140px] relative -top-20"
         style={{ transition: "top 1s ease-in" }}
       >
-        <nav className="flex space-x-[65px] text-gray-800 font-medium text-sm">
-          <Link to="/" className="hover:text-purple-700 transition-colors">Home</Link>
-          <Link to="/about" className="hover:text-purple-700 transition-colors">About Us</Link>
-          <Link to="/areas" className="hover:text-purple-700 transition-colors">Areas of Focus</Link>
-          <Link to="/plans" className="hover:text-purple-700 transition-colors">Our Plans</Link>
+        <nav className="flex space-x-[65px] ">
+          <Link to="/" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors`}>Home</Link>
+          <Link to="/about" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors`}>About Us</Link>
+          <Link to="/areas" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors`}>Areas of Focus</Link>
+          <Link to="/plans" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors`}>Our Plans</Link>
         </nav>
         <div className="flex-shrink-0">
           <Link to="/">
@@ -27,16 +30,16 @@ export default function Header({ alreadyShown }) {
           </Link>
         </div>
         <div className="flex items-center space-x-[20px]">
-          <nav className="flex space-x-[65px] text-gray-800 font-medium text-sm">
-            <Link to="/process" className="hover:text-purple-700 transition-colors">Process</Link>
-            <Link to="/contact" className="hover:text-purple-700 transition-colors">Contact Us</Link>
+          <nav className="flex space-x-[65px]">
+            <Link to="/process" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-semibold text-md transition-colors`}>Process</Link>
+            <Link to="/contact" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-semibold text-md transition-colors`}>Contact Us</Link>
           </nav>
           <div>
             <img src="assets/search-icon.svg" alt="" />
           </div>
           <a
             href="#get-in-touch"
-            className="bg-gray-800 !text-white px-5 py-2 rounded-full shadow-lg hover:bg-gray-700 transition-colors text-sm font-medium"
+            className="bg-gray-800 text-white! px-5 py-2 rounded-full shadow-lg hover:bg-gray-700 transition-colors text-sm font-medium"
           >
             GET IN TOUCH
           </a>
