@@ -419,7 +419,12 @@ export default function Home({ alreadyShown }) {
                   <img src="assets/focus-images/CNS.png" alt="Area 01" onMouseEnter={handleHover} data-heading="CNS" data-para="Standard of care for primary brain tumors is VMAT" />
                 </div>
                 <div className="image-07">
-                  <img src="assets/focus-images/Pelvis.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pelvis" data-para="Focusing on larger and more irregularly shaped pelvic target volumes" />
+                  <img src="assets/focus-images/Abdomen.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Abdomen" data-para="Focusing on larger and more irregularly shaped abdominal target volumes" 
+                  style={{
+                    width: "150px",
+                    height: "150px"
+                  }}
+                  />
                 </div>
                 <div className="image-08">
                   <img src="assets/focus-images/Head-Neck.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Head & Neck" data-para="Head and neck cancers have often been associated with very difficult and time-consuming radiation" />

@@ -62,7 +62,7 @@ export default function Footer() {
             <h3 className="text-[#003777] font-bold text-xl tracking-widest mb-6 uppercase">Our Location</h3>
             <div className="w-full h-48 bg-gray-200 overflow-hidden relative">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19108795.906045426!2d-116.75483103688839!3d54.22227356209137!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4b0d03d337cc6ad9%3A0x9968b72aa2438fa5!2sCanada!5e0!3m2!1sen!2s!4v1772139261992!5m2!1sen!2s"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d172152.96028656402!2d-122.5046031028646!3d47.608828458612244!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5490102c93e83355%3A0x102565466944d59a!2sSeattle%2C%20WA%2C%20USA!5e0!3m2!1sen!2s!4v1774540477222!5m2!1sen!2s"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

@@ -22,17 +22,17 @@ const methods = [
   },
   {
     number: "03",
-    title: "Imprivata ID",
+    title: "Face ID (alongside fingerprint)",
     description:
-      "Imprivata ID gives highly secure VPN access to your server and treatment planning system. A user must use their fingerprint on their device to ensure that unsecured access is not granted.",
-    link: "https://www.imprivata.com/remote-access",
-    linkText: "Learn more about Imprivata",
+      "Face ID provides a secure way to access your treatment planning system. A user must use their face or fingerprint on their device to ensure that unsecured access is not granted.",
+    link: "https://www.apple.com/ios/feature-phones/",
+    linkText: "Learn more about Face ID",
   },
   {
     number: "04",
     title: "VMWare Horizon",
     description:
-      "VMWare Horizon via personal password grants access to a local on-site desktop. Access to the treatment planning system is granted via the on-site desktop.",
+      "VMWare Horizon via personal password grants access to a local on-site desktop",
     link: "https://www.vmware.com/ca/products/horizon.html",
     linkText: "Learn more about VMWare",
   },

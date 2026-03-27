@@ -107,11 +107,6 @@ export default function Contact() {
                     clients so that you may hear their experiences with us and be
                     more at ease with the remote process.
                   </p>
-                  <p className="text-[#434961] text-[17px] leading-[28px] max-w-[520px]">
-                    First, we execute a typical HIPAA agreement. Then we set up a
-                    secure, encrypted, HIPAA-compliant connection to your
-                    department's treatment planning system.
-                  </p>
                 </div>
 
                 {/* Social */}
