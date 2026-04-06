@@ -689,7 +689,7 @@ button:focus-visible {
   transition: opacity 0.5s ease;
 }
 
-@media (hover: hover) {
+@media (hover: hover) and (pointer: fine) {
   .ip-card:hover {
     transform: translateY(-6px);
     box-shadow:
