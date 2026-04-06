@@ -7,27 +7,27 @@ import ReviewSlider from "../components/review-slider";
 const plans = [
   {
     title: "3D Plans",
-    image: "assets/3dplans.png",
+    image: "/assets/3dplans.png",
     text: "Whether your 3D plan consists of a simple palliative spine mets plan to a complex four field breast 3D plan, the price is dependent on the level of complexity. We are sensitive to the level of complexity and cost, and accordingly, to the amount of time it would take our dosimetrists to complete the plan for you.",
   },
   {
     title: "IMRT Plans",
-    image: "assets/IMRTPLANS.png",
+    image: "/assets/IMRTPLANS.png",
     text: "Our Intensity-Modulated Radiation Therapy (IMRT) plans are designed to deliver precise radiation doses to the tumor while minimizing dose to surrounding normal tissues. We utilize advanced optimization algorithms to create highly conformal dose distributions, ensuring optimal target coverage and organ sparing.",
   },
   {
     title: "VMAT Plans",
-    image: "assets/VMAT-remote.png",
+    image: "/assets/VMAT-remote.png",
     text: "Volumetric Modulated Arc Therapy (VMAT) offers faster delivery times and superior dose conformity. Our team is expert in VMAT planning, balancing modulation and delivery efficiency to provide the best possible treatment for your patients.",
   },
   {
     title: "SBRT / SABR",
-    image: "assets/Spine-SBRT.jpg",
+    image: "/assets/Spine-SBRT.jpg",
     text: "Stereotactic Body Radiation Therapy (SBRT) and Stereotactic Ablative Radiotherapy (SABR) require extreme precision. We provide meticulous planning for these high-dose-per-fraction treatments, ensuring steep dose gradients and maximal organ protection.",
   },
   {
     title: "Brachytherapy Plans",
-    image: "assets/Brachytherapy.png",
+    image: "/assets/Brachytherapy.png",
     text: "We offer comprehensive brachytherapy planning services, including HDR and LDR planning. Our expertise ensures accurate dose distribution for optimal therapeutic outcomes.",
   },
 ];
@@ -135,7 +135,7 @@ export default function Plans() {
       <div
         className="review-section w-full"
         style={{
-          backgroundImage: 'url("assets/18773521_6022556_Artboard 1.png")',
+          backgroundImage: 'url("/assets/18773521_6022556_Artboard 1.png")',
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}

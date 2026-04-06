@@ -6,12 +6,12 @@ export default function PlansThatHelp() {
         className="absolute inset-0 bg-cover bg-center opacity-20"
         style={{
           backgroundImage:
-            `url('assets/3rd-sec-video.mp4')`, // optional
+            `url('/assets/3rd-sec-video.mp4')`, // optional
         }}
       />
       <video
         className="absolute inset-0 h-full w-full object-cover"
-        src="assets/3rd-sec-video.mp4"
+        src="/assets/3rd-sec-video.mp4"
         autoPlay
         muted
         loop

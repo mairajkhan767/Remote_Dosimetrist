@@ -9,7 +9,7 @@ export default function Footer() {
       {/* Top Section with Logo */}
       <div className="flex justify-center pt-16 pb-12">
         <Link to="/">
-          <img src="assets/logo-main.png" alt="Remote Dosimetrist" className="h-16" />
+          <img src="/assets/logo-main.png" alt="Remote Dosimetrist" className="h-16" />
         </Link>
       </div>
 

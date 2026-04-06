@@ -205,7 +205,7 @@ button:focus-visible {
 .review-slider .swiper-button-next:before,
 .modules-slider .swiper-button-next:before {
   content: "";
-  background: url(assets/slide-arrow.svg);
+  background: url(/assets/slide-arrow.svg);
   width: 90px;
   height: 80px;
   position: absolute;
@@ -410,7 +410,7 @@ button:focus-visible {
 .inner-hero-bg {
   position: absolute;
   inset: 0;
-  background-image: url('assets/bg-fourth-section.png');
+  background-image: url('/assets/bg-fourth-section.png');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

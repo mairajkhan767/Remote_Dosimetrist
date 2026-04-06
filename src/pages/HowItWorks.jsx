@@ -57,7 +57,7 @@ export default function HowItWorks() {
           <SectionReveal direction="left" parallax>
             <div className="sr-item ip-image-wrap">
               <img
-                src="assets/1-2.jpg"
+                src="/assets/1-2.jpg"
                 alt="Secure remote dosimetry process"
                 className="w-full object-cover"
               />
@@ -107,7 +107,7 @@ export default function HowItWorks() {
           <SectionReveal direction="right" className="lg:order-2 w-1/4" parallax>
             <div className="sr-item ip-image-wrap">
               <img
-                src="assets/2-2.jpg"
+                src="/assets/2-2.jpg"
                 alt="Why hire a remote dosimetrist"
                 className="w-full object-cover"
               />
@@ -153,7 +153,7 @@ export default function HowItWorks() {
           <SectionReveal direction="left" parallax>
             <div className="sr-item ip-image-wrap">
               <img
-                src="assets/information.jpg"
+                src="/assets/information.jpg"
                 alt="Secure remote dosimetry process"
                 className="w-full object-cover h-[260px] md:h-[480px]"
               />

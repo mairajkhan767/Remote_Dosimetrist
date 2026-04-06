@@ -130,7 +130,7 @@ export default function About() {
                 </div>
                 {/* Bottom image */}
                 <div className="ip-image-wrap">
-                  <img src="assets/5th-sec-img-1.png" alt="Remote dosimetry team" className="w-full object-cover h-[200px] md:h-[300px]" />
+                  <img src="/assets/5th-sec-img-1.png" alt="Remote dosimetry team" className="w-full object-cover h-[200px] md:h-[300px]" />
                 </div>
               </div>
             </SectionReveal>
@@ -139,7 +139,7 @@ export default function About() {
               <div
                 className="sr-item relative isolate flex flex-col justify-start p-6 md:p-12 gap-8 rounded-[32px] bg-no-repeat bg-cover bg-center min-h-[400px] md:min-h-[700px]"
                 style={{
-                  backgroundImage: "url(assets/about-bg.jpg)",
+                  backgroundImage: "url(/assets/about-bg.jpg)",
                   backgroundPosition: "left",
                   backgroundSize: "cover",
                 }}
@@ -214,7 +214,7 @@ export default function About() {
           <SectionReveal direction="right" parallax>
             <div className="sr-item ip-image-wrap">
               <img
-                src="assets/information.jpg"
+                src="/assets/information.jpg"
                 alt="Professional workspace showing remote dosimetry work setup"
                 className="w-full object-cover h-[260px] md:h-[580px]"
               />
@@ -235,7 +235,7 @@ export default function About() {
           <SectionReveal direction="left" parallax>
             <div className="sr-item ip-image-wrap">
               <img
-                src="assets/img-4.png"
+                src="/assets/img-4.png"
                 alt="The future of dosimetry"
                 className="w-full object-cover h-[260px] md:h-[580px]"
               />
@@ -272,7 +272,7 @@ export default function About() {
       <div
         className="review-section w-full"
         style={{
-          backgroundImage: 'url("assets/18773521_6022556_Artboard 1.png")',
+          backgroundImage: 'url("/assets/18773521_6022556_Artboard 1.png")',
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}

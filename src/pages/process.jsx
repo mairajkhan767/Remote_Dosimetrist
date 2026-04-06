@@ -113,7 +113,7 @@ export default function Process() {
           <SectionReveal direction="left" parallax>
             <div className="sr-item ip-image-wrap">
               <img
-                src="assets/information.jpg"
+                src="/assets/information.jpg"
                 alt="Secure remote dosimetry process"
                 className="w-full object-cover h-[260px] md:h-[480px]"
               />
@@ -156,7 +156,7 @@ export default function Process() {
           <SectionReveal direction="right" className="lg:order-2" parallax>
             <div className="sr-item ip-image-wrap">
               <img
-                src="assets/img-4.png"
+                src="/assets/img-4.png"
                 alt="Why hire a remote dosimetrist"
                 className="w-full object-cover h-[260px] md:h-[480px]"
               />
@@ -194,7 +194,7 @@ export default function Process() {
       <div
         className="review-section w-full"
         style={{
-          backgroundImage: 'url("assets/18773521_6022556_Artboard 1.png")',
+          backgroundImage: 'url("/assets/18773521_6022556_Artboard 1.png")',
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}

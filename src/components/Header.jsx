@@ -47,7 +47,7 @@ export default function Header({ alreadyShown }) {
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link to="/">
-            <img src="assets/logo-main.png" alt="Remote Dosimetrist Logo" className="h-10 xl:h-12 w-auto" />
+            <img src="/assets/logo-main.png" alt="Remote Dosimetrist Logo" className="h-10 xl:h-12 w-auto" />
           </Link>
         </div>
 
@@ -59,7 +59,7 @@ export default function Header({ alreadyShown }) {
             <Link to="/contact" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-semibold text-md transition-colors capitalize`}>Contact Us</Link>
           </nav>
           {/* <div>
-            <img src="assets/search-icon.svg" alt="" />
+            <img src="/assets/search-icon.svg" alt="" />
           </div> */}
           <a
             href="#get-in-touch"
@@ -88,7 +88,7 @@ export default function Header({ alreadyShown }) {
         {/* Mobile menu header row */}
         <div className="flex items-center justify-between px-6 h-20 border-b border-gray-100">
           <Link to="/" onClick={() => setMenuOpen(false)}>
-            <img src="assets/logo-main.png" alt="Remote Dosimetrist Logo" className="h-10 w-auto" />
+            <img src="/assets/logo-main.png" alt="Remote Dosimetrist Logo" className="h-10 w-auto" />
           </Link>
           <button
             className="flex flex-col justify-center gap-[5px] p-2 bg-transparent border-none cursor-pointer rounded-sm"

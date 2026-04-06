@@ -7,12 +7,12 @@ import ReviewSlider from "../components/review-slider";
 const systems = [
   {
     title: "MiM Maestro",
-    image: "assets/maestro-mim.jpg",
+    image: "/assets/maestro-mim.jpg",
     text: "MIM Maestro provides a suite of tools that make adaptive therapy a practical standard of care. From tracking daily delivered dose with ART Assist\u2122 to automatically re-contouring your patient when the physician decides to replan, MIM Maestro will simplify and automate the adaptive process from start to finish.",
   },
   {
     title: "Varian Eclipse & Aria",
-    image: "assets/medical.jpg",
+    image: "/assets/medical.jpg",
     texts: [
       "The rich functionality of the Eclipse\u2122 treatment planning system helps simplify modern radiation therapy planning for all standard treatment modalities, including 3D conformal, VMAT, brachytherapy, electron and proton therapy.",
       "ARIA supports medical and radiation oncology, including proton therapy. Review clinical images, prescriptions, lab results, QA, outcomes, and more.",
@@ -20,22 +20,22 @@ const systems = [
   },
   {
     title: "RaySearch RayStation",
-    image: "assets/raytherapy.jpg",
+    image: "/assets/raytherapy.jpg",
     text: "RayStation\u00ae is a flexible, innovative treatment planning system chosen by many of the leading cancer centers worldwide. It combines unique features like unmatched adaptive therapy capabilities, multi-criteria optimization, and optimization for HDR brachytherapy and external beam therapy.",
   },
   {
     title: "Philips Pinnacle (v16)",
-    image: "assets/xRay.jpg",
+    image: "/assets/xRay.jpg",
     text: "Treatment planning systems are a critical component of radiation therapy delivery, ensuring the tumor site receives maximum therapeutic dose while sparing surrounding tissue. As treatment methods evolve, more sophisticated technology is required.",
   },
   {
     title: "Elekta Oncentra Brachytherapy",
-    image: "assets/elekta.jpg",
+    image: "/assets/elekta.jpg",
     text: "In contemporary brachytherapy, the dosimetrist needs to process an increasing amount of information and turn it into effective treatment plans in a limited time. The latest version of Oncentra\u00ae Brachy offers tools that facilitate many repetitive tasks.",
   },
   {
     title: "Elekta Mosaiq",
-    image: "assets/Mosaiq.jpg",
+    image: "/assets/Mosaiq.jpg",
     text: "MOSAIQ\u00ae is a complete patient management information system that centralizes radiation oncology, particle therapy and medical oncology patient data into a single user interface \u2014 a global leader in oncology information systems.",
   },
 ];
@@ -179,19 +179,19 @@ export default function Systems() {
             </a>
           </div>
           <div className="flex flex-col justify-center items-center border rounded-2xl border-gray-200 py-2">
-            <img src="public/assets/varian-7x4-1.png" alt="" />
+            <img src="/assets/varian-7x4-1.png" alt="" />
             <a href="/systems"  className="text-[#003777] text-[16px] xl:text-[24px] font-bold leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
               Varian Eclipse/Aria
             </a>
           </div>
           <div className="flex flex-col justify-center items-center border rounded-2xl border-gray-200 py-2">
-            <img src="public/assets/elekta-oncentra-brachytherapy-radiation-logo-1.png" alt="" />
+            <img src="/assets/elekta-oncentra-brachytherapy-radiation-logo-1.png" alt="" />
             <a href="/systems"  className="text-[#003777] text-[16px] xl:text-[24px] font-bold leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
               Philips Pinnacle
             </a>
           </div>
           <div className="flex flex-col justify-center items-center border rounded-2xl border-gray-200 py-2">
-            <img src="public/assets/logo-Philips-Healthcare-Pinnacle-radiation-dosimetry-planning.png" alt="" />
+            <img src="/assets/logo-Philips-Healthcare-Pinnacle-radiation-dosimetry-planning.png" alt="" />
             <a href="/systems"  className="text-[#003777] text-[16px] xl:text-[24px] font-bold leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
               ELEKTA/MOSAIQ ONCENTRA
             </a>
@@ -208,7 +208,7 @@ export default function Systems() {
       <div
         className="review-section w-full"
         style={{
-          backgroundImage: 'url("assets/18773521_6022556_Artboard 1.png")',
+          backgroundImage: 'url("/assets/18773521_6022556_Artboard 1.png")',
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}

@@ -24,7 +24,7 @@ export default function GetInTouch() {
         </div>
         <div className="w-full flex flex-col gap-8">
           <div>
-            <img src="assets/CAR-dosometrist-.png" alt="" className="w-full" />
+            <img src="/assets/CAR-dosometrist-.png" alt="" className="w-full" />
           </div>
           <div>
             <div className="flex flex-col gap-4">

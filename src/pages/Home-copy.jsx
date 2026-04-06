@@ -273,26 +273,26 @@ export default function Home_New({ alreadyShown }) {
             muted
             loop
             playsInline
-            src="assets/bg-video-2.mp4"
+            src="/assets/bg-video-2.mp4"
           ></video>
           <div
             className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
             style={{
               // background: `radial-gradient(rgba(255, 255, 255, 0) 25%, rgb(255, 255, 255) 67%)`,
-              backgroundImage: `url('assets/fade-overlay.png')`,
+              backgroundImage: `url('/assets/fade-overlay.png')`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
             }}
           ></div>
           <div className="hidden absolute xl:top-[258px] xxxl:top-[450px] xl:left-[10px] 4xl:top-[380px] 4xl:left-[210px] 2xl:left-[120px] 2xl:top-[250px] xl:flex xl:flex-row-reverse xl:gap-[38px]">
-            <img src="assets/line-banner-2.png" alt="" />
+            <img src="/assets/line-banner-2.png" alt="" />
             <p className="text-[16px] xl:text-[20px] text-[#434961] leading-[24px] w-[280px] content-end text-end mb-[-37px]">
               Advanced Radiotherapy Treatment Process
             </p>
           </div>
           <div className="hidden absolute 4xl:top-[150px] 4xl:right-[16.3%] xl:top-[210px] xl:right-[10.3%] xl:flex xl:gap-[9px]">
-            <img src="assets/line-banner-1.png" alt="" />
+            <img src="/assets/line-banner-1.png" alt="" />
             <p className="text-[20px] text-[#434961] leading-[24px] w-[200px] content-end mb-[-25px]">
               Remote-Only Dosimetry Company
             </p>
@@ -330,8 +330,8 @@ export default function Home_New({ alreadyShown }) {
         <div className="section-3 w-full min-h-dvh overflow-hidden sticky top-0">
           <video
             className="s-3-video absolute inset-0 h-full w-full object-cover origin-center"
-            src="assets/3rd-sec-video.mp4"
-            poster="assets/3rd-sec-video-poster.png"
+            src="/assets/3rd-sec-video.mp4"
+            poster="/assets/3rd-sec-video-poster.png"
             autoPlay
             muted
             loop
@@ -358,7 +358,7 @@ export default function Home_New({ alreadyShown }) {
             <div className="pt-[61px] flex flex-row items-center 2xl:justify-center gap-[23px] items-center s-3-divs">
               <div className="s-3-div-1 relative group overflow-hidden w-[620px] h-[566px]">
                 <img
-                  src="assets/3D Planning.png"
+                  src="/assets/3D Planning.png"
                   alt="3D Planning"
                   className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
                 />
@@ -368,7 +368,7 @@ export default function Home_New({ alreadyShown }) {
               </div>
               <div className="s-3-div-2 relative group overflow-hidden translate-y-[800px] w-[620px]">
                 <img
-                  src="assets/VMRL.png"
+                  src="/assets/VMRL.png"
                   alt="VMAT"
                   className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
                 />
@@ -385,7 +385,7 @@ export default function Home_New({ alreadyShown }) {
               </div>
               <div className="s-3-div-3 relative group overflow-hidden  w-[620px] h-[566px]">
                 <img
-                  src="assets/IMRT.png"
+                  src="/assets/IMRT.png"
                   alt="IMRT"
                   className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
                 />
@@ -410,7 +410,7 @@ export default function Home_New({ alreadyShown }) {
         <div className="w-full flex flex-col lg:flex-row lg:gap-2 justify-center items-center px-5 gap-10">
           <div className="w-full relative group overflow-hidden rounded-2xl lg:p-2">
             <img
-              src="assets/3D Planning.png"
+              src="/assets/3D Planning.png"
               alt="3D Planning"
               className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
             />
@@ -420,7 +420,7 @@ export default function Home_New({ alreadyShown }) {
           </div>
           <div className="w-full relative group overflow-hidden rounded-2xl lg:p-2">
             <img
-              src="assets/VMRL.png"
+              src="/assets/VMRL.png"
               alt="VMAT"
               className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
             />
@@ -437,7 +437,7 @@ export default function Home_New({ alreadyShown }) {
           </div>
           <div className="w-full relative group overflow-hidden rounded-2xl lg:p-2">
             <img
-              src="assets/IMRT.png"
+              src="/assets/IMRT.png"
               alt="IMRT"
               className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
             />
@@ -461,7 +461,7 @@ export default function Home_New({ alreadyShown }) {
               </h2>
             </div>
             <div className="s-4-bg-image-c w-full h-full flex justify-center absolute left-0 top-0">
-              <img src="assets/bg-fourth-section.png" alt="" className="s-4-bg-image  scale-105" />
+              <img src="/assets/bg-fourth-section.png" alt="" className="s-4-bg-image  scale-105" />
             </div>
             <div className="flex flex-row justify-center">
               <h2 className="s-4-heading-2 text-[38px] w-[180px] absolute top-[44%] left-[45.3%] text-white font-extrabold text-center -tracking-[0.95px]">
@@ -484,25 +484,25 @@ export default function Home_New({ alreadyShown }) {
                   </div>
                 </div>
                 <div className="image-02">
-                  <img src="assets/focus-images/Pelvis.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pelvis" data-para="Focusing on larger and more irregularly shaped pelvic target volumes" />
+                  <img src="/assets/focus-images/Pelvis.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pelvis" data-para="Focusing on larger and more irregularly shaped pelvic target volumes" />
                 </div>
                 <div className="image-01">
-                  <img src="assets/focus-images/Head-Neck.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Head & Neck" data-para="Head and neck cancers have often been associated with very difficult and time-consuming radiation" />
+                  <img src="/assets/focus-images/Head-Neck.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Head & Neck" data-para="Head and neck cancers have often been associated with very difficult and time-consuming radiation" />
                 </div>
                 <div className="image-03">
-                  <img src="assets/focus-images/Pediatrics.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pediatrics" data-para="Radiation has always been a cancer treatment that has been attempted to be reduced and/or avoided" />
+                  <img src="/assets/focus-images/Pediatrics.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pediatrics" data-para="Radiation has always been a cancer treatment that has been attempted to be reduced and/or avoided" />
                 </div>
                 <div className="image-04">
-                  <img src="assets/focus-images/Breast.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Breast" data-para="One of the few radiation dosimetry techniques that has not thoroughly changed over time" />
+                  <img src="/assets/focus-images/Breast.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Breast" data-para="One of the few radiation dosimetry techniques that has not thoroughly changed over time" />
                 </div>
                 <div className="image-05">
-                  <img src="assets/focus-images/Chest.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Chest" data-para="Lung irradiation has always presented a dosimetry problem with doses above 20Gy to the nearby healthy lung" />
+                  <img src="/assets/focus-images/Chest.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Chest" data-para="Lung irradiation has always presented a dosimetry problem with doses above 20Gy to the nearby healthy lung" />
                 </div>
                 <div className="image-06">
-                  <img src="assets/focus-images/CNS.png" alt="Area 01" onMouseEnter={handleHover} data-heading="CNS" data-para="Standard of care for primary brain tumors is VMAT" />
+                  <img src="/assets/focus-images/CNS.png" alt="Area 01" onMouseEnter={handleHover} data-heading="CNS" data-para="Standard of care for primary brain tumors is VMAT" />
                 </div>
                 <div className="image-07">
-                  <img src="assets/focus-images/abdomen.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Abdomen" data-para="Focusing on larger and more irregularly shaped abdominal target volumes" 
+                  <img src="/assets/focus-images/Abdomen.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Abdomen" data-para="Focusing on larger and more irregularly shaped abdominal target volumes" 
                   style={{
                     width: "150px",
                     height: "150px"
@@ -510,7 +510,7 @@ export default function Home_New({ alreadyShown }) {
                   />
                 </div>
                 <div className="image-08">
-                  <img src="assets/focus-images/uterus.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Uterus" data-para="Uterine cancers have often been associated with very difficult and time-consuming radiation" 
+                  <img src="/assets/focus-images/uterus.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Uterus" data-para="Uterine cancers have often been associated with very difficult and time-consuming radiation" 
                   style={{
                     width: "150px",
                     height: "150px"
@@ -545,14 +545,14 @@ export default function Home_New({ alreadyShown }) {
             </a>
           </div>
           <div>
-            <img src="assets/5th-sec-img-1.png" className="w-full" alt="" />
+            <img src="/assets/5th-sec-img-1.png" className="w-full" alt="" />
           </div>
         </div>
         <div
           className="flex flex-col justify-center xl:justify-start p-10 gap-[32px] rounded-[32px] bg-no-repeat bg-cover bg-bottom w-full xl:w-1/2"
-          style={{ backgroundImage: "url(assets/5th-sec-img-2.png)" }}
+          style={{ backgroundImage: "url(/assets/5th-sec-img-2.png)" }}
         >
-          {/* <img src="assets/5th-sec-img-2.png" alt="" /> */}
+          {/* <img src="/assets/5th-sec-img-2.png" alt="" /> */}
           <h2 className="s-5-h2 text-[28px] lg:text-[40px] xl:text-[48px] text-white -tracking-[1.2px] xl:leading-[52px] font-bold  xl:w-[500px] xl:opacity-0 xl:translate-y-[500px]">
             Why Hire A Remote Dosimetrist?
           </h2>
@@ -571,7 +571,7 @@ export default function Home_New({ alreadyShown }) {
       <div
         className="review-section w-full"
         style={{
-          backgroundImage: `url("assets/18773521_6022556_Artboard 1.png")`,
+          backgroundImage: `url("/assets/18773521_6022556_Artboard 1.png")`,
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}

@@ -7,32 +7,32 @@ import ReviewSlider from "../components/review-slider";
 const areas = [
   {
     title: "Pelvis",
-    image: "assets/pelvis.jpg",
+    image: "/assets/pelvis.jpg",
     text: "Focusing on larger and more irregularly shaped pelvic target volumes, VMAT provides substantial dose conformity over previously standard three-dimensional radiation treatment planning. This has allowed for radiation dose escalation due to often studied reduced side effects with VMAT technique. Significant dose reduction to small bowel and other sensitive gastrointestinal organs has made VMAT a standard technique when treating the pelvis.",
   },
   {
     title: "Head & Neck",
-    image: "assets/headneck.jpg",
+    image: "/assets/headneck.jpg",
     text: "Head and neck cancers have often been associated with very difficult and time-consuming radiation treatment planning. When IMRT was introduced, the difficult issue of treating the posterior neck lymph nodes was finally solved. VMAT offered the additional solution of time, reduction in monitor units, and even improved dose reduction of organs at risk than IMRT. Often, two arc plans provide similar conformity and better homogeneity than IMRT radiation plans.",
   },
   {
     title: "Chest",
-    image: "assets/chest.jpg",
+    image: "/assets/chest.jpg",
     text: "Lung irradiation has always presented a dosimetry problem with doses above 20Gy to the nearby healthy lung. VMAT has allowed higher doses to be delivered than previous generations of radiation dosimetry planning. Stereotactic body radiation therapy (SBRT) delivers high levels of radiation to the tumor — done instead of surgery — and the results have been compared extensively. Breathing motion issues have been addressed with deep inspiration breath hold, 4DCT, and gated treatments.",
   },
   {
     title: "Pediatrics",
-    image: "assets/Pediatric.jpg",
+    image: "/assets/Pediatric.jpg",
     text: "Radiation has always been a cancer treatment that has been attempted to be reduced and/or avoided due to the long-term side effects that it can have on growth and cognitive function development. When radiation has decided to be given, dosimetry must be handled with extreme care. VMAT has allowed a reduction in monitor units and time for children. There have been extensive advances in full craniospinal radiation dosimetry planning in recent years.",
   },
   {
     title: "Breast",
-    image: "assets/RtBreast.jpg",
+    image: "/assets/RtBreast.jpg",
     text: "One of the few radiation dosimetry techniques that has not thoroughly changed over time. Whole breast radiation has been considered the standard of care using three-dimensional radiation planning techniques. Much effort has been made to increase the homogeneity of dose delivered within the breast via field in field or electronic compensation methods. Novel approaches with deep inspiration breath hold with gating reduce radiation to healthy lung and heart.",
   },
   {
     title: "CNS",
-    image: "assets/brain.jpg",
+    image: "/assets/brain.jpg",
     text: "Standard of care for primary brain tumors is VMAT. In recent years, VMAT has been used for palliative radiation dosimetry as well. It allows a higher dose to be delivered to brain metastases simultaneously. Stereotactic radiosurgery can deliver extremely high doses to individual brain mets with as little as only one isocenter, reducing brain surgeries required and offering patients a higher quality of life.",
   },
 ];
@@ -168,7 +168,7 @@ export default function AreasofFocus() {
         <div
           className="absolute inset-0 opacity-[0.06] pointer-events-none"
           style={{
-            backgroundImage: "url('assets/bg-fourth-section.png')",
+            backgroundImage: "url('/assets/bg-fourth-section.png')",
             backgroundPosition: "center",
             backgroundSize: "cover",
           }}
@@ -307,7 +307,7 @@ export default function AreasofFocus() {
       <div
         className="review-section w-full"
         style={{
-          backgroundImage: 'url("assets/18773521_6022556_Artboard 1.png")',
+          backgroundImage: 'url("/assets/18773521_6022556_Artboard 1.png")',
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
         }}
