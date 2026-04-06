@@ -1078,6 +1078,13 @@ button:focus-visible {
     padding: 0 16px;
   }
 
+  .review-slider .swiper-slide-active {
+    padding-top: 24px;
+    padding-bottom: 28px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   .review-slider .swiper-button-prev:before,
   .review-slider .swiper-button-next:before {
     width: 50px;
