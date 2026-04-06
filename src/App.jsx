@@ -40,8 +40,8 @@ export default function App() {
       <Preloader alreadyShown={alreadyShown} setAlreadyShown={markPreloaderShown} />
       <Header alreadyShown={alreadyShown} />
       <Routes>
-        <Route path="/" element={<Home alreadyShown={alreadyShown} />} />
-        <Route path="/home-res" element={<Home_New alreadyShown={alreadyShown} />} />
+        <Route path="/home-old" element={<Home alreadyShown={alreadyShown} />} />
+        <Route path="/" element={<Home_New alreadyShown={alreadyShown} />} />
         <Route path="/areas" element={<AreasofFocus />} />
         <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/about" element={<About />} />
