@@ -82,6 +82,17 @@ export default function Home({ alreadyShown }) {
       "<",
     );
 
+    var s_3_div_2_width = '532px',s_3_div_2_height = '532px', s_3_div_width = '393px', s_3_div_height = '394px340px';
+
+    if(screen.width == 1600){
+      s_3_div_2_width = '657px';
+      s_3_div_2_height = '340px';
+      s_3_div_width = '450px'; 
+      s_3_div_height = '340px';
+    }
+
+    console.log(s_3_div_2_width,s_3_div_2_height);
+
     const tls3 = gsap.timeline({
       scrollTrigger: {
         trigger: ".section-3",
@@ -103,14 +114,11 @@ export default function Home({ alreadyShown }) {
       // duration: 1,
       ease: "power4.inOut",
     })
-    .to(".s-3-video", {
-      y: 0,
-    });
+    
     tls3.to(
       ".s-3-video-overlay",
       {
         opacity: 0.8,
-        // duration: 1,
       },
       "<",
     );
@@ -126,8 +134,8 @@ export default function Home({ alreadyShown }) {
     tls3.to(
       ".s-3-div-1, .s-3-div-3",
       {
-        width: "393px",
-        height: "394px",
+        width: s_3_div_width,
+        height: s_3_div_height,
       },
       ">",
     );
@@ -143,12 +151,14 @@ export default function Home({ alreadyShown }) {
       ".s-3-div-2",
       {
         y: 0,
-        width: "532px",
-        height: "532px",
+        width: s_3_div_2_width,
+        height: s_3_div_2_height,
         // duration: 1,
       },
       "<",
-    );
+    ).to(".s-3-video", {
+      y: 0,
+    }, ">");
 
     const tls5 = gsap.timeline({
       scrollTrigger: {
@@ -275,7 +285,7 @@ export default function Home({ alreadyShown }) {
             </p>
           </div>
           <div className="p-0  z-10 relative">
-            <h1 className="fCH1 !text-[100px] !text-[#003777] !leading-[96px] !-tracking-[2.5px] font-extrabold">
+            <h1 className="fCH1 text-[100px]! text-[#003777]! leading-24! -tracking-[2.5px]! font-extrabold">
               Dosimetry Made Simple
             </h1>
           </div>
@@ -294,7 +304,7 @@ export default function Home({ alreadyShown }) {
         </div>
       </div>
       <div className="min-h-[150dvh]">
-        <div className="section-3 w-full min-h-dvh relative overflow-hidden sticky top-0">
+        <div className="section-3 w-full min-h-dvh overflow-hidden sticky top-0">
           <video
             className="s-3-video absolute inset-0 h-full w-full object-cover origin-center"
             src="assets/3rd-sec-video.mp4"
@@ -427,7 +437,11 @@ export default function Home({ alreadyShown }) {
                   />
                 </div>
                 <div className="image-08">
-                  <img src="assets/focus-images/Head-Neck.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Head & Neck" data-para="Head and neck cancers have often been associated with very difficult and time-consuming radiation" />
+                  <img src="assets/focus-images/uterus.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Uterus" data-para="Uterine cancers have often been associated with very difficult and time-consuming radiation" 
+                  style={{
+                    width: "150px",
+                    height: "150px"
+                  }}/>
                 </div>
               </div>
             </div>
