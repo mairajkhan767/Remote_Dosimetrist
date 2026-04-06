@@ -68,7 +68,7 @@ function ReviewCard({ review }) {
         </div>
       </div>
       <div>
-        <p className="text-gray-600 text-sm leading-relaxed">{review.text}</p>
+        <p className="text-gray-600 text-sm lg:text-[22px] leading-relaxed">{review.text}</p>
       </div>
       <div>
         <h4 className="mt-4 text-lg font-semibold text-gray-600">
@@ -106,13 +106,22 @@ export default function ReviewSlider() {
               slidesPerView: 1,
             },
             1024: {
+              slidesPerView: 1,
+            },
+            1280: {
+              slidesPerView: 1,
+            },
+            1366: {
+              slidesPerView: 1,
+            },
+            1440: {
               slidesPerView: 3,
             },
           }}
           className="w-full review-slider"
         >
           {reviews.map((review, index) => (
-            <SwiperSlide key={index} className="h-162.5!">
+            <SwiperSlide key={index} className="">
               <ReviewCard review={review} />
             </SwiperSlide>
           ))}

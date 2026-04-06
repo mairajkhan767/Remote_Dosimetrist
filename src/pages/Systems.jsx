@@ -149,6 +149,61 @@ export default function Systems() {
         );
       })}
 
+
+      <div className="w-full flex flex-col justify-center items-center mx-auto">
+        <div className="max-w-4xl flex flex-col justify-center items-center gap-10">
+          <img src="/assets/raystation.png" alt="" />
+          <p className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
+            RayStation®* is a flexible, innovative treatment planning system chosen by many of the leading cancer centers worldwide. It combines unique features like unmatched adaptive therapy capabilities, multi-criteria optimization, optimization for HDR brachytherapy and external beam therapy with photons, electrons, protons as well as helium and carbon ions. RayStation supports a wide range of treatment machines, providing one control center for all treatment planning needs and ensuring centers get greater value from existing equipment.
+          </p>
+          <a href="https://www.raysearchlabs.com/raystation/">
+            <button className="ip-btn ip-btn-primary w-fit mt-3">
+              Discover More <span>→</span>
+            </button>
+          </a>
+        </div>
+      </div>
+
+      <div className="w-full flex flex-col justify-center items-center py-25 gap-10">
+        <h3 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">
+          System For You
+        </h3>
+        <p className="text-[#434961] max-w-4xl text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
+          We currently have dosimetrists that work with MiM Maestro, Varian Eclipse/Aria Treatment Planning System (v15), Philips Pinnacle Treatment Planning System (v16), and Elekta/Mosaic Oncentra Brachytherapy Planning System.
+        </p>
+        <div className="flex flex-row justify-center items-center gap-10">
+          <div className="flex flex-col justify-center items-center border rounded-2xl border-gray-200 py-2">
+            <img src="/assets/MIM-Maestro-1.png" alt="" />
+            <a href="/systems" className="text-[#003777] text-[16px] xl:text-[24px] font-bold leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
+              MiM Maestro
+            </a>
+          </div>
+          <div className="flex flex-col justify-center items-center border rounded-2xl border-gray-200 py-2">
+            <img src="public/assets/varian-7x4-1.png" alt="" />
+            <a href="/systems"  className="text-[#003777] text-[16px] xl:text-[24px] font-bold leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
+              Varian Eclipse/Aria
+            </a>
+          </div>
+          <div className="flex flex-col justify-center items-center border rounded-2xl border-gray-200 py-2">
+            <img src="public/assets/elekta-oncentra-brachytherapy-radiation-logo-1.png" alt="" />
+            <a href="/systems"  className="text-[#003777] text-[16px] xl:text-[24px] font-bold leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
+              Philips Pinnacle
+            </a>
+          </div>
+          <div className="flex flex-col justify-center items-center border rounded-2xl border-gray-200 py-2">
+            <img src="public/assets/logo-Philips-Healthcare-Pinnacle-radiation-dosimetry-planning.png" alt="" />
+            <a href="/systems"  className="text-[#003777] text-[16px] xl:text-[24px] font-bold leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
+              ELEKTA/MOSAIQ ONCENTRA
+            </a>
+          </div>
+        </div>
+        <a href="/systems">
+          <button className="ip-btn ip-btn-primary w-fit mt-3">
+            Discover More <span>→</span>
+          </button>
+        </a>
+      </div>
+
       {/* ── Reviews & Contact ── */}
       <div
         className="review-section w-full"

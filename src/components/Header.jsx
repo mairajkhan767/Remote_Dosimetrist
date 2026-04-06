@@ -30,36 +30,37 @@ export default function Header({ alreadyShown }) {
   ];
 
   return (
-    <header className="relative w-full bg-white z-5">
+    <header className="relative w-full bg-white z-20">
       <div
         ref={wrapperRef}
-        className="mx-auto px-6 lg:px-[140px] flex items-center justify-between h-20 py-[22px] relative -top-20"
+        className="mx-auto px-6 4xl:px-35 flex items-center justify-between h-20 py-5.5 relative -top-20"
         style={{ transition: "top 1s ease-in" }}
       >
         {/* Desktop left nav */}
-        <nav className="hidden lg:flex space-x-[65px]">
-          <Link to="/" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors`}>Home</Link>
-          <Link to="/about" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors`}>About Us</Link>
-          <Link to="/areas" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors`}>Areas of Focus</Link>
-          <Link to="/plans" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors`}>Our Plans</Link>
+        <nav className="hidden xl:flex space-x-[65px]">
+          <Link to="/" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors capitalize`}>Home</Link>
+          <Link to="/about" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors capitalize`}>About Us</Link>
+          <Link to="/areas" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors capitalize`}>Areas of Focus</Link>
+          <Link to="/plans" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors capitalize`}>Our Plans</Link>
         </nav>
 
         {/* Logo */}
         <div className="flex-shrink-0">
           <Link to="/">
-            <img src="assets/logo-main.png" alt="Remote Dosimetrist Logo" className="h-10 lg:h-12 w-auto" />
+            <img src="assets/logo-main.png" alt="Remote Dosimetrist Logo" className="h-10 xl:h-12 w-auto" />
           </Link>
         </div>
 
         {/* Desktop right nav + CTA */}
-        <div className="hidden lg:flex items-center space-x-[20px]">
+        <div className="hidden xl:flex items-center space-x-[20px]">
           <nav className="flex space-x-[65px]">
-            <Link to="/process" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-semibold text-md transition-colors`}>Process</Link>
-            <Link to="/contact" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-semibold text-md transition-colors`}>Contact Us</Link>
+            <Link to="/how-it-works" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-semibold text-md transition-colors capitalize`}>How it works</Link>
+            <Link to="/process" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-semibold text-md transition-colors capitalize`}>Process</Link>
+            <Link to="/contact" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-semibold text-md transition-colors capitalize`}>Contact Us</Link>
           </nav>
-          <div>
+          {/* <div>
             <img src="assets/search-icon.svg" alt="" />
-          </div>
+          </div> */}
           <a
             href="#get-in-touch"
             className="bg-gray-800 text-white! px-5 py-2 rounded-full shadow-lg hover:bg-gray-700 transition-colors text-sm font-medium"
@@ -70,19 +71,19 @@ export default function Header({ alreadyShown }) {
 
         {/* Mobile hamburger button */}
         <button
-          className="lg:hidden flex flex-col justify-center gap-[5px] p-2 bg-transparent border-none cursor-pointer"
+          className="xl:hidden flex flex-col justify-center gap-[5px] p-2 bg-transparent border-none cursor-pointer rounded-sm"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
-          <span className={`block h-[2px] w-6 bg-gray-800 transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`}></span>
-          <span className={`block h-[2px] w-6 bg-gray-800 transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`}></span>
-          <span className={`block h-[2px] w-6 bg-gray-800 transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`}></span>
+          <span className={`block h-[2px] w-6 bg-white transition-all duration-300 origin-center ${menuOpen ? "rotate-45 translate-y-[7px]" : ""}`}></span>
+          <span className={`block h-[2px] w-6 bg-white transition-all duration-300 ${menuOpen ? "opacity-0 scale-x-0" : ""}`}></span>
+          <span className={`block h-[2px] w-6 bg-white transition-all duration-300 origin-center ${menuOpen ? "-rotate-45 -translate-y-[7px]" : ""}`}></span>
         </button>
       </div>
 
       {/* Mobile menu overlay */}
       <div
-        className={`lg:hidden fixed inset-0 z-50 bg-white transition-all duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
+        className={`xl:hidden fixed inset-0 z-50 bg-white transition-all duration-300 ${menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}
       >
         {/* Mobile menu header row */}
         <div className="flex items-center justify-between px-6 h-20 border-b border-gray-100">
@@ -90,13 +91,13 @@ export default function Header({ alreadyShown }) {
             <img src="assets/logo-main.png" alt="Remote Dosimetrist Logo" className="h-10 w-auto" />
           </Link>
           <button
-            className="flex flex-col justify-center gap-[5px] p-2 bg-transparent border-none cursor-pointer"
+            className="flex flex-col justify-center gap-[5px] p-2 bg-transparent border-none cursor-pointer rounded-sm"
             onClick={() => setMenuOpen(false)}
             aria-label="Close menu"
           >
-            <span className="block h-[2px] w-6 bg-gray-800 rotate-45 translate-y-[7px] origin-center"></span>
-            <span className="block h-[2px] w-6 bg-gray-800 opacity-0"></span>
-            <span className="block h-[2px] w-6 bg-gray-800 -rotate-45 -translate-y-[7px] origin-center"></span>
+            <span className="block h-[2px] w-6 bg-white rotate-45 translate-y-[7px] origin-center"></span>
+            <span className="block h-[2px] w-6 bg-white opacity-0"></span>
+            <span className="block h-[2px] w-6 bg-white -rotate-45 -translate-y-[7px] origin-center"></span>
           </button>
         </div>
 

@@ -132,10 +132,10 @@ button:focus-visible {
   fill: rgb(0, 55, 119);
 }
 
-.review-main p {
+/* .review-main p {
   font-size: 18px;
   font-weight: 300 !important;
-}
+} */
 
 .review-section .flex.text-lg {
   color: red;

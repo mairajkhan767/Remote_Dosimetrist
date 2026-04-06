@@ -13,7 +13,7 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-export default function Home({ alreadyShown }) {
+export default function Home_New({ alreadyShown }) {
   const wrapperRef = useRef(null);
   const videoRef = useRef(null);
   const [hoverData, setHoverData] = useState({
@@ -33,209 +33,224 @@ export default function Home({ alreadyShown }) {
   }, [alreadyShown]);
 
   useGSAP(() => {
+    if(screen.width > 1024){
+        gsap.set(".s-3-div-1, .s-3-div-3", { width: 620, height: 566 });
+        gsap.set('.s-4-bg-image', { scale: 1.05 });
+        gsap.set(".s-3-div-2", { width: 620 });
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".first-container",
+            start: "top+=100 top",
+            end: "+=400",
+            scrub: 1,
+            // markers: true,
+            // toggleActions: "play none none reverse"
+          },
+          // delay: 0,
+          onComplete: () => { },
+        });
+        tl.to(videoRef.current, {
+          opacity: 0.5,
+          // duration: 1,
+          ease: "power4.inOut",
+        });
+        tl.to(
+          ".fCH1",
+          {
+            y: 200,
+            // duration: 2,
+            ease: "power1.inOut",
+          },
+          "<",
+        );
+        tl.to(
+          ".second-c-div",
+          {
+            y: 0,
+            // duration: 2,
+            ease: "power4.inOut",
+          },
+          "<",
+        );
+        tl.to(
+          ".s-3-video",
+          {
+            y: -200,
+            // duration: 2,
+            ease: "power1.inOut",
+          },
+          "<",
+        );
 
-    gsap.set(".s-3-div-1, .s-3-div-3", { width: 620, height: 566 });
-    gsap.set('.s-4-bg-image', { scale: 1.05 });
-    gsap.set(".s-3-div-2", { width: 620 });
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".first-container",
-        start: "top+=100 top",
-        end: "+=400",
-        scrub: 1,
-        // markers: true,
-        // toggleActions: "play none none reverse"
-      },
-      // delay: 0,
-      onComplete: () => { },
-    });
-    tl.to(videoRef.current, {
-      opacity: 0.5,
-      // duration: 1,
-      ease: "power4.inOut",
-    });
-    tl.to(
-      ".fCH1",
-      {
-        y: 200,
-        // duration: 2,
-        ease: "power1.inOut",
-      },
-      "<",
-    );
-    tl.to(
-      ".second-c-div",
-      {
-        y: 0,
-        // duration: 2,
-        ease: "power4.inOut",
-      },
-      "<",
-    );
-    tl.to(
-      ".s-3-video",
-      {
-        y: -200,
-        // duration: 2,
-        ease: "power1.inOut",
-      },
-      "<",
-    );
+        var s_3_div_2_width = '532px',s_3_div_2_height = '532px', s_3_div_width = '393px', s_3_div_height = '394px340px';
+        let s_3_divs_padding = [
+          {
+            left:'278px'
+          },
+          {
+            right:'278px'
+          }
+        ]
 
-    var s_3_div_2_width = '532px',s_3_div_2_height = '532px', s_3_div_width = '393px', s_3_div_height = '394px340px';
+        if(screen.width < 1600){
+          s_3_divs_padding.left = '20px';
+          s_3_divs_padding.right = '20px';
+        }
 
-    if(screen.width == 1600){
-      s_3_div_2_width = '657px';
-      s_3_div_2_height = '340px';
-      s_3_div_width = '450px'; 
-      s_3_div_height = '340px';
+        // if(screen.width == 1600){
+        //   s_3_div_2_width = '657px';
+        //   s_3_div_2_height = '340px';
+        //   s_3_div_width = '450px'; 
+        //   s_3_div_height = '340px';
+        // }
+
+        const tls3 = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".section-3",
+            start: "top 70%",
+            end: "+=500",
+            scrub: 1,
+            // markers: true
+            // toggleActions: "play none none reverse",
+          },
+          delay: 0,
+          onComplete: () => { },
+        });
+        tls3.to(".s-3-video", {
+          width: "100%",
+          left: "0%",
+          height: "100%",
+          top: "0%",
+          y: 0,
+          // duration: 1,
+          ease: "power4.inOut",
+        })
+        
+        tls3.to(
+          ".s-3-video-overlay",
+          {
+            opacity: 0.8,
+          },
+          "<",
+        );
+        tls3.to(
+          ".s-3-divs",
+          {
+            paddingBottom: "66px",
+            paddingLeft: s_3_divs_padding.left,
+            paddingRight: s_3_divs_padding.right,
+          },
+          "<",
+        );
+        tls3.to(
+          ".s-3-div-1, .s-3-div-3",
+          {
+            width: s_3_div_width,
+            height: s_3_div_height,
+          },
+          ">",
+        );
+        tls3.to(
+          ".s-3-content",
+          {
+            y: 0,
+            // duration: 1,
+          },
+          "<",
+        );
+        tls3.to(
+          ".s-3-div-2",
+          {
+            y: 0,
+            width: s_3_div_2_width,
+            height: s_3_div_2_height,
+            // duration: 1,
+          },
+          "<",
+        ).to(".s-3-video", {
+          y: 0,
+        }, ">");
+
+        const tls5 = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".section-5",
+            start: "top 80%",
+            end: "+=500",
+            scrub: 1,
+            // toggleActions: "play none none reverse",
+            // scrub: true,
+            // markers: true
+          },
+          delay: 0,
+          onComplete: () => { },
+        });
+        tls5.to(".s-5-c-1", {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+        });
+        tls5.to(
+          ".s-5-h2, .s-5-p, .s-5-button",
+          {
+            y: 0,
+            opacity: 1,
+            duration: 1,
+          },
+          "<",
+        );
+
+        const tls4 = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".section-4",
+            start: "top top",
+            end: "+=500",
+            scrub: 1,
+            // pin: '.s-4-bg-image-c'
+            // toggleActions: "play none none reverse",
+            // scrub: true,
+            // markers: true
+          },
+          delay: 0,
+          onComplete: () => { },
+        });
+        tls4.to(".area-main", {
+          scale: 1.8,
+          rotate: 180,
+          duration: 1
+        })
+          .to(".s-4-heading-2", {
+            opacity: 0,
+            duration: 2
+          }, "<")
+          .to(".s-4-heading-1", {
+            opacity: 1,
+            duration: 2
+          }, "<")
+          .to(".area-main", {
+            y: 300,
+            duration: 2
+          }, "<")
+          .to(".s-4-bg-color", {
+            height: "20%",
+            duration: 2
+          }, "<")
+          .to(".s-4-bg-image", {
+            scale: 1.8,
+            rotate: -180,
+            duration: 2
+          }, "<")
+          .to(".content-main", {
+            scale: 1,
+            rotate: 180,
+            duration: 2
+          }, "<")
+          .to(".content-main", {
+            opacity: 1,
+            duration: 2
+          }, ">")
+          ;
     }
-
-    const tls3 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section-3",
-        start: "top 70%",
-        end: "+=500",
-        scrub: 1,
-        // markers: true
-        // toggleActions: "play none none reverse",
-      },
-      delay: 0,
-      onComplete: () => { },
-    });
-    tls3.to(".s-3-video", {
-      width: "100%",
-      left: "0%",
-      height: "100%",
-      top: "0%",
-      y: 0,
-      // duration: 1,
-      ease: "power4.inOut",
-    })
     
-    tls3.to(
-      ".s-3-video-overlay",
-      {
-        opacity: 0.8,
-      },
-      "<",
-    );
-    tls3.to(
-      ".s-3-divs",
-      {
-        paddingBottom: "66px",
-        paddingLeft: "278px",
-        paddingRight: "278px",
-      },
-      "<",
-    );
-    tls3.to(
-      ".s-3-div-1, .s-3-div-3",
-      {
-        width: s_3_div_width,
-        height: s_3_div_height,
-      },
-      ">",
-    );
-    tls3.to(
-      ".s-3-content",
-      {
-        y: 0,
-        // duration: 1,
-      },
-      "<",
-    );
-    tls3.to(
-      ".s-3-div-2",
-      {
-        y: 0,
-        width: s_3_div_2_width,
-        height: s_3_div_2_height,
-        // duration: 1,
-      },
-      "<",
-    ).to(".s-3-video", {
-      y: 0,
-    }, ">");
-
-    const tls5 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section-5",
-        start: "top 80%",
-        end: "+=500",
-        scrub: 1,
-        // toggleActions: "play none none reverse",
-        // scrub: true,
-        // markers: true
-      },
-      delay: 0,
-      onComplete: () => { },
-    });
-    tls5.to(".s-5-c-1", {
-      y: 0,
-      opacity: 1,
-      duration: 1,
-    });
-    tls5.to(
-      ".s-5-h2, .s-5-p, .s-5-button",
-      {
-        y: 0,
-        opacity: 1,
-        duration: 1,
-      },
-      "<",
-    );
-
-    const tls4 = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".section-4",
-        start: "top top",
-        end: "+=500",
-        scrub: 1,
-        // pin: '.s-4-bg-image-c'
-        // toggleActions: "play none none reverse",
-        // scrub: true,
-        // markers: true
-      },
-      delay: 0,
-      onComplete: () => { },
-    });
-    tls4.to(".area-main", {
-      scale: 1.8,
-      rotate: 180,
-      duration: 1
-    })
-      .to(".s-4-heading-2", {
-        opacity: 0,
-        duration: 2
-      }, "<")
-      .to(".s-4-heading-1", {
-        opacity: 1,
-        duration: 2
-      }, "<")
-      .to(".area-main", {
-        y: 300,
-        duration: 2
-      }, "<")
-      .to(".s-4-bg-color", {
-        height: "20%",
-        duration: 2
-      }, "<")
-      .to(".s-4-bg-image", {
-        scale: 1.8,
-        rotate: -180,
-        duration: 2
-      }, "<")
-      .to(".content-main", {
-        scale: 1,
-        rotate: 180,
-        duration: 2
-      }, "<")
-      .to(".content-main", {
-        opacity: 1,
-        duration: 2
-      }, ">")
-      ;
   });
   return (
     <section
@@ -246,7 +261,7 @@ export default function Home({ alreadyShown }) {
       }}
     >
       <div className="first-container bg-main-video relative">
-        <div className="w-full h-full flex justify-center items-end pb-[179px]">
+        <div className="w-full h-full flex justify-center items-end pb-10 xl:pb-[179px]">
           <video
             className="object-cover absolute top-0 left-0 w-full h-full pointer-events-none z-0"
             ref={videoRef}
@@ -270,28 +285,38 @@ export default function Home({ alreadyShown }) {
               backgroundRepeat: "no-repeat",
             }}
           ></div>
-          <div className="absolute top-[380px] left-[210px] 2xl:left-[120px] 2xl:top-[250px] flex flex-row-reverse gap-[38px]">
+          <div className="hidden absolute xl:top-[258px] xxxl:top-[450px] xl:left-[10px] 4xl:top-[380px] 4xl:left-[210px] 2xl:left-[120px] 2xl:top-[250px] xl:flex xl:flex-row-reverse xl:gap-[38px]">
             <img src="assets/line-banner-2.png" alt="" />
-            <p className="text-[16px] lg:text-[20px] text-[#434961] leading-[24px] w-[280px] content-end text-end mb-[-37px]">
+            <p className="text-[16px] xl:text-[20px] text-[#434961] leading-[24px] w-[280px] content-end text-end mb-[-37px]">
               Advanced Radiotherapy Treatment Process
             </p>
           </div>
-          <div className="absolute top-[150px] right-[16.3%] flex gap-[9px]">
+          <div className="hidden absolute 4xl:top-[150px] 4xl:right-[16.3%] xl:top-[210px] xl:right-[10.3%] xl:flex xl:gap-[9px]">
             <img src="assets/line-banner-1.png" alt="" />
             <p className="text-[20px] text-[#434961] leading-[24px] w-[200px] content-end mb-[-25px]">
               Remote-Only Dosimetry Company
             </p>
           </div>
-          <div className="p-0  z-10 relative">
-            <h1 className="fCH1 text-[100px]! text-[#003777]! leading-24! -tracking-[2.5px]! font-extrabold">
+          <div className="p-0 z-10 relative">
+            <h1 className="fCH1 text-[28px] lg:text-[40px] lg:leading-12 text-center leading-8 xl:text-3xl xl:leading-10 xl:text-[100px] text-[#003777] xl:leading-24 -tracking-[2.5px] font-extrabold">
               Dosimetry Made Simple
             </h1>
+            <div className="second-c-div flex lg:px-10 xl:px-10 xl:hidden justify-center flex-col items-center gap-[10px] pt-[20px]">
+              <p className="w-full px-5 text-center text-[16px] lg:text-[22px] lg:leading-8 leading-5  tracking-[-0.65px]">
+                A group of certified medical dosimetrists that truly care. We always
+                have the patient's best needs at heart on any treatment plan that we
+                create for you, the client.
+              </p>
+              <button className="ip-btn ip-btn-primary w-fit mt-3">
+                Discover More <span>→</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-      <div>
+      <div className="hidden xl:flex w-full justify-center items-center">
         <div className="second-c-div flex justify-center flex-col items-center gap-[36px] py-[36px] top-25">
-          <p className="w-[695px] text-center text-[26px] leading-[37px] tracking-[-0.65px]">
+          <p className="w-full px-2 xl:px-0 text-[16px] leading-5 xl:w-[695px] text-center xl:text-[26px] xl:leading-9.25 tracking-[-0.65px]">
             A group of certified medical dosimetrists that truly care. We always
             have the patient's best needs at heart on any treatment plan that we
             create for you, the client.
@@ -301,7 +326,7 @@ export default function Home({ alreadyShown }) {
           </button>
         </div>
       </div>
-      <div className="min-h-[150dvh]">
+      <div className="min-h-[150dvh] hidden xl:block relative">
         <div className="section-3 w-full min-h-dvh overflow-hidden sticky top-0">
           <video
             className="s-3-video absolute inset-0 h-full w-full object-cover origin-center"
@@ -325,12 +350,12 @@ export default function Home({ alreadyShown }) {
               <h2 className="text-[70px] font-extrabold text-white">
                 Plans That Help
               </h2>
-              <p className="w-[532px] text-center text-white">
+              <p className="w-[532px] text-[26px] text-center text-white">
                 The Remote Dosimetrist staff can offer the right solution for
                 your cancer center radiation oncology department's needs.
               </p>
             </div>
-            <div className="pt-[61px] flex flex-row items-center gap-[23px] items-center s-3-divs">
+            <div className="pt-[61px] flex flex-row items-center 2xl:justify-center gap-[23px] items-center s-3-divs">
               <div className="s-3-div-1 relative group overflow-hidden w-[620px] h-[566px]">
                 <img
                   src="assets/3D Planning.png"
@@ -349,7 +374,7 @@ export default function Home({ alreadyShown }) {
                 />
                 <div className="absolute inset-0 bg-blue-900/75 flex flex-col items-center justify-center px-6 text-center gap-[36px]">
                   <h3 className="text-4xl font-extrabold text-white">VMAT</h3>
-                  <p className="text-blue-100 text-sm w-[432px] 2xl:w-[350px]">
+                  <p className="text-blue-100 text-[22px] w-[432px] 2xl:w-[350px]">
                     Volumetric modulated arc therapy (VMAT) has rapidly become
                     the standard of care in the radiation oncology...
                   </p>
@@ -372,8 +397,58 @@ export default function Home({ alreadyShown }) {
           </div>
         </div>
       </div>
-      <div className="min-h-[200dvh]">
-        <div className="section-4 w-full min-h-dvh relative flex justify-center items-center sticky top-0">
+      <div className="w-full flex flex-col justify-center items-center xl:hidden gap-10 py-10">
+        <div className="w-full flex flex-col justify-center items-center lg:px-30 gap-5">
+          <h2 className="text-[28px] lg:text-[40px] font-extrabold text-center text-[#003777]">
+            Plans That Help
+          </h2>
+          <p className="w-full text-[16px] lg:text-[22px] px-8 text-center text-black">
+            The Remote Dosimetrist staff can offer the right solution for your
+            cancer center radiation oncology department's needs.
+          </p>
+        </div>
+        <div className="w-full flex flex-col lg:flex-row lg:gap-2 justify-center items-center px-5 gap-10">
+          <div className="w-full relative group overflow-hidden rounded-2xl lg:p-2">
+            <img
+              src="assets/3D Planning.png"
+              alt="3D Planning"
+              className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
+              <h3 className="text-3xl font-bold text-white">3D Planning</h3>
+            </div>
+          </div>
+          <div className="w-full relative group overflow-hidden rounded-2xl lg:p-2">
+            <img
+              src="assets/VMRL.png"
+              alt="VMAT"
+              className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-blue-900/75 flex flex-col items-center justify-center px-6 text-center gap-[36px]">
+              <h3 className="text-4xl font-extrabold text-white">VMAT</h3>
+              <p className="text-blue-100 text-[16px] w-10/12 text-center">
+                Volumetric modulated arc therapy (VMAT) has rapidly become
+                the standard of care in the radiation oncology...
+              </p>
+              <button className="ip-btn ip-btn-primary w-fit mt-3">
+                Discover More <span>→</span>
+              </button>
+            </div>
+          </div>
+          <div className="w-full relative group overflow-hidden rounded-2xl lg:p-2">
+            <img
+              src="assets/IMRT.png"
+              alt="IMRT"
+              className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
+              <h3 className="text-3xl font-bold text-white">IMRT</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="min-h-[200dvh] hidden xl:block">
+        <div className="section-4 w-full min-h-dvh flex justify-center items-center sticky top-0">
           <div className="w-full h-full">
 
             <div className="s-4-bg-color w-full h-full flex justify-center absolute left-0 top-0 items-center"
@@ -430,8 +505,7 @@ export default function Home({ alreadyShown }) {
                   <img src="assets/focus-images/abdomen.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Abdomen" data-para="Focusing on larger and more irregularly shaped abdominal target volumes" 
                   style={{
                     width: "150px",
-                    height: "150px",
-                    objectFit: "fill"
+                    height: "150px"
                   }}
                   />
                 </div>
@@ -439,8 +513,7 @@ export default function Home({ alreadyShown }) {
                   <img src="assets/focus-images/uterus.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Uterus" data-para="Uterine cancers have often been associated with very difficult and time-consuming radiation" 
                   style={{
                     width: "150px",
-                    height: "150px",
-                    objectFit: "fill"
+                    height: "150px"
                   }}/>
                 </div>
               </div>
@@ -448,19 +521,19 @@ export default function Home({ alreadyShown }) {
           </div>
         </div>
       </div>
-      <div className="section-5 w-full min-h-dvh mt-[400px] relative flex flex-row justify-between items-stretch gap-[38px] px-[140px]">
-        <div className="flex flex-col justify-center gap-[55px]">
+      <div className="section-5 w-full xl:min-h-dvh xl:mt-[500px] xxxl:mt-[400px] relative flex flex-col xl:flex-row justify-start items-center xl:justify-between xl:items-stretch gap-[38px] px-5 4xl:px-[140px]">
+        <div className="flex flex-col justify-center lg:gap-[38px] gap-[55px] w-1/2">
           <div
-            className="s-5-c-1 flex flex-col justify-between gap-[32px] p-10 stay-col opacity-0 translate-y-[500px]"
+            className="s-5-c-1 flex flex-col justify-between gap-[32px] p-10 xl:stay-col xl:opacity-0 xl:translate-y-[500px]"
             style={{
               background: `linear-gradient(45deg, #003777, #0E3CF6)`,
               borderRadius: "32px",
             }}
           >
-            <h2 className="text-[#003777] text-[48px] text-white -tracking-[1.2px] leading-[52px] font-bold  w-[500px]">
+            <h2 className=" text-[20px] lg:text-[40px] xl:text-[48px] text-white -tracking-[1.2px] xl:leading-[52px] font-bold xl:w-[500px]">
               Remote Dosimetry Is Here To Stay
             </h2>
-            <p className="text-[#003777] text-[26px] text-white -tracking-[0.65px] leading-[37px] w-[694px]">
+            <p className="text-[16px] lg:text-[22px] xl:text-[26px] text-white -tracking-[0.65px] xl:leading-[37px] 4xl:w-[694px]">
               Remote Dosimetrist has shown to be more efficient than on-site
               dosimetry. It is structured to help our clients effectively and
               safely handle the treatment of their cancer patients especially
@@ -472,18 +545,18 @@ export default function Home({ alreadyShown }) {
             </a>
           </div>
           <div>
-            <img src="assets/5th-sec-img-1.png" alt="" />
+            <img src="assets/5th-sec-img-1.png" className="w-full" alt="" />
           </div>
         </div>
         <div
-          className="flex flex-col justify-start p-10 gap-[32px] rounded-[32px] bg-no-repeat bg-cover bg-bottom"
+          className="flex flex-col justify-center xl:justify-start p-10 gap-[32px] rounded-[32px] bg-no-repeat bg-cover bg-bottom w-1/2"
           style={{ backgroundImage: "url(assets/5th-sec-img-2.png)" }}
         >
           {/* <img src="assets/5th-sec-img-2.png" alt="" /> */}
-          <h2 className="s-5-h2 text-[#003777] text-[48px] text-white -tracking-[1.2px] leading-[52px] font-bold  w-[500px] opacity-0 translate-y-[500px]">
+          <h2 className="s-5-h2 text-[28px] lg:text-[40px] xl:text-[48px] text-white -tracking-[1.2px] xl:leading-[52px] font-bold  xl:w-[500px] xl:opacity-0 xl:translate-y-[500px]">
             Why Hire A Remote Dosimetrist?
           </h2>
-          <p className="s-5-p text-[#003777] text-[26px] text-white -tracking-[0.65px] leading-[37px] w-[694px] opacity-0  translate-y-[500px]">
+          <p className="s-5-p text-[16px] lg:text-[22px] xl:text-[26px] text-white -tracking-[0.65px] xl:leading-[37px] 4xl:w-[694px] xl:opacity-0  xl:translate-y-[500px]">
             While the number of cancer patients increases and the demand for
             professional dosimetrists remains high, it’s not always feasible for
             smaller, rural centers to have full-time dosimetrists on the staff.

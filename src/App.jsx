@@ -2,6 +2,7 @@ import { useState } from "react";
 import Preloader from "./components/Preloader";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import Home_New from "./pages/Home-copy";
 import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from "react";
@@ -21,6 +22,7 @@ import Contact from "./pages/ContactUs";
 import Plans from "./pages/plans";
 import Process from "./pages/process";
 import Systems from "./pages/Systems";
+import HowItWorks from "./pages/HowItWorks";
 
 export default function App() {
   const [alreadyShown, setAlreadyShown] = useState(() =>
@@ -39,7 +41,9 @@ export default function App() {
       <Header alreadyShown={alreadyShown} />
       <Routes>
         <Route path="/" element={<Home alreadyShown={alreadyShown} />} />
+        <Route path="/home-res" element={<Home_New alreadyShown={alreadyShown} />} />
         <Route path="/areas" element={<AreasofFocus />} />
+        <Route path="/how-it-works" element={<HowItWorks />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/plans" element={<Plans />} />

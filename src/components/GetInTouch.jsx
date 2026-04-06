@@ -1,7 +1,7 @@
 export default function GetInTouch() {
   return (
     <div className="bg-[#003777]/9 px-6 md:px-16 lg:px-28 py-12 md:py-20 w-full home-form">
-      <div className="flex flex-col md:flex-row justify-between gap-12 md:gap-16">
+      <div className="flex flex-col lg:flex-row justify-between gap-12 md:gap-16">
         <div className="w-full flex flex-col gap-10 items-start">
           <div className="flex flex-col gap-6">
             <p className="text-[18px] md:text-[22px] text-white px-5 py-1 bg-[#003777] w-fit">Get in Touch!</p>
