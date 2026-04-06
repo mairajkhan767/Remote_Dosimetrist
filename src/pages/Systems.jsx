@@ -150,9 +150,9 @@ export default function Systems() {
       })}
 
 
-      <div className="w-full flex flex-col justify-center items-center mx-auto">
-        <div className="max-w-4xl flex flex-col justify-center items-center gap-10">
-          <img src="/assets/raystation.png" alt="" />
+      <div className="w-full flex flex-col justify-center items-center mx-auto px-6 py-16 md:py-24">
+        <div className="max-w-4xl w-full flex flex-col justify-center items-center gap-8 md:gap-10">
+          <img src="/assets/raystation.png" alt="RayStation" className="max-w-[280px] md:max-w-sm w-full" />
           <p className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
             RayStation®* is a flexible, innovative treatment planning system chosen by many of the leading cancer centers worldwide. It combines unique features like unmatched adaptive therapy capabilities, multi-criteria optimization, optimization for HDR brachytherapy and external beam therapy with photons, electrons, protons as well as helium and carbon ions. RayStation supports a wide range of treatment machines, providing one control center for all treatment planning needs and ensuring centers get greater value from existing equipment.
           </p>
@@ -164,36 +164,36 @@ export default function Systems() {
         </div>
       </div>
 
-      <div className="w-full flex flex-col justify-center items-center py-25 gap-10">
-        <h3 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">
+      <div className="w-full flex flex-col justify-center items-center py-16 md:py-24 px-6 gap-8 md:gap-10">
+        <h3 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1] text-center">
           System For You
         </h3>
         <p className="text-[#434961] max-w-4xl text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
           We currently have dosimetrists that work with MiM Maestro, Varian Eclipse/Aria Treatment Planning System (v15), Philips Pinnacle Treatment Planning System (v16), and Elekta/Mosaic Oncentra Brachytherapy Planning System.
         </p>
-        <div className="flex flex-row justify-center items-center gap-10">
-          <div className="flex flex-col justify-center items-center border rounded-2xl border-gray-200 py-2">
-            <img src="/assets/MIM-Maestro-1.png" alt="" />
-            <a href="/systems" className="text-[#003777] text-[16px] xl:text-[24px] font-bold leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-5xl">
+          <div className="flex flex-col justify-between items-center border rounded-2xl border-gray-200 p-4 md:p-6 gap-4">
+            <img src="/assets/MIM-Maestro-1.png" alt="MiM Maestro" className="w-full max-h-20 object-contain" />
+            <a href="/systems" className="text-[#003777] text-sm md:text-[16px] xl:text-[18px] font-bold -tracking-[0.2px] text-center">
               MiM Maestro
             </a>
           </div>
-          <div className="flex flex-col justify-center items-center border rounded-2xl border-gray-200 py-2">
-            <img src="/assets/varian-7x4-1.png" alt="" />
-            <a href="/systems"  className="text-[#003777] text-[16px] xl:text-[24px] font-bold leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
+          <div className="flex flex-col justify-between items-center border rounded-2xl border-gray-200 p-4 md:p-6 gap-4">
+            <img src="/assets/varian-7x4-1.png" alt="Varian Eclipse/Aria" className="w-full max-h-20 object-contain" />
+            <a href="/systems" className="text-[#003777] text-sm md:text-[16px] xl:text-[18px] font-bold -tracking-[0.2px] text-center">
               Varian Eclipse/Aria
             </a>
           </div>
-          <div className="flex flex-col justify-center items-center border rounded-2xl border-gray-200 py-2">
-            <img src="/assets/elekta-oncentra-brachytherapy-radiation-logo-1.png" alt="" />
-            <a href="/systems"  className="text-[#003777] text-[16px] xl:text-[24px] font-bold leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
+          <div className="flex flex-col justify-between items-center border rounded-2xl border-gray-200 p-4 md:p-6 gap-4">
+            <img src="/assets/logo-Philips-Healthcare-Pinnacle-radiation-dosimetry-planning.png" alt="Philips Pinnacle" className="w-full max-h-20 object-contain" />
+            <a href="/systems" className="text-[#003777] text-sm md:text-[16px] xl:text-[18px] font-bold -tracking-[0.2px] text-center">
               Philips Pinnacle
             </a>
           </div>
-          <div className="flex flex-col justify-center items-center border rounded-2xl border-gray-200 py-2">
-            <img src="/assets/logo-Philips-Healthcare-Pinnacle-radiation-dosimetry-planning.png" alt="" />
-            <a href="/systems"  className="text-[#003777] text-[16px] xl:text-[24px] font-bold leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
-              ELEKTA/MOSAIQ ONCENTRA
+          <div className="flex flex-col justify-between items-center border rounded-2xl border-gray-200 p-4 md:p-6 gap-4">
+            <img src="/assets/elekta-oncentra-brachytherapy-radiation-logo-1.png" alt="Elekta/Mosaiq Oncentra" className="w-full max-h-20 object-contain" />
+            <a href="/systems" className="text-[#003777] text-sm md:text-[16px] xl:text-[18px] font-bold -tracking-[0.2px] text-center">
+              Elekta/Mosaiq Oncentra
             </a>
           </div>
         </div>
