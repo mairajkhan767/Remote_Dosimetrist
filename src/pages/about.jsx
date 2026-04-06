@@ -15,15 +15,15 @@ export default function About() {
       />
 
       {/* ── Vision / Mission / Values ── */}
-      <div className="ip-section ip-section-white py-32 relative">
+      <div className="ip-section ip-section-white py-16 md:py-32 relative">
         <div className="ip-ambient ip-ambient-1"></div>
         <div className="ip-ambient ip-ambient-2"></div>
 
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
           <SectionReveal>
-            <div className="text-center mb-20">
+            <div className="text-center mb-12 md:mb-20">
               <span className="sr-item ip-label">Who We Are</span>
-              <h2 className="sr-item text-[#003777] text-[48px] font-bold leading-[52px] -tracking-[1.2px] mt-5">
+              <h2 className="sr-item text-[#003777] text-3xl md:text-[48px] font-bold md:leading-[52px] -tracking-[1.2px] mt-5">
                 Our Foundation
               </h2>
               <div className="sr-item flex justify-center mt-7">
@@ -33,9 +33,9 @@ export default function About() {
           </SectionReveal>
 
           <SectionReveal stagger={0.18}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 text-center">
               {/* Vision */}
-              <div className="sr-item ip-card ip-card-hover-blue p-10 rounded-2xl">
+              <div className="sr-item ip-card ip-card-hover-blue p-6 md:p-10 rounded-2xl">
                 <div className="flex justify-center mb-7">
                   <div className="ip-card-icon w-20 h-20 flex items-center justify-center rounded-full bg-[#e6f0ff] transition-all duration-500">
                     <svg className="w-10 h-10 text-[#003777] transition-colors duration-500" fill="currentColor" viewBox="0 0 24 24">
@@ -51,7 +51,7 @@ export default function About() {
               </div>
 
               {/* Mission */}
-              <div className="sr-item ip-card ip-card-hover-blue p-10 rounded-2xl">
+              <div className="sr-item ip-card ip-card-hover-blue p-6 md:p-10 rounded-2xl">
                 <div className="flex justify-center mb-7">
                   <div className="ip-card-icon w-20 h-20 flex items-center justify-center rounded-full bg-[#e6f0ff] transition-all duration-500">
                     <svg className="w-10 h-10 text-[#003777] transition-colors duration-500" fill="currentColor" viewBox="0 0 24 24">
@@ -67,7 +67,7 @@ export default function About() {
               </div>
 
               {/* Values */}
-              <div className="sr-item ip-card ip-card-hover-blue p-10 rounded-2xl">
+              <div className="sr-item ip-card ip-card-hover-blue p-6 md:p-10 rounded-2xl">
                 <div className="flex justify-center mb-7">
                   <div className="ip-card-icon w-20 h-20 flex items-center justify-center rounded-full bg-[#e6f0ff] transition-all duration-500">
                     <svg className="w-10 h-10 text-[#003777] transition-colors duration-500" fill="currentColor" viewBox="0 0 24 24">
@@ -90,16 +90,16 @@ export default function About() {
       <div className="ip-glow-divider"></div>
 
       {/* ── Get To Know Us ── */}
-      <div className="ip-section ip-section-light py-28 relative">
+      <div className="ip-section ip-section-light py-14 md:py-28 relative">
         <div className="ip-ambient ip-ambient-purple" style={{ top: '10%', right: '5%' }}></div>
 
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-stretch">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-stretch">
             <SectionReveal direction="left">
-              <div className="sr-item flex flex-col gap-12 h-full">
+              <div className="sr-item flex flex-col gap-8 md:gap-12 h-full">
                 {/* Blue gradient card */}
                 <div
-                  className="flex flex-col gap-8 p-12 flex-1"
+                  className="flex flex-col gap-6 md:gap-8 p-6 md:p-12 flex-1"
                   style={{
                     background: "linear-gradient(45deg, #003777, #0E3CF6)",
                     borderRadius: "32px",
@@ -107,17 +107,17 @@ export default function About() {
                 >
                   <div className="relative">
                     <div className="ip-dots -left-10 -top-10"></div>
-                    <h2 className="text-[42px] text-white -tracking-[1px] leading-[1.1] font-bold relative z-10">
+                    <h2 className="text-2xl md:text-[42px] text-white -tracking-[1px] leading-[1.1] font-bold relative z-10">
                       Get To Know Us
                     </h2>
                   </div>
-                  <p className="text-white/90 text-[18px] leading-[30px]">
+                  <p className="text-white/90 text-[16px] md:text-[18px] leading-[28px] md:leading-[30px]">
                     We are a remote-only dosimetry company and more specifically, a group of
                     certified medical dosimetrists that truly care. We always have the
                     patient's best needs at heart on any treatment plan that we create for
                     you, the client.
                   </p>
-                  <p className="text-white/90 text-[18px] leading-[30px]">
+                  <p className="text-white/90 text-[16px] md:text-[18px] leading-[28px] md:leading-[30px]">
                     We'd like to think of ourselves as an a-la-carte type business. You may
                     call upon our services when you truly need some dosimetry work. We strive
                     to fill a niche of providing dosimetry coverage from filling a void of
@@ -130,14 +130,14 @@ export default function About() {
                 </div>
                 {/* Bottom image */}
                 <div className="ip-image-wrap">
-                  <img src="assets/5th-sec-img-1.png" alt="Remote dosimetry team" className="w-full object-cover h-[300px]" />
+                  <img src="assets/5th-sec-img-1.png" alt="Remote dosimetry team" className="w-full object-cover h-[200px] md:h-[300px]" />
                 </div>
               </div>
             </SectionReveal>
 
             <SectionReveal direction="right">
               <div
-                className="sr-item relative isolate flex flex-col justify-start p-12 gap-8 rounded-[32px] bg-no-repeat bg-cover bg-center h-full min-h-[700px]"
+                className="sr-item relative isolate flex flex-col justify-start p-6 md:p-12 gap-8 rounded-[32px] bg-no-repeat bg-cover bg-center min-h-[400px] md:min-h-[700px]"
                 style={{
                   backgroundImage: "url(assets/about-bg.jpg)",
                   backgroundPosition: "left",
@@ -151,16 +151,16 @@ export default function About() {
                 <div className="z-10 flex flex-col gap-8">
                   <div className="relative">
                     <div className="ip-dots -left-10 -top-10" style={{ opacity: 0.08 }}></div>
-                    <h2 className="text-[42px] text-white -tracking-[1px] leading-[1.1] font-bold relative z-10">
+                    <h2 className="text-2xl md:text-[42px] text-white -tracking-[1px] leading-[1.1] font-bold relative z-10">
                       Delivering Quality Care
                     </h2>
                   </div>
-                  <p className="text-white/90 text-[18px] leading-[30px]">
+                  <p className="text-white/90 text-[16px] md:text-[18px] leading-[28px] md:leading-[30px]">
                     We provide high quality plans to you at a fraction of the cost of the
                     competitors. We have very little overhead costs and we are sure to pass
                     those savings on to you, to keep your costs to a minimum.
                   </p>
-                  <p className="text-white/90 text-[18px] leading-[30px]">
+                  <p className="text-white/90 text-[16px] md:text-[18px] leading-[28px] md:leading-[30px]">
                     Priding ourselves on fast turnarounds, more often than not overnight, by
                     our experienced staff is one of our highest priorities. Each of our
                     certified medical dosimetrists have a minimum of 15 years of dedicated
@@ -180,21 +180,20 @@ export default function About() {
       <div className="ip-glow-divider"></div>
 
       {/* ── Why Hire Section ── */}
-      <div className="ip-section ip-section-white py-28 relative">
+      <div className="ip-section ip-section-white py-14 md:py-28 relative">
         <div className="ip-ambient ip-ambient-1" style={{ top: '-10%', left: '-15%' }}></div>
         <div className="ip-edge-accent ip-edge-accent-left"></div>
 
-        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center relative z-10">
           <SectionReveal direction="left">
             <div className="sr-item flex flex-col justify-center relative">
-              {/* Watermark */}
-              <span className="absolute -top-4 right-0 text-[160px] font-black leading-none select-none pointer-events-none text-[#003777]/[0.03]">01</span>
+              <span className="absolute -top-4 right-0 text-[80px] md:text-[160px] font-black leading-none select-none pointer-events-none text-[#003777]/[0.03]">01</span>
               <span className="ip-label mb-5">Why Hire a Remote Dosimetrist?</span>
-              <h2 className="text-[38px] md:text-[42px] font-bold text-gray-900 mb-6 leading-[1.15] -tracking-[1px]">
+              <h2 className="text-2xl md:text-[38px] lg:text-[42px] font-bold text-gray-900 mb-6 leading-[1.15] -tracking-[1px]">
                 Flexible staffing for growing cancer centers
               </h2>
               <div className="ip-section-divider mb-10"></div>
-              <div className="space-y-6 text-[#434961] text-[18px] leading-[30px]">
+              <div className="space-y-6 text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[30px]">
                 <p>
                   While the number of cancer patients increases and the demand for
                   professional dosimetrists remains high, it's not always feasible for
@@ -217,7 +216,7 @@ export default function About() {
               <img
                 src="assets/information.jpg"
                 alt="Professional workspace showing remote dosimetry work setup"
-                className="w-full object-cover h-[580px]"
+                className="w-full object-cover h-[260px] md:h-[580px]"
               />
             </div>
           </SectionReveal>
@@ -228,31 +227,30 @@ export default function About() {
       <div className="ip-glow-divider"></div>
 
       {/* ── Remote Dosimetry Is Here To Stay ── */}
-      <div className="ip-section ip-section-light py-28 relative">
+      <div className="ip-section ip-section-light py-14 md:py-28 relative">
         <div className="ip-ambient ip-ambient-2" style={{ bottom: '0', right: '-10%' }}></div>
         <div className="ip-edge-accent ip-edge-accent-right"></div>
 
-        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center relative z-10">
           <SectionReveal direction="left" parallax>
             <div className="sr-item ip-image-wrap">
               <img
                 src="assets/img-4.png"
                 alt="The future of dosimetry"
-                className="w-full object-cover h-[580px]"
+                className="w-full object-cover h-[260px] md:h-[580px]"
               />
             </div>
           </SectionReveal>
 
           <SectionReveal direction="right">
             <div className="sr-item flex flex-col justify-center relative">
-              {/* Watermark */}
-              <span className="absolute -top-4 right-0 text-[160px] font-black leading-none select-none pointer-events-none text-[#003777]/[0.03]">02</span>
+              <span className="absolute -top-4 right-0 text-[80px] md:text-[160px] font-black leading-none select-none pointer-events-none text-[#003777]/[0.03]">02</span>
               <span className="ip-label mb-5">The Future of Care</span>
-              <h2 className="text-[38px] md:text-[42px] font-bold text-gray-900 mb-6 leading-[1.15] -tracking-[1px]">
+              <h2 className="text-2xl md:text-[38px] lg:text-[42px] font-bold text-gray-900 mb-6 leading-[1.15] -tracking-[1px]">
                 Remote dosimetry is here to stay
               </h2>
               <div className="ip-section-divider mb-10"></div>
-              <div className="space-y-6 text-[#434961] text-[18px] leading-[30px]">
+              <div className="space-y-6 text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[30px]">
                 <p>
                   Remote Dosimetrist has shown to be more efficient than on-site
                   dosimetry. It is structured to help our clients effectively and safely

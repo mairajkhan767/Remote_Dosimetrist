@@ -49,19 +49,19 @@ export default function Process() {
       />
 
       {/* ── Intro ── */}
-      <div className="ip-section ip-section-white py-32 relative">
+      <div className="ip-section ip-section-white py-16 md:py-32 relative">
         <div className="ip-ambient ip-ambient-1"></div>
 
         <SectionReveal>
           <div className="max-w-[1000px] mx-auto text-center px-6 gap-6 flex flex-col items-center relative z-10">
             <span className="sr-item ip-label">How It Works</span>
-            <h2 className="sr-item text-[#003777] text-[48px] font-bold leading-[52px] -tracking-[1.2px]">
+            <h2 className="sr-item text-[#003777] text-3xl md:text-[48px] font-bold md:leading-[52px] -tracking-[1.2px]">
               Secure Remote Access Methods
             </h2>
             <div className="sr-item flex justify-center">
               <div className="ip-section-divider"></div>
             </div>
-            <p className="sr-item text-[#434961] text-[20px] leading-[34px] -tracking-[0.3px] max-w-[700px] mt-3">
+            <p className="sr-item text-[#434961] text-base md:text-[20px] leading-[28px] md:leading-[34px] -tracking-[0.3px] max-w-[700px] mt-3">
               All accomplished through trusted, secure methods — often including
               two-factor authentication for remote network access.
             </p>
@@ -69,21 +69,21 @@ export default function Process() {
         </SectionReveal>
 
         {/* ── Method Cards ── */}
-        <SectionReveal stagger={0.12} className="max-w-[1400px] mx-auto px-6 mt-24 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <SectionReveal stagger={0.12} className="max-w-[1400px] mx-auto px-6 mt-16 md:mt-24 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
             {methods.map((method) => (
               <div
                 key={method.number}
-                className="sr-item ip-card p-10 rounded-[24px] flex flex-col gap-6 group"
+                className="sr-item ip-card p-6 md:p-10 rounded-[24px] flex flex-col gap-6 group"
               >
                 <div className="flex items-center gap-4">
                   <div className="ip-number-badge">{method.number}</div>
                   <div className="ip-accent-line"></div>
                 </div>
-                <h3 className="text-[#003777] text-[26px] font-bold -tracking-[0.5px]">
+                <h3 className="text-[#003777] text-xl md:text-[26px] font-bold -tracking-[0.5px]">
                   {method.title}
                 </h3>
-                <p className="text-[#434961] text-[17px] leading-[28px] max-w-[440px]">
+                <p className="text-[#434961] text-[16px] md:text-[17px] leading-[26px] md:leading-[28px] max-w-[440px]">
                   {method.description}
                 </p>
                 <a
@@ -105,36 +105,36 @@ export default function Process() {
       <div className="ip-glow-divider"></div>
 
       {/* ── Additional Information ── */}
-      <div className="ip-section ip-section-light py-28 relative">
+      <div className="ip-section ip-section-light py-14 md:py-28 relative">
         <div className="ip-ambient ip-ambient-purple" style={{ top: '10%', left: '60%' }}></div>
         <div className="ip-edge-accent ip-edge-accent-left"></div>
 
-        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center relative z-10">
           <SectionReveal direction="left" parallax>
             <div className="sr-item ip-image-wrap">
               <img
                 src="assets/information.jpg"
                 alt="Secure remote dosimetry process"
-                className="w-full object-cover h-[480px]"
+                className="w-full object-cover h-[260px] md:h-[480px]"
               />
             </div>
           </SectionReveal>
 
           <SectionReveal direction="right">
             <div className="sr-item flex flex-col gap-7 relative">
-              <span className="absolute -top-4 right-0 text-[160px] font-black leading-none select-none pointer-events-none text-[#003777]/[0.03]">01</span>
+              <span className="absolute -top-4 right-0 text-[80px] md:text-[160px] font-black leading-none select-none pointer-events-none text-[#003777]/[0.03]">01</span>
               <span className="ip-label">Your Data, Your System</span>
-              <h2 className="text-[#003777] text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">
+              <h2 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">
                 Additional Information
               </h2>
               <div className="ip-section-divider"></div>
-              <p className="text-[#434961] text-[18px] leading-[32px] -tracking-[0.2px] max-w-[560px]">
+              <p className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] max-w-[560px]">
                 Unlike other dosimetry companies that require that you send them
                 DICOM files, we will NEVER be in possession of your legally
                 protected patient information. We calculate YOUR plans on YOUR
                 system with YOUR beam data.
               </p>
-              <p className="text-[#434961] text-[18px] leading-[32px] -tracking-[0.2px] max-w-[560px]">
+              <p className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] max-w-[560px]">
                 Once we learn your Radiation Oncologist preferences and department
                 requirements, we're ready to securely login and work with your
                 pre-existing departmental dosimetry worksheets.
@@ -148,36 +148,36 @@ export default function Process() {
       <div className="ip-glow-divider"></div>
 
       {/* ── Why Hire Section ── */}
-      <div className="ip-section ip-section-white py-28 relative">
+      <div className="ip-section ip-section-white py-14 md:py-28 relative">
         <div className="ip-ambient ip-ambient-2" style={{ top: '-5%', right: '-10%' }}></div>
         <div className="ip-edge-accent ip-edge-accent-right"></div>
 
-        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+        <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center relative z-10">
           <SectionReveal direction="right" className="lg:order-2" parallax>
             <div className="sr-item ip-image-wrap">
               <img
                 src="assets/img-4.png"
                 alt="Why hire a remote dosimetrist"
-                className="w-full object-cover h-[480px]"
+                className="w-full object-cover h-[260px] md:h-[480px]"
               />
             </div>
           </SectionReveal>
 
           <SectionReveal direction="left" className="lg:order-1">
             <div className="sr-item flex flex-col gap-7 relative">
-              <span className="absolute -top-4 right-0 text-[160px] font-black leading-none select-none pointer-events-none text-[#003777]/[0.03]">02</span>
+              <span className="absolute -top-4 right-0 text-[80px] md:text-[160px] font-black leading-none select-none pointer-events-none text-[#003777]/[0.03]">02</span>
               <span className="ip-label">The Smart Choice</span>
-              <h2 className="text-[#003777] text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">
+              <h2 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">
                 Why Hire A Remote Dosimetrist?
               </h2>
               <div className="ip-section-divider"></div>
-              <p className="text-[#434961] text-[18px] leading-[32px] -tracking-[0.2px] max-w-[560px]">
+              <p className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] max-w-[560px]">
                 While the number of cancer patients increases and the demand for
                 professional dosimetrists remains high, it's not always feasible
                 for smaller, rural centers to have full-time staff. Hiring a
                 remote worker makes more sense.
               </p>
-              <p className="text-[#434961] text-[18px] leading-[32px] -tracking-[0.2px] max-w-[560px]">
+              <p className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] max-w-[560px]">
                 Remote treatment planning can be cost-effective for many
                 organizations while allowing for steady patient growth — without
                 affecting your bottom line.

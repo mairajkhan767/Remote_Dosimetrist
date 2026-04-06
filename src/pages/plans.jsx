@@ -43,18 +43,18 @@ export default function Plans() {
       />
 
       {/* ── Intro ── */}
-      <div className="ip-section ip-section-white py-32 relative">
+      <div className="ip-section ip-section-white py-16 md:py-32 relative">
         <div className="ip-ambient ip-ambient-2"></div>
         <SectionReveal>
           <div className="max-w-[1000px] mx-auto text-center px-6 gap-6 flex flex-col items-center relative z-10">
             <span className="sr-item ip-label">Treatment Planning</span>
-            <h2 className="sr-item text-[#003777] text-[48px] font-bold leading-[52px] -tracking-[1.2px]">
+            <h2 className="sr-item text-[#003777] text-3xl md:text-[48px] font-bold md:leading-[52px] -tracking-[1.2px]">
               How We Help You On Your Journey
             </h2>
             <div className="sr-item flex justify-center">
               <div className="ip-section-divider"></div>
             </div>
-            <p className="sr-item text-[#434961] text-[20px] leading-[34px] -tracking-[0.3px] max-w-[740px] mt-3">
+            <p className="sr-item text-[#434961] text-base md:text-[20px] leading-[28px] md:leading-[34px] -tracking-[0.3px] max-w-[740px] mt-3">
               Our skillset includes all types of 3D plans, IMRT plans, VMAT plans,
               and brachytherapy plans. We nearly always have the plan complete and
               ready for your oncologist's review in less than 24 hours.
@@ -73,21 +73,21 @@ export default function Plans() {
           <React.Fragment key={plan.title}>
             <div className="ip-glow-divider"></div>
 
-            <div className={`ip-section ${bgClass} py-24 relative`}>
+            <div className={`ip-section ${bgClass} py-12 md:py-24 relative`}>
               {isEven && <div className="ip-ambient ip-ambient-1"></div>}
               {!isEven && <div className="ip-ambient ip-ambient-2"></div>}
 
               <div className="max-w-[1400px] mx-auto px-6 relative z-10">
                 <SectionReveal direction={isEven ? "left" : "right"}>
                   <div className="sr-item group">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
                       {/* Image */}
                       <div className={isEven ? "lg:order-1" : "lg:order-2"}>
                         <div className="ip-image-wrap relative">
                           <img
                             src={plan.image}
                             alt={plan.title}
-                            className="w-full object-cover object-center h-[480px]"
+                            className="w-full object-cover object-center h-[260px] md:h-[480px]"
                           />
                           <div className="absolute bottom-5 left-6 z-10">
                             <div
@@ -106,7 +106,7 @@ export default function Plans() {
 
                       {/* Content */}
                       <div className={`relative ${isEven ? "lg:order-2" : "lg:order-1"}`}>
-                        <span className="absolute -top-4 right-0 text-[160px] font-black leading-none select-none pointer-events-none text-[#003777]/[0.03]">
+                        <span className="absolute -top-4 right-0 text-[80px] md:text-[160px] font-black leading-none select-none pointer-events-none text-[#003777]/[0.03]">
                           {num}
                         </span>
                         <div className="relative flex flex-col gap-6">
@@ -114,10 +114,10 @@ export default function Plans() {
                             <div className="ip-number-badge">{num}</div>
                             <div className="ip-accent-line"></div>
                           </div>
-                          <h3 className="text-[#003777] text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">
+                          <h3 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">
                             {plan.title}
                           </h3>
-                          <p className="text-[#434961] text-[18px] leading-[32px] -tracking-[0.2px] max-w-[560px]">
+                          <p className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] max-w-[560px]">
                             {plan.text}
                           </p>
                         </div>
