@@ -689,21 +689,46 @@ button:focus-visible {
   transition: opacity 0.5s ease;
 }
 
-.ip-card:hover {
-  transform: translateY(-6px);
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.02),
-    0 16px 48px rgba(0, 55, 119, 0.08),
-    0 32px 80px rgba(0, 55, 119, 0.05);
-  border-color: rgba(0, 55, 119, 0.10);
-}
+@media (hover: hover) {
+  .ip-card:hover {
+    transform: translateY(-6px);
+    box-shadow:
+      0 4px 8px rgba(0, 0, 0, 0.02),
+      0 16px 48px rgba(0, 55, 119, 0.08),
+      0 32px 80px rgba(0, 55, 119, 0.05);
+    border-color: rgba(0, 55, 119, 0.10);
+  }
 
-.ip-card:hover::before {
-  opacity: 1;
-}
+  .ip-card:hover::before {
+    opacity: 1;
+  }
 
-.ip-card:hover::after {
-  opacity: 1;
+  .ip-card:hover::after {
+    opacity: 1;
+  }
+
+  .ip-card-hover-blue:hover {
+    background: linear-gradient(145deg, #003777, #0A388D);
+    border-color: transparent;
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 55, 119, 0.25), 0 0 0 1px rgba(14, 60, 246, 0.2);
+  }
+
+  .ip-card-hover-blue:hover h3,
+  .ip-card-hover-blue:hover p,
+  .ip-card-hover-blue:hover span,
+  .ip-card-hover-blue:hover a {
+    color: #ffffff !important;
+  }
+
+  .ip-card-hover-blue:hover .ip-card-icon {
+    background: rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
+  }
+
+  .ip-card-hover-blue:hover .ip-card-icon svg {
+    color: #ffffff !important;
+  }
 }
 
 /* Glass card */
@@ -718,29 +743,6 @@ button:focus-visible {
 /* Blue hover card */
 .ip-card-hover-blue {
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.ip-card-hover-blue:hover {
-  background: linear-gradient(145deg, #003777, #0A388D);
-  border-color: transparent;
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(0, 55, 119, 0.25), 0 0 0 1px rgba(14, 60, 246, 0.2);
-}
-
-.ip-card-hover-blue:hover h3,
-.ip-card-hover-blue:hover p,
-.ip-card-hover-blue:hover span,
-.ip-card-hover-blue:hover a {
-  color: #ffffff !important;
-}
-
-.ip-card-hover-blue:hover .ip-card-icon {
-  background: rgba(255, 255, 255, 0.12) !important;
-  box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
-}
-
-.ip-card-hover-blue:hover .ip-card-icon svg {
-  color: #ffffff !important;
 }
 
 /* --- Image Treatment --- */
