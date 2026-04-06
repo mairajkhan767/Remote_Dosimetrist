@@ -522,7 +522,7 @@ export default function Home_New({ alreadyShown }) {
         </div>
       </div>
       <div className="section-5 w-full xl:min-h-dvh xl:mt-[500px] xxxl:mt-[400px] relative flex flex-col xl:flex-row justify-start items-center xl:justify-between xl:items-stretch gap-[38px] px-5 4xl:px-[140px]">
-        <div className="flex flex-col justify-center lg:gap-[38px] gap-[55px] w-1/2">
+        <div className="flex flex-col justify-center lg:gap-[38px] gap-[55px] w-full xl:w-1/2">
           <div
             className="s-5-c-1 flex flex-col justify-between gap-[32px] p-10 xl:stay-col xl:opacity-0 xl:translate-y-[500px]"
             style={{
@@ -549,7 +549,7 @@ export default function Home_New({ alreadyShown }) {
           </div>
         </div>
         <div
-          className="flex flex-col justify-center xl:justify-start p-10 gap-[32px] rounded-[32px] bg-no-repeat bg-cover bg-bottom w-1/2"
+          className="flex flex-col justify-center xl:justify-start p-10 gap-[32px] rounded-[32px] bg-no-repeat bg-cover bg-bottom w-full xl:w-1/2"
           style={{ backgroundImage: "url(assets/5th-sec-img-2.png)" }}
         >
           {/* <img src="assets/5th-sec-img-2.png" alt="" /> */}
