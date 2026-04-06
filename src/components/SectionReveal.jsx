@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 /**
- * Cinematic scroll-reveal wrapper.
+ * Scroll-reveal wrapper.
  *
  * Children marked with className "sr-item" animate individually with stagger.
  * If no sr-items, the whole container animates.
@@ -15,7 +15,7 @@ gsap.registerPlugin(ScrollTrigger);
  *  delay      — additional delay (seconds)
  *  stagger    — stagger between sr-items
  *  distance   — px travel for directional reveals
- *  parallax   — if true, adds a subtle parallax shift on scroll
+ *  parallax   — if true, adds a subtle parallax shift on scroll (desktop only)
  *  parallaxSpeed — multiplier for parallax (default 0.12)
  */
 export default function SectionReveal({
@@ -36,6 +36,7 @@ export default function SectionReveal({
 
     const targets = el.querySelectorAll(".sr-item");
     const hasItems = targets.length > 0;
+    const animTargets = hasItems ? Array.from(targets) : [el];
 
     const fromMap = {
       up:    { y: distance, opacity: 0 },
@@ -54,38 +55,53 @@ export default function SectionReveal({
 
     const from = fromMap[direction] || fromMap.up;
     const to   = toMap[direction]   || toMap.up;
-    const animTargets = hasItems ? targets : el;
 
-    /* Set initial state immediately so elements don't flash visible */
+    // Apply hidden initial state
     gsap.set(animTargets, from);
 
-    const triggers = [];
+    let played = false;
 
-    /* Reveal animation */
-    const revealTween = gsap.fromTo(animTargets, from, {
-      ...to,
-      duration: 1.1,
-      delay,
-      stagger: hasItems ? stagger : 0,
-      ease: "power3.out",
-      scrollTrigger: {
-        trigger: el,
-        start: "top 92%",
-        end: "bottom 15%",
-        toggleActions: "play none none none",
-        invalidateOnRefresh: true,
-        onEnter: () => {
-          /* Failsafe: ensure elements are visible if trigger fires */
-        },
+    const play = () => {
+      if (played) return;
+      played = true;
+      gsap.to(animTargets, {
+        ...to,
+        duration: 1.1,
+        delay,
+        stagger: hasItems ? stagger : 0,
+        ease: "power3.out",
+      });
+    };
+
+    // Use IntersectionObserver — reliable on mobile, desktop, all browsers
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            play();
+            observer.unobserve(el);
+          }
+        });
       },
-    });
+      { threshold: 0.08 }
+    );
 
-    if (revealTween.scrollTrigger) {
-      triggers.push(revealTween.scrollTrigger);
-    }
+    observer.observe(el);
 
-    /* Optional parallax: content drifts up slower than scroll */
-    if (parallax) {
+    // Failsafe: if the element is already in the viewport when this runs,
+    // IntersectionObserver may not fire — so check manually after a tick
+    const checkTimer = setTimeout(() => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        play();
+        observer.unobserve(el);
+      }
+    }, 100);
+
+    // Parallax (desktop only — skip on touch devices to avoid mobile issues)
+    let parallaxTrigger = null;
+    const isTouchDevice = window.matchMedia("(hover: none)").matches;
+    if (parallax && !isTouchDevice) {
       const parallaxTween = gsap.to(el, {
         y: () => -ScrollTrigger.maxScroll(window) * parallaxSpeed * 0.01,
         ease: "none",
@@ -97,20 +113,13 @@ export default function SectionReveal({
           invalidateOnRefresh: true,
         },
       });
-      if (parallaxTween.scrollTrigger) {
-        triggers.push(parallaxTween.scrollTrigger);
-      }
+      parallaxTrigger = parallaxTween.scrollTrigger;
     }
 
-    /* Refresh ScrollTrigger after layout settles — critical for mobile & route changes */
-    const raf = requestAnimationFrame(() => {
-      ScrollTrigger.refresh();
-    });
-
     return () => {
-      cancelAnimationFrame(raf);
-      triggers.forEach((t) => t.kill());
-      /* Reset opacity so navigating back doesn't leave elements hidden */
+      observer.disconnect();
+      clearTimeout(checkTimer);
+      if (parallaxTrigger) parallaxTrigger.kill();
       gsap.set(animTargets, { clearProps: "all" });
     };
   }, [direction, delay, stagger, distance, parallax, parallaxSpeed]);
