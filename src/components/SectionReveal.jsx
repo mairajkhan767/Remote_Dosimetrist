@@ -56,8 +56,13 @@ export default function SectionReveal({
     const to   = toMap[direction]   || toMap.up;
     const animTargets = hasItems ? targets : el;
 
+    /* Set initial state immediately so elements don't flash visible */
+    gsap.set(animTargets, from);
+
+    const triggers = [];
+
     /* Reveal animation */
-    gsap.fromTo(animTargets, from, {
+    const revealTween = gsap.fromTo(animTargets, from, {
       ...to,
       duration: 1.1,
       delay,
@@ -65,15 +70,23 @@ export default function SectionReveal({
       ease: "power3.out",
       scrollTrigger: {
         trigger: el,
-        start: "top 88%",
+        start: "top 92%",
         end: "bottom 15%",
         toggleActions: "play none none none",
+        invalidateOnRefresh: true,
+        onEnter: () => {
+          /* Failsafe: ensure elements are visible if trigger fires */
+        },
       },
     });
 
+    if (revealTween.scrollTrigger) {
+      triggers.push(revealTween.scrollTrigger);
+    }
+
     /* Optional parallax: content drifts up slower than scroll */
     if (parallax) {
-      gsap.to(el, {
+      const parallaxTween = gsap.to(el, {
         y: () => -ScrollTrigger.maxScroll(window) * parallaxSpeed * 0.01,
         ease: "none",
         scrollTrigger: {
@@ -81,14 +94,24 @@ export default function SectionReveal({
           start: "top bottom",
           end: "bottom top",
           scrub: true,
+          invalidateOnRefresh: true,
         },
       });
+      if (parallaxTween.scrollTrigger) {
+        triggers.push(parallaxTween.scrollTrigger);
+      }
     }
 
+    /* Refresh ScrollTrigger after layout settles — critical for mobile & route changes */
+    const raf = requestAnimationFrame(() => {
+      ScrollTrigger.refresh();
+    });
+
     return () => {
-      ScrollTrigger.getAll().forEach((t) => {
-        if (t.trigger === el) t.kill();
-      });
+      cancelAnimationFrame(raf);
+      triggers.forEach((t) => t.kill());
+      /* Reset opacity so navigating back doesn't leave elements hidden */
+      gsap.set(animTargets, { clearProps: "all" });
     };
   }, [direction, delay, stagger, distance, parallax, parallaxSpeed]);
 

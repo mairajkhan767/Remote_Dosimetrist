@@ -6,6 +6,10 @@ import Home_New from "./pages/Home-copy";
 import Footer from "./components/Footer";
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from "react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import gsap from "gsap";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -13,6 +17,11 @@ function ScrollToTop() {
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
+    /* Kill all existing ScrollTriggers on route change so inner-page
+       animations start fresh and don't inherit stale positions */
+    ScrollTrigger.getAll().forEach((t) => t.kill());
+    ScrollTrigger.clearScrollMemory();
+    requestAnimationFrame(() => ScrollTrigger.refresh());
   }, [pathname]);
   return null;
 }
