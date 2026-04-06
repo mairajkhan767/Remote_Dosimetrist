@@ -1021,3 +1021,73 @@ button:focus-visible {
   border-color: #003777;
   box-shadow: 0 0 0 4px rgba(0, 55, 119, 0.06), 0 4px 16px rgba(0, 55, 119, 0.04);
 }
+
+/* ===== RESPONSIVE / MOBILE ===== */
+
+@media (max-width: 1023px) {
+  /* Hero title scales down on tablet/mobile */
+  .inner-hero-content h1 {
+    font-size: 48px;
+    letter-spacing: -1.5px;
+  }
+}
+
+@media (max-width: 767px) {
+  /* PageHero */
+  .inner-hero {
+    min-height: 52vh;
+  }
+
+  .inner-hero-content {
+    padding: 0 20px;
+  }
+
+  .inner-hero-content h1 {
+    font-size: 34px;
+    letter-spacing: -1px;
+    line-height: 1.1;
+  }
+
+  .inner-hero-subtitle {
+    font-size: 15px;
+    margin-top: 14px;
+  }
+
+  /* Orbs are too large on mobile — shrink them */
+  .inner-hero-orb-1 {
+    width: 260px;
+    height: 260px;
+    top: -80px;
+    right: -60px;
+  }
+
+  .inner-hero-orb-2 {
+    width: 200px;
+    height: 200px;
+    bottom: -40px;
+    left: -50px;
+  }
+
+  .inner-hero-orb-3 {
+    width: 140px;
+    height: 140px;
+  }
+
+  /* Review slider padding on mobile */
+  .review-slider .swiper {
+    padding: 0 16px;
+  }
+
+  .review-slider .swiper-slide-active {
+    padding-top: 24px;
+    padding-bottom: 28px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .review-slider .swiper-button-prev:before,
+  .review-slider .swiper-button-next:before {
+    width: 50px;
+    height: 44px;
+  }
+}

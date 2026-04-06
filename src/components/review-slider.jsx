@@ -81,13 +81,13 @@ function ReviewCard({ review }) {
 
 export default function ReviewSlider() {
   return (
-    <div className="w-full py-50 px-30 flex flex-col gap-[47px] review-slider">
+    <div className="w-full py-12 md:py-24 lg:py-32 px-4 md:px-12 lg:px-16 flex flex-col gap-[47px] review-slider">
       <div className="flex flex-col justify-center items-center gap-5.75">
         <div className="flex flex-col justify-center items-center">
-          <p className="bg-[#434961] text-[22px] text-white p-0.75 text-center w-[201px]">Five Star Reviews</p>
+          <p className="bg-[#434961] text-[18px] md:text-[22px] text-white p-0.75 text-center w-[180px] md:w-[201px]">Five Star Reviews</p>
         </div>
         <div>
-          <h2 className="text-[#003777] text-5xl text-center leading-13 font-semibold">What People Have Said About Us</h2>
+          <h2 className="text-[#003777] text-3xl md:text-5xl text-center leading-tight md:leading-13 font-semibold">What People Have Said About Us</h2>
         </div>
       </div>
       <div>

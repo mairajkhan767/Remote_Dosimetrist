@@ -48,18 +48,18 @@ export default function AreasofFocus() {
       />
 
       {/* ── Intro ── */}
-      <div className="ip-section ip-section-white py-32 relative">
+      <div className="ip-section ip-section-white py-16 md:py-32 relative">
         <div className="ip-ambient ip-ambient-1"></div>
         <SectionReveal>
           <div className="max-w-[1000px] mx-auto text-center px-6 gap-6 flex flex-col items-center relative z-10">
             <span className="sr-item ip-label">Specialized Expertise</span>
-            <h2 className="sr-item text-[#003777] text-[48px] font-bold leading-[52px] -tracking-[1.2px]">
+            <h2 className="sr-item text-[#003777] text-3xl md:text-[48px] font-bold md:leading-[52px] -tracking-[1.2px]">
               Helping Make Your Life Easier
             </h2>
             <div className="sr-item flex justify-center">
               <div className="ip-section-divider"></div>
             </div>
-            <p className="sr-item text-[#434961] text-[20px] leading-[34px] -tracking-[0.3px] max-w-[720px] mt-3">
+            <p className="sr-item text-[#434961] text-base md:text-[20px] leading-[28px] md:leading-[34px] -tracking-[0.3px] max-w-[720px] mt-3">
               High quality dosimetry planning and quick turnaround times, designed
               to let you focus on what matters most — your patients.
             </p>
@@ -77,26 +77,22 @@ export default function AreasofFocus() {
           <React.Fragment key={area.title}>
             <div className="ip-glow-divider"></div>
 
-            <div className={`ip-section ${bgClass} py-24 relative`}>
-              {/* Ambient decoration — alternating positions */}
+            <div className={`ip-section ${bgClass} py-12 md:py-24 relative`}>
               {isEven && <div className="ip-ambient ip-ambient-1"></div>}
               {!isEven && <div className="ip-ambient ip-ambient-2"></div>}
 
               <div className="max-w-[1400px] mx-auto px-6 relative z-10">
                 <SectionReveal direction={isEven ? "left" : "right"}>
                   <div className="sr-item group">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
                       {/* ── Image ── */}
-                      <div
-                        className={`${isEven ? "lg:order-1" : "lg:order-2"}`}
-                      >
+                      <div className={`${isEven ? "lg:order-1" : "lg:order-2"}`}>
                         <div className="ip-image-wrap relative">
                           <img
                             src={area.image}
                             alt={area.title}
-                            className="w-full object-cover object-center h-[480px]"
+                            className="w-full object-cover object-center h-[260px] md:h-[480px]"
                           />
-                          {/* Number badge on image */}
                           <div className="absolute bottom-5 left-6 z-10">
                             <div
                               className="w-11 h-11 rounded-xl flex items-center justify-center text-white text-[14px] font-bold"
@@ -113,12 +109,8 @@ export default function AreasofFocus() {
                       </div>
 
                       {/* ── Content ── */}
-                      <div
-                        className={`relative ${isEven ? "lg:order-2" : "lg:order-1"
-                          }`}
-                      >
-                        {/* Watermark number */}
-                        <span className="absolute -top-4 right-0 text-[160px] font-black leading-none select-none pointer-events-none text-[#003777]/[0.03]">
+                      <div className={`relative ${isEven ? "lg:order-2" : "lg:order-1"}`}>
+                        <span className="absolute -top-4 right-0 text-[80px] md:text-[160px] font-black leading-none select-none pointer-events-none text-[#003777]/[0.03]">
                           {num}
                         </span>
 
@@ -128,11 +120,11 @@ export default function AreasofFocus() {
                             <div className="ip-accent-line"></div>
                           </div>
 
-                          <h3 className="text-[#003777] text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">
+                          <h3 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">
                             {area.title}
                           </h3>
 
-                          <p className="text-[#434961] text-[18px] leading-[32px] -tracking-[0.2px] max-w-[560px]">
+                          <p className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] max-w-[560px]">
                             {area.text}
                           </p>
                         </div>
@@ -148,7 +140,7 @@ export default function AreasofFocus() {
 
       {/* ── Additional Information — Full-Width CTA ── */}
       <div
-        className="relative overflow-hidden py-32"
+        className="relative overflow-hidden py-16 md:py-32"
         style={{
           background:
             "linear-gradient(135deg, #001d40 0%, #003777 40%, #0A388D 70%, #0E3CF6 100%)",
@@ -185,7 +177,7 @@ export default function AreasofFocus() {
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
           <SectionReveal>
             {/* Top: Heading + Description */}
-            <div className="text-center mb-16 flex flex-col items-center gap-6">
+            <div className="text-center mb-10 md:mb-16 flex flex-col items-center gap-6">
               <div className="sr-item flex items-center gap-4 justify-center">
                 <div
                   className="w-10 h-10 rounded-full flex items-center justify-center"
@@ -213,7 +205,7 @@ export default function AreasofFocus() {
                 </span>
               </div>
 
-              <h2 className="sr-item text-white text-[48px] font-extrabold -tracking-[1.2px] leading-[1.08]">
+              <h2 className="sr-item text-white text-2xl md:text-[48px] font-extrabold -tracking-[1.2px] leading-[1.08]">
                 We Cover Every Aspect of the Body
               </h2>
 
@@ -225,7 +217,7 @@ export default function AreasofFocus() {
                 }}
               ></div>
 
-              <p className="sr-item text-white/70 text-[19px] leading-[32px] font-light max-w-[640px]">
+              <p className="sr-item text-white/70 text-base md:text-[19px] leading-[28px] md:leading-[32px] font-light max-w-[640px]">
                 The regions listed above are not our only target areas. We
                 provide remote dosimetry services for every part of the body —
                 including complex cases requiring specialized techniques.
@@ -233,7 +225,7 @@ export default function AreasofFocus() {
             </div>
 
             {/* Bottom: Stats row + CTA */}
-            <div className="sr-item grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1000px] mx-auto mb-12">
+            <div className="sr-item grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1000px] mx-auto mb-10 md:mb-12">
               {[
                 {
                   value: "15+",
@@ -299,14 +291,13 @@ export default function AreasofFocus() {
               ))}
             </div>
 
-            <div className="sr-item flex items-center gap-5 justify-center">
+            <div className="sr-item flex flex-col sm:flex-row items-center gap-4 justify-center">
               <a href="/contact" className="ip-btn ip-btn-outline">
                 Contact Us <span>→</span>
               </a>
               <a href="/plans" className="ip-btn ip-btn-outline w-fit">
                 View Our Plans <span>→</span>
               </a>
-
             </div>
           </SectionReveal>
         </div>
