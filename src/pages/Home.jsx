@@ -91,8 +91,6 @@ export default function Home({ alreadyShown }) {
       s_3_div_height = '340px';
     }
 
-    console.log(s_3_div_2_width,s_3_div_2_height);
-
     const tls3 = gsap.timeline({
       scrollTrigger: {
         trigger: ".section-3",
@@ -272,7 +270,7 @@ export default function Home({ alreadyShown }) {
               backgroundRepeat: "no-repeat",
             }}
           ></div>
-          <div className="absolute top-[380px] left-[210px] flex flex-row-reverse gap-[38px]">
+          <div className="absolute top-[380px] left-[210px] 2xl:left-[120px] 2xl:top-[250px] flex flex-row-reverse gap-[38px]">
             <img src="assets/line-banner-2.png" alt="" />
             <p className="text-[20px] text-[#434961] leading-[24px] w-[280px] content-end text-end mb-[-37px]">
               Advanced Radiotherapy Treatment Process
@@ -351,7 +349,7 @@ export default function Home({ alreadyShown }) {
                 />
                 <div className="absolute inset-0 bg-blue-900/75 flex flex-col items-center justify-center px-6 text-center gap-[36px]">
                   <h3 className="text-4xl font-extrabold text-white">VMAT</h3>
-                  <p className="text-blue-100 text-sm w-[432px]">
+                  <p className="text-blue-100 text-sm w-[432px] 2xl:w-[350px]">
                     Volumetric modulated arc therapy (VMAT) has rapidly become
                     the standard of care in the radiation oncology...
                   </p>
