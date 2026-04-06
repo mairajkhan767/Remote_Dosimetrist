@@ -228,7 +228,7 @@ export default function AreasofFocus() {
             <div className="sr-item grid grid-cols-1 md:grid-cols-3 gap-6 max-w-[1000px] mx-auto mb-10 md:mb-12">
               {[
                 {
-                  value: "15+",
+                  value: "10+",
                   label: "Years Experience",
                   sub: "Per dosimetrist, minimum",
                 },

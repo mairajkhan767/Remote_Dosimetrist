@@ -12,6 +12,7 @@ export default function GetInTouch() {
           </div>
           <div className="flex flex-col w-full gap-5">
             <input type="text" name="name" id="name" placeholder="Name" autoComplete="off" className="bg-transparent border-[#8EA7C4] px-6 py-5 text-[16px] text-[#5C296C] font-semibold border border-solid" />
+            <input type="text" name="phone" id="phone" placeholder="Phone" autoComplete="off" className="bg-transparent border-[#8EA7C4] px-6 py-5 text-[16px] text-[#5C296C] font-semibold border border-solid" />
             <input type="email" name="email" id="email" placeholder="Email" autoComplete="off" className="bg-transparent border-[#8EA7C4] px-6 py-5 text-[16px] text-[#5C296C] font-semibold border border-solid" />
             <textarea name="message" id="message" cols="1" rows="2" placeholder="Message" autoComplete="off" className="bg-transparent min-h-[140px] md:min-h-[188px] border-[#8EA7C4] text-[#5C296C] px-6 py-5 text-[16px] font-semibold border border-solid"></textarea>
           </div>

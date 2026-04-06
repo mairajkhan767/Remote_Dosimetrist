@@ -37,6 +37,10 @@ export default function Home_New({ alreadyShown }) {
         gsap.set(".s-3-div-1, .s-3-div-3", { width: 620, height: 566 });
         gsap.set('.s-4-bg-image', { scale: 1.05 });
         gsap.set(".s-3-div-2", { width: 620 });
+        let fcH1_Y = 200;
+        if(screen.width < 1400){
+          fcH1_Y = 70;
+        }
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: ".first-container",
@@ -57,7 +61,7 @@ export default function Home_New({ alreadyShown }) {
         tl.to(
           ".fCH1",
           {
-            y: 200,
+            y: fcH1_Y,
             // duration: 2,
             ease: "power1.inOut",
           },
@@ -199,6 +203,12 @@ export default function Home_New({ alreadyShown }) {
           "<",
         );
 
+        let area_main_y = 300;
+
+        if(screen.width <= 1400){
+          area_main_y = 400;
+        }
+
         const tls4 = gsap.timeline({
           scrollTrigger: {
             trigger: ".section-4",
@@ -227,7 +237,7 @@ export default function Home_New({ alreadyShown }) {
             duration: 2
           }, "<")
           .to(".area-main", {
-            y: 300,
+            y: area_main_y,
             duration: 2
           }, "<")
           .to(".s-4-bg-color", {
@@ -261,7 +271,7 @@ export default function Home_New({ alreadyShown }) {
       }}
     >
       <div className="first-container bg-main-video relative">
-        <div className="w-full h-full flex justify-center items-end pb-10 xl:pb-[179px]">
+        <div className="w-full h-full flex justify-center items-end pb-10 xl:pb-[50px] xxxl:pb-[179px]">
           <video
             className="object-cover absolute top-0 left-0 w-full h-full pointer-events-none z-0"
             ref={videoRef}
@@ -484,44 +494,65 @@ export default function Home_New({ alreadyShown }) {
                   </div>
                 </div>
                 <div className="image-02">
-                  <img src="/assets/focus-images/Pelvis.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pelvis" data-para="Focusing on larger and more irregularly shaped pelvic target volumes" />
+                  <img src="/assets/focus-images/Pelvis.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pelvis" data-para="Focusing on larger and more irregularly shaped pelvic target volumes" 
+                  style={{
+                    width: "250px",
+                    height: "150px"
+                  }}/>
                 </div>
                 <div className="image-01">
-                  <img src="/assets/focus-images/Head-Neck.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Head & Neck" data-para="Head and neck cancers have often been associated with very difficult and time-consuming radiation" />
+                  <img src="/assets/focus-images/uterus.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Uterus" data-para="Uterine cancers have often been associated with very difficult and time-consuming radiation" 
+                  style={{
+                    width: "250px",
+                    height: "150px"
+                  }}
+                  />
                 </div>
                 <div className="image-03">
-                  <img src="/assets/focus-images/Pediatrics.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pediatrics" data-para="Radiation has always been a cancer treatment that has been attempted to be reduced and/or avoided" />
+                  <img src="/assets/focus-images/Pediatrics.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pediatrics" data-para="Radiation has always been a cancer treatment that has been attempted to be reduced and/or avoided" 
+                  style={{
+                    width: "250px",
+                    height: "150px"
+                  }}/>
                 </div>
                 <div className="image-04">
-                  <img src="/assets/focus-images/Breast.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Breast" data-para="One of the few radiation dosimetry techniques that has not thoroughly changed over time" />
+                  <img src="/assets/focus-images/Breast.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Breast" data-para="One of the few radiation dosimetry techniques that has not thoroughly changed over time" 
+                  style={{
+                    width: "250px",
+                    height: "150px"
+                  }}/>
                 </div>
                 <div className="image-05">
-                  <img src="/assets/focus-images/Chest.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Chest" data-para="Lung irradiation has always presented a dosimetry problem with doses above 20Gy to the nearby healthy lung" />
+                  <img src="/assets/focus-images/Chest.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Chest" data-para="Lung irradiation has always presented a dosimetry problem with doses above 20Gy to the nearby healthy lung" 
+                  style={{
+                    width: "250px",
+                    height: "150px"
+                  }}/>
                 </div>
                 <div className="image-06">
-                  <img src="/assets/focus-images/CNS.png" alt="Area 01" onMouseEnter={handleHover} data-heading="CNS" data-para="Standard of care for primary brain tumors is VMAT" />
+                  <img src="/assets/focus-images/CNS.png" alt="Area 01" onMouseEnter={handleHover} data-heading="CNS" data-para="Standard of care for primary brain tumors is VMAT" 
+                  style={{
+                    width: "250px",
+                    height: "150px"
+                  }}/>
                 </div>
                 <div className="image-07">
                   <img src="/assets/focus-images/Abdomen.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Abdomen" data-para="Focusing on larger and more irregularly shaped abdominal target volumes" 
                   style={{
-                    width: "150px",
+                    width: "250px",
                     height: "150px"
                   }}
                   />
                 </div>
                 <div className="image-08">
-                  <img src="/assets/focus-images/uterus.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Uterus" data-para="Uterine cancers have often been associated with very difficult and time-consuming radiation" 
-                  style={{
-                    width: "150px",
-                    height: "150px"
-                  }}/>
+                  <img src="/assets/focus-images/Head-Neck.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Head & Neck" data-para="Head and neck cancers have often been associated with very difficult and time-consuming radiation" />
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="section-5 w-full xl:min-h-dvh xl:mt-[500px] xxxl:mt-[400px] relative flex flex-col xl:flex-row justify-start items-center xl:justify-between xl:items-stretch gap-[38px] px-5 4xl:px-[140px]">
+      <div className="section-5 w-full xl:min-h-dvh xl:mt-[700px] xxxl:mt-[400px] relative flex flex-col xl:flex-row justify-start items-center xl:justify-between xl:items-stretch gap-[38px] px-5 4xl:px-[140px]">
         <div className="flex flex-col justify-center lg:gap-[38px] gap-[55px] w-full xl:w-1/2">
           <div
             className="s-5-c-1 flex flex-col justify-between gap-[32px] p-10 xl:stay-col xl:opacity-0 xl:translate-y-[500px]"

@@ -37,7 +37,7 @@ export default function Header({ alreadyShown }) {
         style={{ transition: "top 1s ease-in" }}
       >
         {/* Desktop left nav */}
-        <nav className="hidden xl:flex space-x-[65px]">
+        <nav className="hidden xl:flex space-x-[30px]">
           <Link to="/" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors capitalize`}>Home</Link>
           <Link to="/about" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors capitalize`}>About Us</Link>
           <Link to="/areas" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-bold text-md transition-colors capitalize`}>Areas of Focus</Link>
@@ -53,7 +53,7 @@ export default function Header({ alreadyShown }) {
 
         {/* Desktop right nav + CTA */}
         <div className="hidden xl:flex items-center space-x-[20px]">
-          <nav className="flex space-x-[65px]">
+          <nav className="flex space-x-[30px]">
             <Link to="/how-it-works" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-semibold text-md transition-colors capitalize`}>How it works</Link>
             <Link to="/process" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-semibold text-md transition-colors capitalize`}>Process</Link>
             <Link to="/contact" className={`${animatedUnderlineClass} hover:text-[#003777] text-gray-800 font-semibold text-md transition-colors capitalize`}>Contact Us</Link>
