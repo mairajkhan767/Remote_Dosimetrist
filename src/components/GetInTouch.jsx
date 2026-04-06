@@ -29,7 +29,7 @@ export default function GetInTouch() {
           <div>
             <div className="flex flex-col gap-4">
               <div className="border border-gray-500 px-6 md:px-14 py-4 flex flex-col">
-                <button onClick={() => toggleAccordion(1)} className="w-full flex justify-between items-center bg-transparent!">
+                <button onClick={() => toggleAccordion(1)} className="w-full flex justify-between items-center bg-transparent! text-left">
                   <span className="text-[#003777]">What is Material Tailwind?</span>
                   <span id="icon-1" className="text-slate-800 transition-transform duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
@@ -45,7 +45,7 @@ export default function GetInTouch() {
               </div>
 
               <div className="border border-gray-500 px-6 md:px-14 py-4 flex flex-col">
-                <button onClick={() => toggleAccordion(2)} className="w-full flex justify-between items-center bg-transparent!">
+                <button onClick={() => toggleAccordion(2)} className="w-full flex justify-between items-center bg-transparent! text-left">
                   <span className="text-[#003777]">How to use Material Tailwind?</span>
                   <span id="icon-2" className="text-slate-800 transition-transform duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
@@ -61,7 +61,7 @@ export default function GetInTouch() {
               </div>
 
               <div className="border border-gray-500 px-6 md:px-14 py-4 flex flex-col">
-                <button onClick={() => toggleAccordion(3)} className="w-full flex justify-between items-center bg-transparent!">
+                <button onClick={() => toggleAccordion(3)} className="w-full flex justify-between items-center bg-transparent! text-left">
                   <span className="text-[#003777]">What can I do with Material Tailwind?</span>
                   <span id="icon-3" className="text-slate-800 transition-transform duration-300">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">

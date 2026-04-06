@@ -59,11 +59,7 @@ body {
     );
 }
 
-p {
-  font-size: 20px;
-  /* letter-spacing: -25px; */
-  /* line-height: 37px; */
-}
+
 
 button {
   /* border-radius: 8px;
@@ -1091,3 +1087,21 @@ button:focus-visible {
     height: 44px;
   }
 }
+
+@media (max-width: 1450px) and (min-width: 1200px){
+      .review-slider .swiper-slide-active {
+        padding-top: 30px;
+        padding-bottom: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .review-slider .swiper-slide-active .review-main {
+    padding: 0px;
+}
+    }
+
+    @media (max-width: 600px) {
+      .review-slider .swiper-slide-active .review-main {
+    padding: 0px;
+}
+    }

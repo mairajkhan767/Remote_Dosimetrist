@@ -44,7 +44,7 @@ export default function About() {
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4 transition-colors duration-500">Our Vision</h3>
-                <p className="text-gray-600 leading-relaxed transition-colors duration-500">
+                <p className="text-gray-600 text-[16px] lg:text-[20px] leading-relaxed transition-colors duration-500">
                   Our vision is to create long and lasting partnerships with our clients
                   and to share information within our network that improves workflow in every department.
                 </p>
@@ -60,7 +60,7 @@ export default function About() {
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4 transition-colors duration-500">Our Mission</h3>
-                <p className="text-gray-600 leading-relaxed transition-colors duration-500">
+                <p className="text-gray-600 text-[16px] lg:text-[20px] leading-relaxed transition-colors duration-500">
                   Our mission is to gain our clients' trust and appreciation by providing
                   the highest quality plans in the most efficient manner possible.
                 </p>
@@ -76,7 +76,7 @@ export default function About() {
                   </div>
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-4 transition-colors duration-500">Our Values</h3>
-                <p className="text-gray-600 leading-relaxed transition-colors duration-500">
+                <p className="text-gray-600 text-[16px] lg:text-[20px] leading-relaxed transition-colors duration-500">
                   We value honesty, communication, fairness, consistency, and efficiency.
                   All of our clients and their patients are treated with utmost care.
                 </p>
