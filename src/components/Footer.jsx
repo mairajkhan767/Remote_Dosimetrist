@@ -35,7 +35,7 @@ export default function Footer() {
             <div className="flex flex-col space-y-4 text-xs font-bold tracking-widest text-[#595959] uppercase">
               <Link to="/process" className="hover:text-[#003777]">Process</Link>
               <Link to="/systems" className="hover:text-[#003777]">Systems</Link>
-              <a href="#blog" className="hover:text-[#003777]">Our Blog</a>
+              <Link to="/how-it-works" className="hover:text-[#003777]">How it Works</Link>
               <Link to="/contact" className="hover:text-[#003777]">Contact</Link>
             </div>
           </div>

@@ -58,10 +58,10 @@ export default function PlansThatHelp() {
                 Volumetric modulated arc therapy (VMAT) has rapidly become the
                 standard of care in the radiation oncology...
               </p>
-              <button className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white px-6 py-3 rounded-full transition">
+              <a href="/contact" className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white px-6 py-3 rounded-full transition">
                 Discover More
                 <span>→</span>
-              </button>
+              </a>
             </div>
           </div>
 

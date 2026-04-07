@@ -153,7 +153,7 @@ export default function Contact() {
                     </div>
                   </div>
 
-                  <div className="flex justify-end mt-5">
+                  <div className="flex justify-start mt-5">
                     <button className="ip-btn ip-btn-primary">
                       Send Message <span>→</span>
                     </button>
