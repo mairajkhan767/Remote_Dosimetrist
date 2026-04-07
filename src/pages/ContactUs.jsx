@@ -126,12 +126,12 @@ export default function Contact() {
 
             {/* Right: Form */}
             <SectionReveal direction="right">
-              <div className="sr-item ip-card ip-card-glass p-6 md:p-10 lg:p-12 rounded-[24px]">
-                <div className="mb-9">
+              <div className="sr-item ip-card ip-card-glass p-6 md:p-10 lg:p-4 rounded-[24px]">
+                <div className="lg:mb-2 mb-9">
                   <h3 className="text-[#003777] text-[22px] md:text-[24px] font-bold mb-3">Send Us a Message</h3>
                   <div className="ip-section-divider"></div>
                 </div>
-                <form className="flex flex-col gap-5">
+                <form className="flex flex-col lg:gap-2 gap-5">
                   <input type="text" placeholder="Full Name" className="ip-form-input" />
                   <input type="email" placeholder="Email Address" className="ip-form-input" />
                   <input type="tel" placeholder="Phone Number" className="ip-form-input" />

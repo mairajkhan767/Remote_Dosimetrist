@@ -137,7 +137,7 @@ export default function About() {
 
             <SectionReveal direction="right">
               <div
-                className="sr-item relative isolate flex flex-col justify-start p-6 md:p-12 gap-8 rounded-[32px] bg-no-repeat bg-cover bg-center min-h-[400px] md:min-h-[700px]"
+                className="sr-item h-full relative isolate flex flex-col justify-start p-6 md:p-12 gap-8 rounded-[32px] bg-no-repeat bg-cover bg-center min-h-[400px] md:min-h-[700px]"
                 style={{
                   backgroundImage: "url(/assets/about-bg.jpg)",
                   backgroundPosition: "left",
@@ -146,7 +146,8 @@ export default function About() {
               >
                 <div
                   className="absolute inset-0 rounded-[32px] pointer-events-none"
-                  style={{ background: "linear-gradient(180deg, rgba(0,55,119,0.55), rgba(0,29,64,0.70))" }}
+                  // style={{ background: "linear-gradient(180deg, rgba(0,55,119,0.55), rgba(0,29,64,0.70))" }}
+                  style={{ backgroundImage: "url(/assets/5th-sec-img-2.png)" }}
                 ></div>
                 <div className="z-10 flex flex-col gap-8">
                   <div className="relative">
@@ -235,7 +236,7 @@ export default function About() {
           <SectionReveal direction="left" parallax>
             <div className="sr-item ip-image-wrap">
               <img
-                src="/assets/img-4.png"
+                src="/assets/1-2.jpg"
                 alt="The future of dosimetry"
                 className="w-full object-cover h-[260px] md:h-[580px]"
               />

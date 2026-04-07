@@ -8,13 +8,13 @@ import "swiper/css/navigation";
 const reviews = [
   {
     rating: 5,
-    text: "Working for a busy radiation oncology department, it became quite difficult to manage the workload when a staff member decided to move onto a new venture. We needed help with the spikes we had in planning but really didn't need someone full time. We were very fortunate to have taken on Nathan and his team as a contractor for our clinic as he fit himself in perfectly to meet our needs. ",
+    text: "Working for a busy radiation oncology department, it became quite difficult to manage the workload when a staff member decided to move onto a new venture. We needed help with the spikes we had in planning but really didn't need someone full time. ",
     name: "Richard K, CMD (Auburn, WA)",
     image: "/assets/review-img.png",
   },
   {
     rating: 4,
-    text: "Nathan is an honest and dependable Dosimetrist.  He filled in for our Varian platform clinic when we were overwhelmed by the high volume of patients.  Nathan is pleasant to work with and easily accommodated the way our clinic provides dosimetry to our community.  I would highly recommend him and his team for Dosimetry in any clinic.  He is smart, has great insight and easily assembles into a team environment.",
+    text: "Nathan is an honest and dependable Dosimetrist.  He filled in for our Varian platform clinic when we were overwhelmed by the high volume of patients.  Nathan is pleasant to work with and easily accommodated the way our clinic provides dosimetry to our community.",
     name: "Monique W, CMD (Tacoma, WA)",
     image: "/assets/review-img.png",
   },
@@ -26,13 +26,13 @@ const reviews = [
   },
   {
     rating: 5,
-    text: "Working for a busy radiation oncology department, it became quite difficult to manage the workload when a staff member decided to move onto a new venture. We needed help with the spikes we had in planning but really didn't need someone full time. We were very fortunate to have taken on Nathan and his team as a contractor for our clinic as he fit himself in perfectly to meet our needs. ",
+    text: "Working for a busy radiation oncology department, it became quite difficult to manage the workload when a staff member decided to move onto a new venture. We needed help with the spikes we had in planning but really didn't need someone full time.",
     name: "Richard K, CMD (Auburn, WA)",
     image: "/assets/review-img.png",
   },
   {
     rating: 4,
-    text: "Nathan is an honest and dependable Dosimetrist.  He filled in for our Varian platform clinic when we were overwhelmed by the high volume of patients.  Nathan is pleasant to work with and easily accommodated the way our clinic provides dosimetry to our community.  I would highly recommend him and his team for Dosimetry in any clinic.  He is smart, has great insight and easily assembles into a team environment.",
+    text: "Nathan is an honest and dependable Dosimetrist.  He filled in for our Varian platform clinic when we were overwhelmed by the high volume of patients.  Nathan is pleasant to work with and easily accommodated the way our clinic provides dosimetry to our community.",
     name: "Monique W, CMD (Tacoma, WA)",
     image: "/assets/review-img.png",
   },
@@ -106,13 +106,13 @@ export default function ReviewSlider() {
               slidesPerView: 1,
             },
             1024: {
-              slidesPerView: 1,
+              slidesPerView: 3,
             },
             1280: {
-              slidesPerView: 1,
+              slidesPerView: 3,
             },
             1366: {
-              slidesPerView: 1,
+              slidesPerView: 3,
             },
             1440: {
               slidesPerView: 3,
@@ -121,7 +121,7 @@ export default function ReviewSlider() {
           className="w-full review-slider"
         >
           {reviews.map((review, index) => (
-            <SwiperSlide key={index} className="">
+            <SwiperSlide key={index} className="!h-auto">
               <ReviewCard review={review} />
             </SwiperSlide>
           ))}

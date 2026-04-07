@@ -38,7 +38,8 @@ export default function Home_New({ alreadyShown }) {
         gsap.set('.s-4-bg-image', { scale: 1.05 });
         gsap.set(".s-3-div-2", { width: 620 });
         let fcH1_Y = 200;
-        if(screen.width < 1400){
+        // console.log(screen.innerWidth);
+        if(window.innerWidth < 1500){
           fcH1_Y = 70;
         }
         const tl = gsap.timeline({
@@ -47,22 +48,17 @@ export default function Home_New({ alreadyShown }) {
             start: "top+=100 top",
             end: "+=400",
             scrub: 1,
-            // markers: true,
-            // toggleActions: "play none none reverse"
           },
-          // delay: 0,
           onComplete: () => { },
         });
         tl.to(videoRef.current, {
           opacity: 0.5,
-          // duration: 1,
           ease: "power4.inOut",
         });
         tl.to(
           ".fCH1",
           {
             y: fcH1_Y,
-            // duration: 2,
             ease: "power1.inOut",
           },
           "<",
@@ -71,7 +67,6 @@ export default function Home_New({ alreadyShown }) {
           ".second-c-div",
           {
             y: 0,
-            // duration: 2,
             ease: "power4.inOut",
           },
           "<",
@@ -80,7 +75,6 @@ export default function Home_New({ alreadyShown }) {
           ".s-3-video",
           {
             y: -200,
-            // duration: 2,
             ease: "power1.inOut",
           },
           "<",
@@ -101,21 +95,12 @@ export default function Home_New({ alreadyShown }) {
           s_3_divs_padding.right = '20px';
         }
 
-        // if(screen.width == 1600){
-        //   s_3_div_2_width = '657px';
-        //   s_3_div_2_height = '340px';
-        //   s_3_div_width = '450px'; 
-        //   s_3_div_height = '340px';
-        // }
-
         const tls3 = gsap.timeline({
           scrollTrigger: {
             trigger: ".section-3",
             start: "top 70%",
             end: "+=500",
             scrub: 1,
-            // markers: true
-            // toggleActions: "play none none reverse",
           },
           delay: 0,
           onComplete: () => { },
@@ -181,9 +166,6 @@ export default function Home_New({ alreadyShown }) {
             start: "top 80%",
             end: "+=500",
             scrub: 1,
-            // toggleActions: "play none none reverse",
-            // scrub: true,
-            // markers: true
           },
           delay: 0,
           onComplete: () => { },
@@ -203,28 +185,25 @@ export default function Home_New({ alreadyShown }) {
           "<",
         );
 
-        let area_main_y = 300;
+        let area_main_y = 300, area_main_scale = 1.8;
 
-        if(screen.width <= 1400){
-          area_main_y = 400;
+        if(window.innerWidth <= 1500){
+          area_main_y = 250;
+          area_main_scale = 1.2;
         }
-
+        // console.log(area_main_scale, window.innerWidth);
         const tls4 = gsap.timeline({
           scrollTrigger: {
             trigger: ".section-4",
             start: "top top",
             end: "+=500",
             scrub: 1,
-            // pin: '.s-4-bg-image-c'
-            // toggleActions: "play none none reverse",
-            // scrub: true,
-            // markers: true
           },
           delay: 0,
           onComplete: () => { },
         });
         tls4.to(".area-main", {
-          scale: 1.8,
+          scale: area_main_scale,
           rotate: 180,
           duration: 1
         })
@@ -271,7 +250,7 @@ export default function Home_New({ alreadyShown }) {
       }}
     >
       <div className="first-container bg-main-video relative">
-        <div className="w-full h-full flex justify-center items-end pb-10 xl:pb-[50px] xxxl:pb-[179px]">
+        <div className="w-full h-full flex justify-center items-end pb-10 lg:pb-[50px] 3xl:pb-[179px]">
           <video
             className="object-cover absolute top-0 left-0 w-full h-full pointer-events-none z-0"
             ref={videoRef}
@@ -288,55 +267,63 @@ export default function Home_New({ alreadyShown }) {
           <div
             className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
             style={{
-              // background: `radial-gradient(rgba(255, 255, 255, 0) 25%, rgb(255, 255, 255) 67%)`,
               backgroundImage: `url('/assets/fade-overlay.png')`,
               backgroundPosition: "center",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
             }}
           ></div>
-          <div className="hidden absolute xl:top-[258px] xxxl:top-[450px] xl:left-[10px] 4xl:top-[380px] 4xl:left-[210px] 2xl:left-[120px] 2xl:top-[250px] xl:flex xl:flex-row-reverse xl:gap-[38px]">
+          <div className="hidden absolute 
+          lg:top-[200px]
+          2xl:top-[275px] 
+          lg:left-[10px] 
+          4xl:top-[380px] 
+          4xl:left-[210px] 
+          2xl:left-[120px] 
+          lg:flex 
+          lg:flex-row-reverse 
+          lg:gap-[38px]">
             <img src="/assets/line-banner-2.png" alt="" />
-            <p className="text-[16px] xl:text-[20px] text-[#434961] leading-[24px] w-[280px] content-end text-end mb-[-37px]">
+            <p className="text-[16px] lg:text-[20px] text-[#434961] leading-[24px] w-[280px] content-end text-end mb-[-37px]">
               Advanced Radiotherapy Treatment Process
             </p>
           </div>
-          <div className="hidden absolute 4xl:top-[150px] 4xl:right-[16.3%] xl:top-[210px] xl:right-[10.3%] xl:flex xl:gap-[9px]">
+          <div className="hidden absolute 4xl:top-[150px] 4xl:right-[16.3%] lg:top-[100px] lg:right-[10.3%] lg:flex lg:gap-[9px]">
             <img src="/assets/line-banner-1.png" alt="" />
             <p className="text-[20px] text-[#434961] leading-[24px] w-[200px] content-end mb-[-25px]">
               Remote-Only Dosimetry Company
             </p>
           </div>
           <div className="p-0 z-10 relative">
-            <h1 className="fCH1 text-[28px] lg:text-[40px] lg:leading-12 text-center leading-8 xl:text-3xl xl:leading-10 xl:text-[100px] text-[#003777] xl:leading-24 -tracking-[2.5px] font-extrabold">
+            <h1 className="fCH1 text-[28px] lg:text-[60px] lg:leading-12 text-center leading-8 xl:text-[100px] text-[#003777] xl:leading-24 -tracking-[2.5px] font-extrabold">
               Dosimetry Made Simple
             </h1>
-            <div className="second-c-div flex lg:px-10 xl:px-10 xl:hidden justify-center flex-col items-center gap-[10px] pt-[20px]">
+            <div className="second-c-div flex lg:px-10 lg:hidden justify-center flex-col items-center gap-[10px] pt-[20px]">
               <p className="w-full px-5 text-center text-[16px] lg:text-[22px] lg:leading-8 leading-5  tracking-[-0.65px]">
                 A group of certified medical dosimetrists that truly care. We always
                 have the patient's best needs at heart on any treatment plan that we
                 create for you, the client.
               </p>
-              <button className="ip-btn ip-btn-primary w-fit mt-3">
+              <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
                 Discover More <span>→</span>
-              </button>
+              </a>
             </div>
           </div>
         </div>
       </div>
-      <div className="hidden xl:flex w-full justify-center items-center">
+      <div className="hidden lg:flex w-full justify-center items-center">
         <div className="second-c-div flex justify-center flex-col items-center gap-[36px] py-[36px] top-25">
-          <p className="w-full px-2 xl:px-0 text-[16px] leading-5 xl:w-[695px] text-center xl:text-[26px] xl:leading-9.25 tracking-[-0.65px]">
+          <p className="w-full px-2 lg:px-0 text-[16px] leading-5 lg:w-[695px] text-center lg:text-[22px] lg:leading-9.25 tracking-[-0.65px]">
             A group of certified medical dosimetrists that truly care. We always
             have the patient's best needs at heart on any treatment plan that we
             create for you, the client.
           </p>
-          <button className="ip-btn ip-btn-primary w-fit mt-3">
+          <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
             Discover More <span>→</span>
-          </button>
+          </a>
         </div>
       </div>
-      <div className="min-h-[150dvh] hidden xl:block relative">
+      <div className="min-h-[150dvh] hidden lg:block relative">
         <div className="section-3 w-full min-h-dvh overflow-hidden sticky top-0">
           <video
             className="s-3-video absolute inset-0 h-full w-full object-cover origin-center"
@@ -388,9 +375,9 @@ export default function Home_New({ alreadyShown }) {
                     Volumetric modulated arc therapy (VMAT) has rapidly become
                     the standard of care in the radiation oncology...
                   </p>
-                  <button className="ip-btn ip-btn-primary w-fit mt-3">
+                  <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
                     Discover More <span>→</span>
-                  </button>
+                  </a>
                 </div>
               </div>
               <div className="s-3-div-3 relative group overflow-hidden  w-[620px] h-[566px]">
@@ -407,7 +394,7 @@ export default function Home_New({ alreadyShown }) {
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col justify-center items-center xl:hidden gap-10 py-10">
+      <div className="w-full flex flex-col justify-center items-center lg:hidden gap-10 py-10">
         <div className="w-full flex flex-col justify-center items-center lg:px-30 gap-5">
           <h2 className="text-[28px] lg:text-[40px] font-extrabold text-center text-[#003777]">
             Plans That Help
@@ -435,14 +422,14 @@ export default function Home_New({ alreadyShown }) {
               className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-blue-900/75 flex flex-col items-center justify-center px-6 text-center gap-[36px]">
-              <h3 className="text-4xl font-extrabold text-white">VMAT</h3>
+              <h3 className="text-4xl font-extrabold text-white uppercase">Gynaecological</h3>
               <p className="text-blue-100 text-[16px] w-10/12 text-center">
                 Volumetric modulated arc therapy (VMAT) has rapidly become
                 the standard of care in the radiation oncology...
               </p>
-              <button className="ip-btn ip-btn-primary w-fit mt-3">
+              <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
                 Discover More <span>→</span>
-              </button>
+              </a>
             </div>
           </div>
           <div className="w-full relative group overflow-hidden rounded-2xl lg:p-2">
@@ -457,7 +444,7 @@ export default function Home_New({ alreadyShown }) {
           </div>
         </div>
       </div>
-      <div className="min-h-[200dvh] hidden xl:block">
+      <div className="min-h-[200dvh] hidden lg:block">
         <div className="section-4 w-full min-h-dvh flex justify-center items-center sticky top-0">
           <div className="w-full h-full">
 
@@ -487,9 +474,9 @@ export default function Home_New({ alreadyShown }) {
                       {hoverData.para}
                     </p>
                     <div className="m-auto flex justify-center">
-                      <button className="w-[223px] h-[54px] rounded-full bg-[#003777]! text-white! hover:bg-white! hover:text-[#003777]! border border-[#003777] transition-all! duration-500!">
+                      <a href="/contact" className="flex flex-col justify-center items-center w-[223px] h-[54px] rounded-full bg-[#003777]! text-white! hover:bg-white! hover:text-[#003777]! border border-[#003777] transition-all! duration-500!">
                         Discover More
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -552,26 +539,26 @@ export default function Home_New({ alreadyShown }) {
           </div>
         </div>
       </div>
-      <div className="section-5 w-full xl:min-h-dvh xl:mt-[700px] xxxl:mt-[400px] relative flex flex-col xl:flex-row justify-start items-center xl:justify-between xl:items-stretch gap-[38px] px-5 4xl:px-[140px]">
-        <div className="flex flex-col justify-center lg:gap-[38px] gap-[55px] w-full xl:w-1/2">
+      <div className="section-5 w-full lg:min-h-dvh lg:mt-[400px] 3xl:mt-[500px] relative flex flex-col lg:flex-row justify-start items-center lg:justify-between lg:items-stretch gap-[38px] px-5 4xl:px-[140px]">
+        <div className="flex flex-col justify-center lg:gap-[38px] gap-[55px] w-full lg:w-1/2">
           <div
-            className="s-5-c-1 flex flex-col justify-between gap-[32px] p-10 xl:stay-col xl:opacity-0 xl:translate-y-[500px]"
+            className="s-5-c-1 flex flex-col justify-between gap-[32px] p-10 lg:stay-col lg:opacity-0 lg:translate-y-[500px]"
             style={{
               background: `linear-gradient(45deg, #003777, #0E3CF6)`,
               borderRadius: "32px",
             }}
           >
-            <h2 className=" text-[20px] lg:text-[40px] xl:text-[48px] text-white -tracking-[1.2px] xl:leading-[52px] font-bold xl:w-[500px]">
+            <h2 className=" text-[20px] lg:text-[40px] lg:text-[48px] text-white -tracking-[1.2px] lg:leading-[52px] font-bold lg:w-[500px]">
               Remote Dosimetry Is Here To Stay
             </h2>
-            <p className="text-[16px] lg:text-[22px] xl:text-[26px] text-white -tracking-[0.65px] xl:leading-[37px] 4xl:w-[694px]">
+            <p className="text-[16px] lg:text-[22px] lg:text-[26px] text-white -tracking-[0.65px] lg:leading-[37px] 4xl:w-[694px]">
               Remote Dosimetrist has shown to be more efficient than on-site
               dosimetry. It is structured to help our clients effectively and
               safely handle the treatment of their cancer patients especially
               during these critical and challenging times of mandated or
               self-quarantine.
             </p>
-            <a href="/about" className="ip-btn ip-btn-outline w-fit">
+            <a href="/contact" className="ip-btn ip-btn-outline w-fit">
               Discover More <span>→</span>
             </a>
           </div>
@@ -580,21 +567,21 @@ export default function Home_New({ alreadyShown }) {
           </div>
         </div>
         <div
-          className="flex flex-col justify-center xl:justify-start p-10 gap-[32px] rounded-[32px] bg-no-repeat bg-cover bg-bottom w-full xl:w-1/2"
+          className="flex flex-col justify-center lg:justify-start p-10 gap-[32px] rounded-[32px] bg-no-repeat bg-cover bg-bottom w-full lg:w-1/2"
           style={{ backgroundImage: "url(/assets/5th-sec-img-2.png)" }}
         >
           {/* <img src="/assets/5th-sec-img-2.png" alt="" /> */}
-          <h2 className="s-5-h2 text-[28px] lg:text-[40px] xl:text-[48px] text-white -tracking-[1.2px] xl:leading-[52px] font-bold  xl:w-[500px] xl:opacity-0 xl:translate-y-[500px]">
+          <h2 className="s-5-h2 text-[28px] lg:text-[40px] lg:text-[48px] text-white -tracking-[1.2px] lg:leading-[52px] font-bold  lg:w-[500px] lg:opacity-0 lg:translate-y-[500px]">
             Why Hire A Remote Dosimetrist?
           </h2>
-          <p className="s-5-p text-[16px] lg:text-[22px] xl:text-[26px] text-white -tracking-[0.65px] xl:leading-[37px] 4xl:w-[694px] xl:opacity-0  xl:translate-y-[500px]">
+          <p className="s-5-p text-[16px] lg:text-[22px] lg:text-[26px] text-white -tracking-[0.65px] lg:leading-[37px] 4xl:w-[694px] lg:opacity-0  lg:translate-y-[500px]">
             While the number of cancer patients increases and the demand for
             professional dosimetrists remains high, it’s not always feasible for
             smaller, rural centers to have full-time dosimetrists on the staff.
             If the patient demand isn’t enough for a small town, hiring a remote
             worker makes more sense.
           </p>
-          <a href="/about" className="ip-btn ip-btn-outline w-fit">
+          <a href="/contact" className="ip-btn ip-btn-outline w-fit">
             Discover More <span>→</span>
           </a>
         </div>

@@ -156,7 +156,7 @@ export default function Process() {
           <SectionReveal direction="right" className="lg:order-2" parallax>
             <div className="sr-item ip-image-wrap">
               <img
-                src="/assets/img-4.png"
+                src="/assets/1-2.jpg"
                 alt="Why hire a remote dosimetrist"
                 className="w-full object-cover h-[260px] md:h-[480px]"
               />

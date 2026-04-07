@@ -6,32 +6,15 @@ import { faLinkedinIn, faFacebookF, faYoutube, faTwitter } from "@fortawesome/fr
 export default function Footer() {
   return (
     <footer className="w-full bg-white relative">
-      {/* Top Section with Logo */}
-      <div className="flex justify-center pt-16 pb-12">
-        <Link to="/">
-          <img src="/assets/logo-main.png" alt="Remote Dosimetrist" className="h-16" />
-        </Link>
-      </div>
-
       {/* Content Section */}
-      <div className="container mx-auto px-6 pb-16">
+      <div className="container mx-auto px-6 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-
           {/* Get on the List */}
-          <div className="flex flex-col items-center md:items-start mx-auto w-full max-w-sm">
-            <h3 className="text-[#003777] font-bold text-xl tracking-widest mb-4 uppercase">Get on the List</h3>
-            <p className="text-gray-600 mb-6 text-center md:text-left">
-              Join our mailing list for exclusive promotions, discounts and more!
-            </p>
+          <div className="flex flex-col justify-center items-center xl:items-start mx-auto w-full max-w-sm">
             <div className="w-full">
-              <input
-                type="email"
-                placeholder="EMAIL"
-                className="w-full bg-gray-200 p-4 mb-3 text-sm focus:outline-none"
-              />
-              <button className="w-full border border-gray-400 py-3 text-[#003777] font-bold text-sm tracking-widest hover:bg-[#003777] hover:text-white transition-colors uppercase">
-                Sign Up
-              </button>
+              <Link to="/">
+                <img src="/assets/logo-main.png" alt="Remote Dosimetrist" className="h-16" />
+              </Link>
             </div>
             <div className="flex space-x-6 mt-6">
               <a href="#" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faLinkedinIn} /></a>

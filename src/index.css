@@ -5,6 +5,16 @@
 
 @theme {
   --font-montserrat: "Montserrat", sans-serif;
+
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-xxl: 1366px;
+  --breakpoint-xxxl: 1440px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1600px;
+  --breakpoint-4xl: 1920px;
 }
 
 html,
@@ -59,6 +69,45 @@ body {
     );
 }
 
+@media ( max-width: 1440px) {
+  p{
+    font-size: 18px !important;
+  }
+  h1{
+    font-size: 60px !important;
+  }
+  h2{
+    font-size: 30px !important;
+  }
+  input[type="text"], input[type="email"], textarea{
+    padding-block: 5px !important;
+  }
+  .ip-form-input {
+    height: 38px !important;
+  }
+  
+  .s-4-heading-2{
+    left: unset !important;
+  }
+}
+
+@media (min-width: 1441px) and ( max-width: 1600px) {
+  p{
+    font-size: 22px !important;
+  }
+  h1{
+    font-size: 80px !important;
+  }
+  h2{
+    font-size: 50px !important;
+  }
+  input[type="text"], input[type="email"], textarea{
+    padding-block: 15px !important;
+  }
+  .ip-form-input {
+    height: 38px !important;
+  }
+}
 
 
 button {
