@@ -488,7 +488,7 @@ export default function Home_New({ alreadyShown }) {
                   }}/>
                 </div>
                 <div className="image-01">
-                  <img src="/assets/focus-images/uterus.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Uterus" data-para="Uterine cancers have often been associated with very difficult and time-consuming radiation" 
+                  <img src="/assets/focus-images/uterus.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Gynaecological" data-para="Uterine cancers have often been associated with very difficult and time-consuming radiation" 
                   style={{
                     width: "250px",
                     height: "150px"

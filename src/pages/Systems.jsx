@@ -135,9 +135,9 @@ export default function Systems() {
                               {system.text}
                             </p>
                           )}
-                          <button className="ip-btn ip-btn-primary w-fit mt-3">
+                          <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
                             Discover More <span>→</span>
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </div>
@@ -157,9 +157,9 @@ export default function Systems() {
             RayStation®* is a flexible, innovative treatment planning system chosen by many of the leading cancer centers worldwide. It combines unique features like unmatched adaptive therapy capabilities, multi-criteria optimization, optimization for HDR brachytherapy and external beam therapy with photons, electrons, protons as well as helium and carbon ions. RayStation supports a wide range of treatment machines, providing one control center for all treatment planning needs and ensuring centers get greater value from existing equipment.
           </p>
           <a href="https://www.raysearchlabs.com/raystation/">
-            <button className="ip-btn ip-btn-primary w-fit mt-3">
+            <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
               Discover More <span>→</span>
-            </button>
+            </a>
           </a>
         </div>
       </div>
@@ -198,9 +198,9 @@ export default function Systems() {
           </div>
         </div>
         <a href="/systems">
-          <button className="ip-btn ip-btn-primary w-fit mt-3">
+          <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
             Discover More <span>→</span>
-          </button>
+          </a>
         </a>
       </div>
 

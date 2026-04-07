@@ -296,9 +296,9 @@ export default function Home({ alreadyShown }) {
             have the patient's best needs at heart on any treatment plan that we
             create for you, the client.
           </p>
-          <button className="ip-btn ip-btn-primary w-fit mt-3">
+          <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
             Discover More <span>→</span>
-          </button>
+          </a>
         </div>
       </div>
       <div className="min-h-[150dvh]">
@@ -353,9 +353,9 @@ export default function Home({ alreadyShown }) {
                     Volumetric modulated arc therapy (VMAT) has rapidly become
                     the standard of care in the radiation oncology...
                   </p>
-                  <button className="ip-btn ip-btn-primary w-fit mt-3">
+                  <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
                     Discover More <span>→</span>
-                  </button>
+                  </a>
                 </div>
               </div>
               <div className="s-3-div-3 relative group overflow-hidden  w-[620px] h-[566px]">
@@ -402,9 +402,9 @@ export default function Home({ alreadyShown }) {
                       {hoverData.para}
                     </p>
                     <div className="m-auto flex justify-center">
-                      <button className="w-[223px] h-[54px] rounded-full bg-[#003777]! text-white! hover:bg-white! hover:text-[#003777]! border border-[#003777] transition-all! duration-500!">
+                      <a href="/contact" className="w-[223px] h-[54px] rounded-full bg-[#003777]! text-white! hover:bg-white! hover:text-[#003777]! border border-[#003777] transition-all! duration-500!">
                         Discover More
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -467,7 +467,7 @@ export default function Home({ alreadyShown }) {
               during these critical and challenging times of mandated or
               self-quarantine.
             </p>
-            <a href="/about" className="ip-btn ip-btn-outline w-fit">
+            <a href="/contact" className="ip-btn ip-btn-outline w-fit">
               Discover More <span>→</span>
             </a>
           </div>
@@ -490,7 +490,7 @@ export default function Home({ alreadyShown }) {
             If the patient demand isn’t enough for a small town, hiring a remote
             worker makes more sense.
           </p>
-          <a href="/about" className="ip-btn ip-btn-outline w-fit">
+          <a href="/contact" className="ip-btn ip-btn-outline w-fit">
             Discover More <span>→</span>
           </a>
         </div>
