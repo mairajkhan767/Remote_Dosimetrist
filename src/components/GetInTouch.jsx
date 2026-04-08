@@ -1,13 +1,17 @@
-export default function GetInTouch() {
+import { data } from "autoprefixer";
+
+export default function GetInTouch(Data) {
+  console.log(Data);
+  if (Data.data == null) return null;
   return (
     <div className="bg-[#003777]/9 px-6 md:px-16 lg:px-28 py-12 md:py-20 w-full home-form">
       <div className="flex flex-col lg:flex-row justify-between gap-12 md:gap-16">
         <div className="w-full flex flex-col lg:gap-4 gap-10 items-start">
           <div className="flex flex-col lg:gap-2 gap-6">
-            <p className="text-[18px] md:text-[22px] text-white px-5 py-1 bg-[#003777] w-fit">Get in Touch!</p>
+            <p className="text-[18px] md:text-[22px] text-white px-5 py-1 bg-[#003777] w-fit">{Data.data.sub_heading}</p>
             <div>
-              <h2 className="text-[32px] md:text-[48px] text-black font-medium leading-tight tracking-0">Get Started, No Waiting</h2>
-              <h2 className="text-[38px] md:text-[58px] text-black font-medium leading-tight tracking-0">JUST RESULTS</h2>
+              <h2 className="text-[32px] md:text-[48px] text-black font-medium leading-tight tracking-0">{Data.data.heading_1}</h2>
+              <h2 className="text-[38px] md:text-[58px] text-black font-medium leading-tight tracking-0">{Data.data.heading_2}</h2>
             </div>
           </div>
           <div className="flex flex-col w-full gap-5">
@@ -18,34 +22,39 @@ export default function GetInTouch() {
           </div>
           <div>
             <button className="ip-btn ip-btn-primary w-fit mt-3">
-              Book Now
+              {Data.data.form_button_text}
               <span>→</span>
             </button>
           </div>
         </div>
         <div className="w-full flex flex-col gap-8">
           <div>
-            <img src="/assets/CAR-dosometrist-.png" alt="" className="w-full" />
+            <img src={Data.data.image.url} alt="" className="w-full" />
           </div>
           <div>
             <div className="flex flex-col gap-4">
-              <div className="border border-gray-500 px-6 md:px-14 py-2 xl:py-4 flex flex-col">
-                <button onClick={() => toggleAccordion(1)} className="w-full flex justify-between items-center bg-transparent! text-left">
-                  <span className="text-[#003777]">What is Material Tailwind?</span>
-                  <span id="icon-1" className="text-slate-800 transition-transform duration-300">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
-                      <path fillRule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clipRule="evenodd" />
-                    </svg>
-                  </span>
-                </button>
-                <div id="content-1" className="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
-                  <div className="text-sm text-black">
-                    Material Tailwind is a framework that enhances Tailwind CSS with additional styles and components.
+              {
+                Data.data.faqs.map((faq, index) => (
+                  <div className="border border-gray-500 px-6 md:px-14 py-2 xl:py-4 flex flex-col" key={index}>
+                    <button onClick={() => toggleAccordion(1)} className="w-full flex justify-between items-center bg-transparent! text-left">
+                      <span className="text-[#003777]">{faq.question}</span>
+                      <span id="icon-1" className="text-slate-800 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
+                          <path fillRule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clipRule="evenodd" />
+                        </svg>
+                      </span>
+                    </button>
+                    <div id="content-1" className="max-h-0 overflow-hidden transition-all duration-300 ease-in-out">
+                      <div className="text-sm text-black">
+                        {faq.answer}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
+                ))
+              }
+              
 
-              <div className="border border-gray-500 px-6 md:px-14 py-2 xl:py-4 flex flex-col">
+              {/* <div className="border border-gray-500 px-6 md:px-14 py-2 xl:py-4 flex flex-col">
                 <button onClick={() => toggleAccordion(2)} className="w-full flex justify-between items-center bg-transparent! text-left">
                   <span className="text-[#003777]">How to use Material Tailwind?</span>
                   <span id="icon-2" className="text-slate-800 transition-transform duration-300">
@@ -75,7 +84,7 @@ export default function GetInTouch() {
                     Material Tailwind allows you to quickly build modern, responsive websites with a focus on design.
                   </div>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

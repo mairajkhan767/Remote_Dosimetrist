@@ -1,10 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
-import { Navigation, A11y } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import { useEffect, useRef, useState } from "react";
 import ReviewSlider from "../components/review-slider";
 import GetInTouch from "../components/GetInTouch";
 import gsap from "gsap";
@@ -14,16 +8,34 @@ import { useGSAP } from "@gsap/react";
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Home_New({ alreadyShown }) {
+  const API = import.meta.env.VITE_API_URL;
+  const [bannerData, setbannerData] = useState(null);
   const wrapperRef = useRef(null);
   const videoRef = useRef(null);
   const [hoverData, setHoverData] = useState({
     heading: "Head & Neck", // Default heading
-    para: "Lorem Ipsum Lorem set dummy buy to lorem" // Default para
+    para: "Head and neck cancers have often been associated with very difficult and time-consuming radiation", // Default para
+    button_title: "Discover More",
+    button_url: "/contact",
   });
 
+  useEffect(() => {
+    let rand = Math.floor(Math.random() * 1000) + 1;
+    if(!bannerData){
+      fetch(`${API}wp/v2/pages/7?acf_format=standard&r=${rand}`)
+      .then(res => res.json())
+      .then(res => {
+        // console.log(res);
+        setbannerData(res);
+      })
+      .catch(err => console.error(err));
+    }
+  }, []);
+
   const handleHover = (e) => {
-    const { heading, para } = e.target.dataset;
-    setHoverData({ heading, para });
+    const { heading, para, button_title, button_url } = e.target.dataset;
+    // console.log(button_title, button_url);
+    setHoverData({ heading, para, button_title, button_url });
   };
   useEffect(() => {
     if (alreadyShown) {
@@ -262,7 +274,7 @@ export default function Home_New({ alreadyShown }) {
             muted
             loop
             playsInline
-            src="/assets/bg-video-2.mp4"
+            src={bannerData && bannerData.acf.banner_fields.background_video.url}
           ></video>
           <div
             className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
@@ -283,29 +295,27 @@ export default function Home_New({ alreadyShown }) {
           lg:flex 
           lg:flex-row-reverse 
           lg:gap-[38px]">
-            <img src="/assets/line-banner-2.png" alt="" />
+            <img src={bannerData && bannerData.acf.banner_fields.hotspot_image_2.url} alt="" />
             <p className="text-[16px] lg:text-[20px] text-[#434961] leading-[24px] w-[280px] content-end text-end mb-[-37px]">
-              Advanced Radiotherapy Treatment Process
+              {bannerData && bannerData.acf.banner_fields.hotspot_text_2}
             </p>
           </div>
           <div className="hidden absolute 4xl:top-[150px] 4xl:right-[16.3%] lg:top-[100px] lg:right-[10.3%] lg:flex lg:gap-[9px]">
-            <img src="/assets/line-banner-1.png" alt="" />
+            <img src={bannerData && bannerData.acf.banner_fields.hotspot_image_1.url} alt="" />
             <p className="text-[20px] text-[#434961] leading-[24px] w-[200px] content-end mb-[-25px]">
-              Remote-Only Dosimetry Company
+              {bannerData && bannerData.acf.banner_fields.hotspot_text_1}
             </p>
           </div>
           <div className="p-0 z-10 relative">
             <h1 className="fCH1 text-[28px] lg:text-[60px] lg:leading-12 text-center leading-8 xl:text-[100px] text-[#003777] xl:leading-24 -tracking-[2.5px] font-extrabold">
-              Dosimetry Made Simple
+              {bannerData && bannerData.acf.banner_fields.banner_heading}
             </h1>
             <div className="second-c-div flex lg:px-10 lg:hidden justify-center flex-col items-center gap-[10px] pt-[20px]">
               <p className="w-full px-5 text-center text-[16px] lg:text-[22px] lg:leading-8 leading-5  tracking-[-0.65px]">
-                A group of certified medical dosimetrists that truly care. We always
-                have the patient's best needs at heart on any treatment plan that we
-                create for you, the client.
+                {bannerData && bannerData.acf.section_1_fields.description}
               </p>
-              <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
-                Discover More <span>→</span>
+              <a href={bannerData && bannerData.acf.section_1_fields.button.url} className="ip-btn ip-btn-primary w-fit mt-3">
+                {bannerData && bannerData.acf.section_1_fields.button.title} <span>→</span>
               </a>
             </div>
           </div>
@@ -314,12 +324,10 @@ export default function Home_New({ alreadyShown }) {
       <div className="hidden lg:flex w-full justify-center items-center">
         <div className="second-c-div flex justify-center flex-col items-center gap-[36px] py-[36px] top-25">
           <p className="w-full px-2 lg:px-0 text-[16px] leading-5 lg:w-[695px] text-center lg:text-[22px] lg:leading-9.25 tracking-[-0.65px]">
-            A group of certified medical dosimetrists that truly care. We always
-            have the patient's best needs at heart on any treatment plan that we
-            create for you, the client.
+             {bannerData && bannerData.acf.section_1_fields.description}
           </p>
           <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
-            Discover More <span>→</span>
+            {bannerData && bannerData.acf.section_1_fields.button.title} <span>→</span>
           </a>
         </div>
       </div>
@@ -327,7 +335,7 @@ export default function Home_New({ alreadyShown }) {
         <div className="section-3 w-full min-h-dvh overflow-hidden sticky top-0">
           <video
             className="s-3-video absolute inset-0 h-full w-full object-cover origin-center"
-            src="/assets/3rd-sec-video.mp4"
+            src={bannerData && bannerData.acf.section_2_fields.background_video.url}
             poster="/assets/3rd-sec-video-poster.png"
             autoPlay
             muted
@@ -345,49 +353,47 @@ export default function Home_New({ alreadyShown }) {
           <div className="pt-[93px] z-5 relative">
             <div className="s-3-content flex justify-center flex-col items-center relative z-10 gap-[38px] translate-y-[400px]">
               <h2 className="text-[70px] font-extrabold text-white">
-                Plans That Help
+                {bannerData && bannerData.acf.section_2_fields.heading}
               </h2>
               <p className="w-[532px] text-[26px] text-center text-white">
-                The Remote Dosimetrist staff can offer the right solution for
-                your cancer center radiation oncology department's needs.
+                {bannerData && bannerData.acf.section_2_fields.description}
               </p>
             </div>
             <div className="pt-[61px] flex flex-row items-center 2xl:justify-center gap-[23px] items-center s-3-divs">
               <div className="s-3-div-1 relative group overflow-hidden w-[620px] h-[566px]">
                 <img
-                  src="/assets/3D Planning.png"
+                  src={bannerData && bannerData.acf.section_2_fields.left_box.background_image.url}
                   alt="3D Planning"
                   className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
-                  <h3 className="text-3xl font-bold text-white">3D Planning</h3>
+                  <h3 className="text-3xl font-bold text-white">{bannerData && bannerData.acf.section_2_fields.left_box.heading}</h3>
                 </div>
               </div>
               <div className="s-3-div-2 relative group overflow-hidden translate-y-[800px] w-[620px]">
                 <img
-                  src="/assets/VMRL.png"
+                  src={bannerData && bannerData.acf.section_2_fields.middle_box.background_image.url}
                   alt="VMAT"
                   className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-blue-900/75 flex flex-col items-center justify-center px-6 text-center gap-[36px]">
-                  <h3 className="text-4xl font-extrabold text-white">VMAT</h3>
+                  <h3 className="text-4xl font-extrabold text-white">{bannerData && bannerData.acf.section_2_fields.middle_box.heading}</h3>
                   <p className="text-blue-100 text-[22px] w-[432px] 2xl:w-[350px]">
-                    Volumetric modulated arc therapy (VMAT) has rapidly become
-                    the standard of care in the radiation oncology...
+                    {bannerData && bannerData.acf.section_2_fields.middle_box.description}
                   </p>
-                  <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
-                    Discover More <span>→</span>
+                  <a href={bannerData && bannerData.acf.section_2_fields.middle_box.button.url} className="ip-btn ip-btn-primary w-fit mt-3">
+                    {bannerData && bannerData.acf.section_2_fields.middle_box.button.title} <span>→</span>
                   </a>
                 </div>
               </div>
               <div className="s-3-div-3 relative group overflow-hidden  w-[620px] h-[566px]">
                 <img
-                  src="/assets/IMRT.png"
+                  src={bannerData && bannerData.acf.section_2_fields.right_box.background_image.url}
                   alt="IMRT"
                   className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
-                  <h3 className="text-3xl font-bold text-white">IMRT</h3>
+                  <h3 className="text-3xl font-bold text-white">{bannerData && bannerData.acf.section_2_fields.right_box.heading}</h3>
                 </div>
               </div>
             </div>
@@ -412,7 +418,7 @@ export default function Home_New({ alreadyShown }) {
               className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
-              <h3 className="text-3xl font-bold text-white">3D Planning</h3>
+              <h3 className="text-3xl font-bold text-white">{bannerData && bannerData.acf.section_2_fields.left_box.heading}</h3>
             </div>
           </div>
           <div className="w-full relative group overflow-hidden rounded-2xl lg:p-2">
@@ -422,13 +428,12 @@ export default function Home_New({ alreadyShown }) {
               className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-blue-900/75 flex flex-col items-center justify-center px-6 text-center gap-[36px]">
-              <h3 className="text-4xl font-extrabold text-white uppercase">Gynaecological</h3>
+              <h3 className="text-4xl font-extrabold text-white uppercase">{bannerData && bannerData.acf.section_2_fields.middle_box.heading}</h3>
               <p className="text-blue-100 text-[16px] w-10/12 text-center">
-                Volumetric modulated arc therapy (VMAT) has rapidly become
-                the standard of care in the radiation oncology...
+                {bannerData && bannerData.acf.section_2_fields.middle_box.description}
               </p>
-              <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">
-                Discover More <span>→</span>
+              <a href={bannerData && bannerData.acf.section_2_fields.middle_box.button.url} className="ip-btn ip-btn-primary w-fit mt-3">
+                {bannerData && bannerData.acf.section_2_fields.middle_box.button.title} <span>→</span>
               </a>
             </div>
           </div>
@@ -439,7 +444,7 @@ export default function Home_New({ alreadyShown }) {
               className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500"
             />
             <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
-              <h3 className="text-3xl font-bold text-white">IMRT</h3>
+              <h3 className="text-3xl font-bold text-white">{bannerData && bannerData.acf.section_2_fields.right_box.heading}</h3>
             </div>
           </div>
         </div>
@@ -450,19 +455,19 @@ export default function Home_New({ alreadyShown }) {
 
             <div className="s-4-bg-color w-full h-full flex justify-center absolute left-0 top-0 items-center"
               style={{
-                backgroundColor: "#003777",
+                backgroundColor: bannerData && bannerData.acf.section_3_fields.background_color,
               }}
             >
               <h2 className="s-4-heading-1 text-[38px] w-[500px] top-[44%] left-[45.3%] text-white font-extrabold text-center -tracking-[0.95px] opacity-0">
-                Areas of Focus
+                {bannerData && bannerData.acf.section_3_fields.heading}
               </h2>
             </div>
             <div className="s-4-bg-image-c w-full h-full flex justify-center absolute left-0 top-0">
-              <img src="/assets/bg-fourth-section.png" alt="" className="s-4-bg-image  scale-105" />
+              <img src={bannerData && bannerData.acf.section_3_fields.background_image.url} alt="" className="s-4-bg-image  scale-105" />
             </div>
             <div className="flex flex-row justify-center">
               <h2 className="s-4-heading-2 text-[38px] w-[180px] absolute top-[44%] left-[45.3%] text-white font-extrabold text-center -tracking-[0.95px]">
-                Areas of Focus
+                {bannerData && bannerData.acf.section_3_fields.heading}
               </h2>
               <div className="area-main">
                 <div className="content-main z-5 opacity-0">
@@ -474,13 +479,25 @@ export default function Home_New({ alreadyShown }) {
                       {hoverData.para}
                     </p>
                     <div className="m-auto flex justify-center">
-                      <a href="/contact" className="flex flex-col justify-center items-center w-[223px] h-[54px] rounded-full bg-[#003777]! text-white! hover:bg-white! hover:text-[#003777]! border border-[#003777] transition-all! duration-500!">
-                        Discover More
+                      <a href={hoverData.button_url} className="flex flex-col justify-center items-center w-[223px] h-[54px] rounded-full bg-[#003777]! text-white! hover:bg-white! hover:text-[#003777]! border border-[#003777] transition-all! duration-500!">
+                        {hoverData.button_title}
                       </a>
                     </div>
                   </div>
                 </div>
-                <div className="image-02">
+                {
+                  bannerData && bannerData.acf.section_3_fields.areas_of_focus_wheel.map((area, index) => (
+                    <div className={`image-0${index + 1}`} key={index}>
+                      <img src={area.image.url} alt="Area 01" onMouseEnter={handleHover} data-heading={area.heading} data-para={area.description} data-button_title={area.button.title} data-button_url={area.button.url}
+                      style={{
+                        width: "250px",
+                        height: "150px"
+                      }}
+                      />
+                    </div>
+                  ))
+                }
+                {/* <div className="image-02">
                   <img src="/assets/focus-images/Pelvis.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Pelvis" data-para="Focusing on larger and more irregularly shaped pelvic target volumes" 
                   style={{
                     width: "250px",
@@ -533,7 +550,7 @@ export default function Home_New({ alreadyShown }) {
                 </div>
                 <div className="image-08">
                   <img src="/assets/focus-images/Head-Neck.png" alt="Area 01" onMouseEnter={handleHover} data-heading="Head & Neck" data-para="Head and neck cancers have often been associated with very difficult and time-consuming radiation" />
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -549,40 +566,32 @@ export default function Home_New({ alreadyShown }) {
             }}
           >
             <h2 className=" text-[20px] lg:text-[40px] lg:text-[48px] text-white -tracking-[1.2px] lg:leading-[52px] font-bold lg:w-[500px]">
-              Remote Dosimetry Is Here To Stay
+              {bannerData && bannerData.acf.section_4_fields.left_top_box.heading}
             </h2>
             <p className="text-[16px] lg:text-[22px] lg:text-[26px] text-white -tracking-[0.65px] lg:leading-[37px] 4xl:w-[694px]">
-              Remote Dosimetrist has shown to be more efficient than on-site
-              dosimetry. It is structured to help our clients effectively and
-              safely handle the treatment of their cancer patients especially
-              during these critical and challenging times of mandated or
-              self-quarantine.
+              {bannerData && bannerData.acf.section_4_fields.left_top_box.description}
             </p>
-            <a href="/contact" className="ip-btn ip-btn-outline w-fit">
-              Discover More <span>→</span>
+            <a href={bannerData && bannerData.acf.section_4_fields.left_top_box.button.url} className="ip-btn ip-btn-outline w-fit">
+              {bannerData && bannerData.acf.section_4_fields.left_top_box.button.title} <span>→</span>
             </a>
           </div>
           <div>
-            <img src="/assets/5th-sec-img-1.png" className="w-full" alt="" />
+            <img src={bannerData && bannerData.acf.section_4_fields.left_bottom_box.background_image.url} className="w-full" alt="" />
           </div>
         </div>
         <div
           className="flex flex-col justify-center lg:justify-start p-10 gap-[32px] rounded-[32px] bg-no-repeat bg-cover bg-bottom w-full lg:w-1/2"
-          style={{ backgroundImage: "url(/assets/5th-sec-img-2.png)" }}
+          style={{ backgroundImage: `url(${bannerData && bannerData.acf.section_4_fields.right_box.background_image.url})` }}
         >
           {/* <img src="/assets/5th-sec-img-2.png" alt="" /> */}
           <h2 className="s-5-h2 text-[28px] lg:text-[40px] lg:text-[48px] text-white -tracking-[1.2px] lg:leading-[52px] font-bold  lg:w-[500px] lg:opacity-0 lg:translate-y-[500px]">
-            Why Hire A Remote Dosimetrist?
+            {bannerData && bannerData.acf.section_4_fields.right_box.heading}
           </h2>
           <p className="s-5-p text-[16px] lg:text-[22px] lg:text-[26px] text-white -tracking-[0.65px] lg:leading-[37px] 4xl:w-[694px] lg:opacity-0  lg:translate-y-[500px]">
-            While the number of cancer patients increases and the demand for
-            professional dosimetrists remains high, it’s not always feasible for
-            smaller, rural centers to have full-time dosimetrists on the staff.
-            If the patient demand isn’t enough for a small town, hiring a remote
-            worker makes more sense.
+            {bannerData && bannerData.acf.section_4_fields.right_box.description}
           </p>
-          <a href="/contact" className="ip-btn ip-btn-outline w-fit">
-            Discover More <span>→</span>
+          <a href={bannerData && bannerData.acf.section_4_fields.right_box.button.url} className="ip-btn ip-btn-outline w-fit">
+            {bannerData && bannerData.acf.section_4_fields.right_box.button.title} <span>→</span>
           </a>
         </div>
       </div>
@@ -594,8 +603,8 @@ export default function Home_New({ alreadyShown }) {
           backgroundPosition: "center",
         }}
       >
-        <ReviewSlider />
-        <GetInTouch />
+        <ReviewSlider data={bannerData && bannerData.acf.section_5_fields} />
+        <GetInTouch data={bannerData && bannerData.acf.section_6_fields} />
       </div>
     </section>
   );
