@@ -176,8 +176,8 @@ export default function HomeClient() {
               {bannerData?.acf?.banner_fields?.hotspot_text_1}
             </p>
           </div>
-          <div className="p-0 z-10 relative">
-            <h1 className="fCH1 text-[28px] lg:text-[60px] lg:leading-12 text-center leading-8 xl:text-[100px] text-[#003777] xl:leading-24 -tracking-[2.5px] font-extrabold">
+          <div className="px-4 sm:px-0 z-10 relative">
+            <h1 className="fCH1 text-[22px] sm:text-[28px] lg:text-[60px] lg:leading-12 text-center leading-7 sm:leading-8 xl:text-[100px] text-[#003777] xl:leading-24 -tracking-[2.5px] font-extrabold">
               {bannerData?.acf?.banner_fields?.banner_heading}
             </h1>
             <div className="second-c-div flex lg:px-10 lg:hidden justify-center flex-col items-center gap-[10px] pt-[20px]">
