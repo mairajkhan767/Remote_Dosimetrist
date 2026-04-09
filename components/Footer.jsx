@@ -1,7 +1,7 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedinIn, faFacebookF, faYoutube, faTwitter } from "@fortawesome/free-brands-svg-icons";
+'use client'
+import Link from 'next/link'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLinkedinIn, faFacebookF, faYoutube, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 export default function Footer() {
   return (
@@ -9,34 +9,34 @@ export default function Footer() {
       {/* Content Section */}
       <div className="container mx-auto px-6 py-10">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left">
-          {/* Get on the List */}
+          {/* Logo + Social */}
           <div className="flex flex-col justify-center items-center xl:items-start mx-auto w-full max-w-sm">
             <div className="w-full">
-              <Link to="/">
+              <Link href="/">
                 <img src="/assets/logo-main.png" alt="Remote Dosimetrist" className="h-16" />
               </Link>
             </div>
             <div className="flex space-x-6 mt-6">
-              <a href="#" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faLinkedinIn} /></a>
-              <a href="#" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faFacebookF} /></a>
-              <a href="#" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faYoutube} /></a>
-              <a href="#" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faTwitter} /></a>
+              <a href="#" aria-label="LinkedIn" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faLinkedinIn} /></a>
+              <a href="#" aria-label="Facebook" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faFacebookF} /></a>
+              <a href="#" aria-label="YouTube" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faYoutube} /></a>
+              <a href="#" aria-label="Twitter" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faTwitter} /></a>
             </div>
           </div>
 
           {/* Navigation Links */}
           <div className="flex justify-center md:justify-start space-x-12 pt-8 md:pt-14 mx-auto">
             <div className="flex flex-col space-y-4 text-xs font-bold tracking-widest text-[#595959] uppercase">
-              <Link to="/" className="hover:text-[#003777]">Home</Link>
-              <Link to="/about" className="hover:text-[#003777]">About</Link>
-              <Link to="/areas" className="hover:text-[#003777]">Areas of Focus</Link>
-              <Link to="/plans" className="hover:text-[#003777]">Our Plans</Link>
+              <Link href="/" className="hover:text-[#003777]">Home</Link>
+              <Link href="/about" className="hover:text-[#003777]">About</Link>
+              <Link href="/areas" className="hover:text-[#003777]">Areas of Focus</Link>
+              <Link href="/plans" className="hover:text-[#003777]">Our Plans</Link>
             </div>
             <div className="flex flex-col space-y-4 text-xs font-bold tracking-widest text-[#595959] uppercase">
-              <Link to="/process" className="hover:text-[#003777]">Process</Link>
-              <Link to="/systems" className="hover:text-[#003777]">Systems</Link>
-              <Link to="/how-it-works" className="hover:text-[#003777]">How it Works</Link>
-              <Link to="/contact" className="hover:text-[#003777]">Contact</Link>
+              <Link href="/process" className="hover:text-[#003777]">Process</Link>
+              <Link href="/systems" className="hover:text-[#003777]">Systems</Link>
+              <Link href="/how-it-works" className="hover:text-[#003777]">How it Works</Link>
+              <Link href="/contact" className="hover:text-[#003777]">Contact</Link>
             </div>
           </div>
 
@@ -51,7 +51,7 @@ export default function Footer() {
                 style={{ border: 0 }}
                 allowFullScreen=""
                 loading="lazy"
-                title="Map"
+                title="Remote Dosimetrist Location - Seattle, WA"
                 className="opacity-70 grayscale"
               ></iframe>
             </div>
@@ -66,5 +66,5 @@ export default function Footer() {
         </p>
       </div>
     </footer>
-  );
+  )
 }

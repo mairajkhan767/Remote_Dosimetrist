@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls -d \"F:/Remote_Dosimetrist\"/*/)",
+      "Bash(wc -l F:/Remote_Dosimetrist/src/pages/*.jsx F:/Remote_Dosimetrist/src/components/*.jsx)",
+      "Bash(npm run:*)"
+    ]
+  }
+}
