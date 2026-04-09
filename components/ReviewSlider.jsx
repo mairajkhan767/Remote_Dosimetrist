@@ -85,7 +85,7 @@ export default function ReviewSlider({ data }) {
           <h2 className="text-[#003777] text-3xl md:text-5xl text-center leading-tight md:leading-13 font-semibold">{data.sub_heading}</h2>
         </div>
       </div>
-      <div>
+      <div className="overflow-hidden">
         <Swiper
           modules={[Navigation]}
           navigation={true}
