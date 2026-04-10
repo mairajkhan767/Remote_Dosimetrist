@@ -1,20 +1,16 @@
 import HomeClient from '@/components/HomeClient'
+import { fetchPageBySlug } from "@/lib/api";
 
-export const metadata = {
-  title: 'Remote Dosimetrist | Expert Radiation Treatment Planning',
-  description:
-    'Remote Dosimetrist provides expert, HIPAA-compliant radiation treatment planning across the USA. 3D, IMRT, VMAT, SBRT, and brachytherapy plans with overnight turnaround.',
-  alternates: {
-    canonical: 'https://remotedosimetrist.com',
-  },
-  openGraph: {
-    title: 'Remote Dosimetrist | Expert Radiation Treatment Planning',
-    description:
-      'Expert, HIPAA-compliant remote dosimetry services. Overnight turnaround, 15+ years experience, nationwide coverage.',
-    url: 'https://remotedosimetrist.com',
-  },
+export async function generateMetadata() {
+  const data = await fetchPageBySlug("home");
+
+  return {
+    title: data?.yoast_head_json?.title,
+    description: data?.yoast_head_json?.description,
+  };
 }
 
-export default function HomePage() {
-  return <HomeClient />
+export default async function HomePage() {
+  const data = await fetchPageBySlug("home");
+  return <HomeClient bannerData={data} />
 }

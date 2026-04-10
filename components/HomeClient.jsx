@@ -9,9 +9,9 @@ import { usePreloader } from './PreloaderContext'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
-export default function HomeClient() {
-  const API = process.env.NEXT_PUBLIC_API_URL
-  const [bannerData, setBannerData] = useState(null)
+export default function HomeClient({bannerData}) {
+  // const API = process.env.NEXT_PUBLIC_API_URL
+  // const [bannerData, setBannerData] = useState(null)
   const wrapperRef = useRef(null)
   const videoRef = useRef(null)
   const { alreadyShown } = usePreloader()
@@ -21,17 +21,6 @@ export default function HomeClient() {
     button_title: 'Discover More',
     button_url: '/contact',
   })
-
-  useEffect(() => {
-    if (!API) return
-    const rand = Math.floor(Math.random() * 1000) + 1
-    if (!bannerData) {
-      fetch(`${API}wp/v2/pages/7?acf_format=standard&r=${rand}`)
-        .then((res) => res.json())
-        .then((res) => setBannerData(res))
-        .catch((err) => console.error(err))
-    }
-  }, [])
 
   const handleHover = (e) => {
     const { heading, para, button_title, button_url } = e.target.dataset

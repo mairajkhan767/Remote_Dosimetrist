@@ -1,31 +1,27 @@
 import React from 'react'
+import { fetchPageBySlug } from "@/lib/api";
 import PageHero from '@/components/PageHero'
 import SectionReveal from '@/components/SectionReveal'
 import GetInTouch from '@/components/GetInTouch'
 import ReviewSlider from '@/components/ReviewSlider'
+import Image from 'next/image';
 
-export const metadata = {
-  title: 'About Us',
-  description:
-    'Learn about Remote Dosimetrist — a group of certified medical dosimetrists with 15+ years of experience dedicated to providing expert, HIPAA-compliant radiation treatment planning across the USA.',
-  alternates: {
-    canonical: 'https://remotedosimetrist.com/about',
-  },
-  openGraph: {
-    title: 'About Us | Remote Dosimetrist',
-    description:
-      'Certified medical dosimetrists with 15+ years experience. Learn about our vision, mission, and commitment to quality patient care.',
-    url: 'https://remotedosimetrist.com/about',
-  },
+export async function generateMetadata() {
+  const data = await fetchPageBySlug("about-us");
+
+  return {
+    title: data?.yoast_head_json?.title,
+    description: data?.yoast_head_json?.description,
+  };
 }
-
-export default function AboutPage() {
+export default async function AboutPage() {
+  const data = await fetchPageBySlug("about-us");
   return (
     <section className="ip-page-enter ip-grain">
       <PageHero
-        title="About Dosimetrist"
-        subtitle="A group of certified medical dosimetrists that truly care about patient outcomes."
-        breadcrumb="About Us"
+        title={data?.acf?.banner_fields?.page_title}
+        subtitle={data?.acf?.banner_fields?.page_description}
+        breadcrumb={data?.title.rendered}
       />
 
       {/* ── Vision / Mission / Values ── */}
@@ -36,9 +32,9 @@ export default function AboutPage() {
         <div className="max-w-[1400px] mx-auto px-6 relative z-10">
           <SectionReveal>
             <div className="text-center mb-12 md:mb-20">
-              <span className="sr-item ip-label">Who We Are</span>
+              <span className="sr-item ip-label">{data?.acf?.section_1_fields?.heading}</span>
               <h2 className="sr-item text-[#003777] text-3xl md:text-[48px] font-bold md:leading-[52px] -tracking-[1.2px] mt-5">
-                Our Foundation
+                {data?.acf?.section_1_fields?.sub_heading}
               </h2>
               <div className="sr-item flex justify-center mt-7">
                 <div className="ip-section-divider"></div>
@@ -48,7 +44,22 @@ export default function AboutPage() {
 
           <SectionReveal stagger={0.18}>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 text-center">
-              <div className="sr-item ip-card ip-card-hover-blue p-6 md:p-10 rounded-2xl">
+              {
+                data?.acf?.section_1_fields?.foundations.map((item, index) => (
+                  <div className="sr-item ip-card ip-card-hover-blue p-6 md:p-10 rounded-2xl" key={index}>
+                    <div className="flex justify-center mb-7">
+                      <div className="ip-card-icon w-20 h-20 flex items-center justify-center rounded-full bg-[#e6f0ff] transition-all duration-500">
+                        <Image src={item.icon.url} alt={item.icon.alt} width={item.icon.width} height={item.icon.height} />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-4 transition-colors duration-500">{item.heading}</h3>
+                      <p className="text-gray-600 text-[16px] lg:text-[20px] leading-relaxed transition-colors duration-500">
+                        {item.description}
+                      </p>
+                  </div>
+                ))
+              }
+              {/* <div className="sr-item ip-card ip-card-hover-blue p-6 md:p-10 rounded-2xl">
                 <div className="flex justify-center mb-7">
                   <div className="ip-card-icon w-20 h-20 flex items-center justify-center rounded-full bg-[#e6f0ff] transition-all duration-500">
                     <svg className="w-10 h-10 text-[#003777] transition-colors duration-500" fill="currentColor" viewBox="0 0 24 24">
@@ -88,7 +99,7 @@ export default function AboutPage() {
                 <p className="text-gray-600 text-[16px] lg:text-[20px] leading-relaxed transition-colors duration-500">
                   We value honesty, communication, fairness, consistency, and efficiency. All of our clients and their patients are treated with utmost care.
                 </p>
-              </div>
+              </div> */}
             </div>
           </SectionReveal>
         </div>
@@ -106,18 +117,18 @@ export default function AboutPage() {
                 <div className="flex flex-col gap-6 md:gap-8 p-6 md:p-12 flex-1" style={{ background: 'linear-gradient(45deg, #003777, #0E3CF6)', borderRadius: '32px' }}>
                   <div className="relative">
                     <div className="ip-dots -left-10 -top-10"></div>
-                    <h2 className="text-2xl md:text-[42px] text-white -tracking-[1px] leading-[1.1] font-bold relative z-10">Get To Know Us</h2>
+                    <h2 className="text-2xl md:text-[42px] text-white -tracking-[1px] leading-[1.1] font-bold relative z-10">{data?.acf?.section_2_fields?.left_top_box.heading}</h2>
                   </div>
                   <p className="text-white/90 text-[16px] md:text-[18px] leading-[28px] md:leading-[30px]">
-                    We are a remote-only dosimetry company and more specifically, a group of certified medical dosimetrists that truly care. We always have the patient&apos;s best needs at heart on any treatment plan that we create for you, the client.
+                    {data?.acf?.section_2_fields?.left_top_box.description_1}
                   </p>
                   <p className="text-white/90 text-[16px] md:text-[18px] leading-[28px] md:leading-[30px]">
-                    We&apos;d like to think of ourselves as an a-la-carte type business. You may call upon our services when you truly need some dosimetry work.
+                    {data?.acf?.section_2_fields?.left_top_box.description_2}
                   </p>
-                  <a href="/contact" className="ip-btn ip-btn-outline w-fit">Discover More <span>→</span></a>
+                  <a href={data?.acf?.section_2_fields?.left_top_box.button.url} className="ip-btn ip-btn-outline w-fit">{data?.acf?.section_2_fields?.left_top_box.button.title} <span>→</span></a>
                 </div>
                 <div className="ip-image-wrap">
-                  <img src="/assets/5th-sec-img-1.png" alt="Remote dosimetry team" className="w-full object-cover h-[200px] md:h-[300px]" />
+                  <img src={data?.acf?.section_2_fields?.left_bottom_box.image.url} alt={data?.acf?.section_2_fields?.left_bottom_box.image.alt} className="w-full object-cover h-[200px] md:h-[300px]" />
                 </div>
               </div>
             </SectionReveal>
@@ -127,16 +138,16 @@ export default function AboutPage() {
                 className="sr-item h-full relative isolate flex flex-col justify-start p-6 md:p-12 gap-8 rounded-[32px] bg-no-repeat bg-cover bg-center min-h-[400px] md:min-h-[700px]"
                 style={{ backgroundImage: 'url(/assets/about-bg.jpg)', backgroundPosition: 'left', backgroundSize: 'cover' }}
               >
-                <div className="absolute inset-0 rounded-[32px] pointer-events-none" style={{ backgroundImage: 'url(/assets/5th-sec-img-2.png)' }}></div>
+                <div className="absolute inset-0 rounded-[32px] pointer-events-none" style={{ backgroundImage: `url(${data?.acf?.section_2_fields?.right_box.image.url})` }}></div>
                 <div className="z-10 flex flex-col gap-8">
-                  <h2 className="text-2xl md:text-[42px] text-white -tracking-[1px] leading-[1.1] font-bold relative z-10">Delivering Quality Care</h2>
+                  <h2 className="text-2xl md:text-[42px] text-white -tracking-[1px] leading-[1.1] font-bold relative z-10">{data?.acf?.section_2_fields?.right_box.heading}</h2>
                   <p className="text-white/90 text-[16px] md:text-[18px] leading-[28px] md:leading-[30px]">
-                    We provide high quality plans to you at a fraction of the cost of the competitors. We have very little overhead costs and we are sure to pass those savings on to you.
+                    {data?.acf?.section_2_fields?.right_box.description_1}
                   </p>
                   <p className="text-white/90 text-[16px] md:text-[18px] leading-[28px] md:leading-[30px]">
-                    Priding ourselves on fast turnarounds, more often than not overnight, by our experienced staff. Each of our certified medical dosimetrists have a minimum of 15 years of dedicated dosimetry experience.
+                    {data?.acf?.section_2_fields?.right_box.description_2}
                   </p>
-                  <a href="/contact" className="ip-btn ip-btn-outline w-fit">Discover More <span>→</span></a>
+                  <a href={data?.acf?.section_2_fields?.right_box.button.url} className="ip-btn ip-btn-outline w-fit">{data?.acf?.section_2_fields?.right_box.button.title} <span>→</span></a>
                 </div>
               </div>
             </SectionReveal>
@@ -153,18 +164,18 @@ export default function AboutPage() {
         <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center relative z-10">
           <SectionReveal direction="left">
             <div className="sr-item flex flex-col justify-center relative">
-              <span className="ip-label mb-5">Why Hire a Remote Dosimetrist?</span>
-              <h2 className="text-2xl md:text-[42px] font-bold text-gray-900 mb-6 leading-[1.15] -tracking-[1px]">Flexible staffing for growing cancer centers</h2>
+              <span className="ip-label mb-5">{data?.acf?.section_3_fields?.sub_heading}</span>
+              <h2 className="text-2xl md:text-[42px] font-bold text-gray-900 mb-6 leading-[1.15] -tracking-[1px]">{data?.acf?.section_3_fields?.heading}</h2>
               <div className="ip-section-divider mb-10"></div>
               <div className="space-y-6 text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[30px]">
-                <p>While the number of cancer patients increases and the demand for professional dosimetrists remains high, it&apos;s not always feasible for smaller, rural centers to have full-time dosimetrists on staff.</p>
-                <p>Using remote treatment planning can be cost-effective for many organizations while allowing for steady patient growth.</p>
+                <p>{data?.acf?.section_3_fields?.description_1}</p>
+                <p>{data?.acf?.section_3_fields?.description_2}</p>
               </div>
             </div>
           </SectionReveal>
           <SectionReveal direction="right" parallax>
             <div className="sr-item ip-image-wrap">
-              <img src="/assets/information.jpg" alt="Professional workspace showing remote dosimetry work setup" className="w-full object-cover h-[260px] md:h-[580px]" />
+              <img src={data?.acf?.section_3_fields?.image.url} alt={data?.acf?.section_3_fields?.image.alt} className="w-full object-cover h-[260px] md:h-[580px]" />
             </div>
           </SectionReveal>
         </div>
@@ -179,17 +190,17 @@ export default function AboutPage() {
         <div className="max-w-[1400px] mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center relative z-10">
           <SectionReveal direction="left" parallax>
             <div className="sr-item ip-image-wrap">
-              <img src="/assets/1-2.jpg" alt="The future of dosimetry" className="w-full object-cover h-[260px] md:h-[580px]" />
+              <img src={data?.acf?.section_4_fields?.image.url} alt={data?.acf?.section_4_fields?.image.alt} className="w-full object-cover h-[260px] md:h-[580px]" />
             </div>
           </SectionReveal>
           <SectionReveal direction="right">
             <div className="sr-item flex flex-col justify-center relative">
-              <span className="ip-label mb-5">The Future of Care</span>
-              <h2 className="text-2xl md:text-[42px] font-bold text-gray-900 mb-6 leading-[1.15] -tracking-[1px]">Remote dosimetry is here to stay</h2>
+              <span className="ip-label mb-5">{data?.acf?.section_4_fields?.sub_heading}</span>
+              <h2 className="text-2xl md:text-[42px] font-bold text-gray-900 mb-6 leading-[1.15] -tracking-[1px]">{data?.acf?.section_4_fields?.sub_heading}</h2>
               <div className="ip-section-divider mb-10"></div>
               <div className="space-y-6 text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[30px]">
-                <p>Remote Dosimetrist has shown to be more efficient than on-site dosimetry. It is structured to help our clients effectively and safely handle the treatment of their cancer patients.</p>
-                <p>Using our services allows you to maintain high-quality treatment for your patients safely and be prepared for unexpected employee absences.</p>
+                <p>{data?.acf?.section_3_fields?.description_1}</p>
+                <p>{data?.acf?.section_3_fields?.description_2}</p>
               </div>
             </div>
           </SectionReveal>
