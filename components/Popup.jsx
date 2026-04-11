@@ -32,29 +32,25 @@ export default function Popup() {
     return (
         <div className="fixed top-0 left-0 w-screen h-screen z-100 flex flex-col justify-center items-center">
         <div className="absolute h-full w-full bg-black/85 z-0" onClick={closePopup}></div>
-        <div className="popup__content w-[635px] z-50 flex flex-col items-center justify-start bg-white rounded-3xl overflow-hidden">
-            <div className="w-full min-h-[430px] p-10 relative"
+        <div className="popup__content relative w-[1100px] z-50 flex flex-row items-center justify-center bg-white rounded-3xl overflow-hidden">
+            <button className="absolute top-[10px] right-[20px] font-bold text-[20px] cursor-pointer border-none bg-transparent! text-black!" onClick={closePopup}>
+                ✕
+            </button>
+            <div className="w-full h-full p-5 relative flex flex-col justify-start items-end"
                 style={{
-                    backgroundImage: 'url(/assets/Medical-Assistance.jpg)',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center'
+                    backgroundImage: 'url(/assets/about-bg.jpg)',
+                    backgroundSize: 'cover'
                 }}>
-                <div 
-                    className="absolute inset-0 z-0 bg-black opacity-50"
-                />
-                <h2 className="text-white z-50 text-2xl md:text-[40px] font-black leading-[1.12] -tracking-[1px] relative mt-3 w-75 capitalize text-left">
-                    Looking to get in Touch
-                </h2>
             </div>
-            <div className="w-full p-10 flex flex-col gap-5">
-                <h3 className="text-[#003777] text-[22px] md:text-[26px] font-extrabold uppercase tracking-wide transition-colors duration-500">
+            <div className="w-full p-10 flex flex-col gap-10">
+                <h3 className="text-[#003777] text-[22px] md:text-[37px] font-extrabold uppercase tracking-wide leading-[1.1] transition-colors duration-500">
                     We would love to hear from you!
                 </h3>
                 <p className="text-[#434961] text-[16px] md:text-[17px] leading-[26px] md:leading-[28px]">
                     We are so confident that you will appreciate and value our services, that we will create radiation plans for FREE for the first month from the date of the signed contract (maximum 2 plans per week for the first month).  In essence, it’s a “try before you buy” structure with no strings attached! 
                 </p>
-                <div className="flex flex-row gap-10 justify-center items-center">
-                    <a href="/contact" className="ip-btn ip-btn-primary">Get In Touch <span>→</span></a>
+                <div className="flex flex-row gap-2 justify-center items-center">
+                    <a href="/contact" className="ip-btn ip-btn-primary gap-[3px]! ">Get In Touch <span>→</span></a>
                     <button className="ip-btn ip-btn-primary"
                     onClick={() => {
                         localStorage.setItem("popupClosed", "true");
