@@ -34,7 +34,7 @@ export default function HomeClient({bannerData}) {
     if (alreadyShown && videoRef.current) {
       videoRef.current.style.opacity = 1
     }
-  }, [alreadyShown, bannerData])
+  }, [alreadyShown])
 
   useGSAP(() => {
     if (!bannerData) return

@@ -1,10 +1,8 @@
 import React from 'react'
 import PageHero from '@/components/PageHero'
 import SectionReveal from '@/components/SectionReveal'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLocationDot, faEnvelope, faClock } from '@fortawesome/free-solid-svg-icons'
-import { faFacebookF, faLinkedinIn, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons'
 import { fetchPageBySlug } from "@/lib/api";
+import ContactForm from "@/components/ContactForm";
 
 export async function generateMetadata() {
   const data = await fetchPageBySlug("contact-us");
@@ -17,7 +15,6 @@ export async function generateMetadata() {
 
 export default async function ContactPage() {
   const data = await fetchPageBySlug("contact-us");
-  console.log(data);
   return (
     <section className="ip-page-enter ip-grain bg-white">
       <PageHero
@@ -103,28 +100,7 @@ export default async function ContactPage() {
                   <h3 className="text-[#003777] text-[22px] md:text-[24px] font-bold mb-3">Send Us a Message</h3>
                   <div className="ip-section-divider"></div>
                 </div>
-                <form className="flex flex-col gap-4" action="mailto:contactus@remotedosimetrist.com" method="POST" encType="text/plain">
-                  <input type="text" name="name" placeholder="Full Name" className="ip-form-input" required />
-                  <input type="email" name="email" placeholder="Email Address" className="ip-form-input" required />
-                  <input type="tel" name="phone" placeholder="Phone Number" className="ip-form-input" />
-                  <textarea name="message" placeholder="Your Message" rows="5" className="ip-form-textarea" required></textarea>
-                  <div className="flex flex-col gap-3 mt-1">
-                    <span className="text-[#434961] font-semibold text-[14px]">Preferred method of communication</span>
-                    <div className="flex gap-6">
-                      <label className="flex items-center gap-2 cursor-pointer group">
-                        <input type="radio" name="contact-method" value="email" className="w-5 h-5 accent-[#003777]" />
-                        <span className="text-[#434961] text-[15px] group-hover:text-[#003777] transition-colors">Email</span>
-                      </label>
-                      <label className="flex items-center gap-2 cursor-pointer group">
-                        <input type="radio" name="contact-method" value="phone" className="w-5 h-5 accent-[#003777]" />
-                        <span className="text-[#434961] text-[15px] group-hover:text-[#003777] transition-colors">Phone</span>
-                      </label>
-                    </div>
-                  </div>
-                  <div className="flex justify-start mt-5">
-                    <button type="submit" className="ip-btn ip-btn-primary">Send Message <span>→</span></button>
-                  </div>
-                </form>
+                <ContactForm />
               </div>
             </SectionReveal>
           </div>

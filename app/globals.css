@@ -1142,19 +1142,50 @@ button:focus-visible {
 }
 
 @media (max-width: 1450px) and (min-width: 1200px){
-      .review-slider .swiper-slide-active {
-        padding-top: 30px;
-        padding-bottom: 30px;
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-    .review-slider .swiper-slide-active .review-main {
+  .review-slider .swiper-slide-active {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .review-slider .swiper-slide-active .review-main {
     padding: 0px;
+  }
 }
-    }
 
-    @media (max-width: 600px) {
-      .review-slider .swiper-slide-active .review-main {
+@media (max-width: 600px) {
+  .review-slider .swiper-slide-active .review-main {
     padding: 0px;
+  }
 }
-    }
+
+
+/* .popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+}
+
+.popup__overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+} */
+
+/* .popup__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 500px;
+  width: 90%;
+  z-index: 2;
+  text-align: center;
+} */

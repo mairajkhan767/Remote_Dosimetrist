@@ -64,6 +64,15 @@ export default function Preloader() {
         },
         '<'
       )
+      .to(
+        wrapperRef.current,
+        {
+          duration: 1,
+          ease: 'power3.out',
+          opacity: 0,
+        },
+        '>'
+      )
   }, [checked, alreadyShown])
 
   if (!checked || alreadyShown) return null
@@ -71,7 +80,7 @@ export default function Preloader() {
   return (
     <div
       ref={wrapperRef}
-      className="z-[9999] absolute w-screen h-screen flex left-[0px] justify-center items-center"
+      className="z-[9999] absolute w-screen h-screen flex left-[0px] justify-center items-center bg-white"
     >
       <video
         ref={videoRef}
