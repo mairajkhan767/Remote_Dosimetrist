@@ -20,7 +20,7 @@ export default async function ContactPage() {
       <PageHero
         title={data?.acf?.banner_section?.page_title}
         subtitle={data?.acf?.banner_section?.page_description}
-        breadcrumb={data?.title.rendered}
+        breadcrumb={data?.title?.rendered}
       />
 
       {/* ── Info Cards ── */}

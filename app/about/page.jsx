@@ -21,7 +21,7 @@ export default async function AboutPage() {
       <PageHero
         title={data?.acf?.banner_fields?.page_title}
         subtitle={data?.acf?.banner_fields?.page_description}
-        breadcrumb={data?.title.rendered}
+        breadcrumb={data?.title?.rendered}
       />
 
       {/* ── Vision / Mission / Values ── */}

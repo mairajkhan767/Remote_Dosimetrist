@@ -21,7 +21,7 @@ export default async function PlansPage() {
       <PageHero
         title={data?.acf?.banner_section?.page_title}
         subtitle={data?.acf?.banner_section?.page_description}
-        breadcrumb={data?.title.rendered}
+        breadcrumb={data?.title?.rendered}
       />
 
       <div className="ip-section ip-section-white py-16 md:py-32 relative">

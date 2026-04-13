@@ -1,0 +1,18 @@
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# --- Route /api/contact to PHP proxy ---
+RewriteRule ^api/contact/?$ /api/contact.php [L,QSA]
+
+# --- Pass through existing files and directories ---
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# --- Clean URLs: rewrite /about → /about.html ---
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# --- 404 fallback ---
+ErrorDocument 404 /404.html

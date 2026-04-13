@@ -22,7 +22,7 @@ export default async function HowItWorksPage() {
       <PageHero
          title={data?.acf?.banner_section?.page_title}
         subtitle={data?.acf?.banner_section?.page_description}
-        breadcrumb={data?.title.rendered}
+        breadcrumb={data?.title?.rendered}
       />
 
       {/* ── Overview ── */}
