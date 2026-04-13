@@ -14,42 +14,6 @@ export async function generateMetadata() {
   };
 }
 
-const systems = [
-  {
-    title: 'MiM Maestro',
-    image: '/assets/maestro-mim.jpg',
-    text: 'MIM Maestro provides a suite of tools that make adaptive therapy a practical standard of care. From tracking daily delivered dose with ART Assist™ to automatically re-contouring your patient when the physician decides to replan, MIM Maestro will simplify and automate the adaptive process from start to finish.',
-  },
-  {
-    title: 'Varian Eclipse & Aria',
-    image: '/assets/medical.jpg',
-    texts: [
-      'The rich functionality of the Eclipse™ treatment planning system helps simplify modern radiation therapy planning for all standard treatment modalities, including 3D conformal, VMAT, brachytherapy, electron and proton therapy.',
-      'ARIA supports medical and radiation oncology, including proton therapy. Review clinical images, prescriptions, lab results, QA, outcomes, and more.',
-    ],
-  },
-  {
-    title: 'RaySearch RayStation',
-    image: '/assets/raytherapy.jpg',
-    text: 'RayStation® is a flexible, innovative treatment planning system chosen by many of the leading cancer centers worldwide. It combines unique features like unmatched adaptive therapy capabilities, multi-criteria optimization, and optimization for HDR brachytherapy and external beam therapy.',
-  },
-  {
-    title: 'Philips Pinnacle (v16)',
-    image: '/assets/xRay.jpg',
-    text: 'Treatment planning systems are a critical component of radiation therapy delivery, ensuring the tumor site receives maximum therapeutic dose while sparing surrounding tissue. As treatment methods evolve, more sophisticated technology is required.',
-  },
-  {
-    title: 'Elekta Oncentra Brachytherapy',
-    image: '/assets/elekta.jpg',
-    text: 'In contemporary brachytherapy, the dosimetrist needs to process an increasing amount of information and turn it into effective treatment plans in a limited time. The latest version of Oncentra® Brachy offers tools that facilitate many repetitive tasks.',
-  },
-  {
-    title: 'Elekta Mosaiq',
-    image: '/assets/Mosaiq.jpg',
-    text: 'MOSAIQ® is a complete patient management information system that centralizes radiation oncology, particle therapy and medical oncology patient data into a single user interface — a global leader in oncology information systems.',
-  },
-]
-
 export default async function SystemsPage() {
   const data = await fetchPageBySlug("systems");
   console.log('Systems Page Data:', data);
@@ -58,7 +22,7 @@ export default async function SystemsPage() {
       <PageHero
         title={data?.acf?.banner_section?.page_title}
         subtitle={data?.acf?.banner_section?.page_description}
-        breadcrumb={data?.title.rendered}
+        breadcrumb={data?.title?.rendered}
       />
 
       <div className="ip-section ip-section-white py-16 md:py-32 relative">
