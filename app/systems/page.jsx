@@ -3,29 +3,15 @@ import PageHero from '@/components/PageHero'
 import SectionReveal from '@/components/SectionReveal'
 import GetInTouch from '@/components/GetInTouch'
 import ReviewSlider from '@/components/ReviewSlider'
+import { fetchPageBySlug } from "@/lib/api";
 
-export const metadata = {
-  title: 'Our Systems',
-  description:
-    'Remote Dosimetrist works with industry-leading treatment planning systems including Varian Eclipse, RayStation, Philips Pinnacle, MiM Maestro, and Elekta Oncentra.',
-  alternates: {
-    canonical: 'https://remotedosimetrist.com/systems',
-  },
-  openGraph: {
-    title: 'Our Systems | Remote Dosimetrist',
-    description:
-      'We work with Varian Eclipse/Aria, RayStation, Philips Pinnacle, MiM Maestro, and Elekta Oncentra Brachytherapy.',
-    url: 'https://remotedosimetrist.com/systems',
-  },
-  keywords: [
-    'Varian Eclipse',
-    'RayStation',
-    'Philips Pinnacle',
-    'MiM Maestro',
-    'Elekta Oncentra',
-    'treatment planning system',
-    'radiation oncology software',
-  ],
+export async function generateMetadata() {
+  const data = await fetchPageBySlug("systems");
+
+  return {
+    title: data?.yoast_head_json?.title,
+    description: data?.yoast_head_json?.description,
+  };
 }
 
 const systems = [
@@ -64,36 +50,38 @@ const systems = [
   },
 ]
 
-export default function SystemsPage() {
+export default async function SystemsPage() {
+  const data = await fetchPageBySlug("systems");
+  console.log('Systems Page Data:', data);
   return (
     <section className="ip-page-enter ip-grain">
       <PageHero
-        title="Our Systems"
-        subtitle="Industry-leading treatment planning systems we work with every day."
-        breadcrumb="Systems"
+        title={data?.acf?.banner_section?.page_title}
+        subtitle={data?.acf?.banner_section?.page_description}
+        breadcrumb={data?.title.rendered}
       />
 
       <div className="ip-section ip-section-white py-16 md:py-32 relative">
         <div className="ip-ambient ip-ambient-1"></div>
         <SectionReveal>
           <div className="max-w-[1000px] mx-auto text-center px-6 gap-6 flex flex-col items-center relative z-10">
-            <span className="sr-item ip-label">Technology Partners</span>
-            <h2 className="sr-item text-[#003777] text-3xl md:text-[48px] font-bold md:leading-[52px] -tracking-[1.2px]">The Best Systems In The Industry</h2>
+            <span className="sr-item ip-label">{data?.acf?.section_1_fields?.sub_heading}</span>
+            <h2 className="sr-item text-[#003777] text-3xl md:text-[48px] font-bold md:leading-[52px] -tracking-[1.2px]">{data?.acf?.section_1_fields?.heading}</h2>
             <div className="sr-item flex justify-center"><div className="ip-section-divider"></div></div>
             <p className="sr-item text-[#434961] text-base md:text-[20px] leading-[28px] md:leading-[34px] -tracking-[0.3px] max-w-[700px] mt-3">
-              All information is taken from each company&apos;s website, and is solely the property of the respective company.
+              {data?.acf?.section_1_fields?.description}
             </p>
           </div>
         </SectionReveal>
       </div>
 
-      {systems.map((system, index) => {
+      {data?.acf?.section_2_fields.map((system, index) => {
         const isEven = index % 2 === 0
         const num = String(index + 1).padStart(2, '0')
         const bgClass = isEven ? 'ip-section-light' : 'ip-section-white'
 
         return (
-          <React.Fragment key={system.title}>
+          <React.Fragment key={system.heading}>
             <div className="ip-glow-divider"></div>
             <div className={`ip-section ${bgClass} py-12 md:py-24 relative`}>
               {isEven && <div className="ip-ambient ip-ambient-1"></div>}
@@ -104,7 +92,7 @@ export default function SystemsPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
                       <div className={isEven ? 'lg:order-1' : 'lg:order-2'}>
                         <div className="ip-image-wrap relative">
-                          <img src={system.image} alt={system.title} className="w-full object-cover object-center h-[260px] md:h-[480px]" />
+                          <img src={system.image.url} alt={system.image.alt} className="w-full object-cover object-center h-[260px] md:h-[480px]" />
                           <div className="absolute bottom-5 left-6 z-10">
                             <div className="w-11 h-11 rounded-xl flex items-center justify-center text-white text-[14px] font-bold" style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)', border: '1px solid rgba(255,255,255,0.20)' }}>
                               {num}
@@ -118,15 +106,13 @@ export default function SystemsPage() {
                             <div className="ip-number-badge">{num}</div>
                             <div className="ip-accent-line"></div>
                           </div>
-                          <h3 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">{system.title}</h3>
-                          {system.texts ? (
-                            system.texts.map((t, i) => (
-                              <p key={i} className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] max-w-[560px]">{t}</p>
-                            ))
-                          ) : (
-                            <p className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] max-w-[560px]">{system.text}</p>
+                          <h3 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">{system.heading}</h3>
+                          {
+                            system?.all_descriptions.map((t, i) => (
+                              <p key={i} className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] max-w-[560px]">{t.description}</p>
+                            )
                           )}
-                          <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">Discover More <span>→</span></a>
+                          <a href={system.button.url} className="ip-btn ip-btn-primary w-fit mt-3">{system.button.title} <span>→</span></a>
                         </div>
                       </div>
                     </div>
@@ -140,24 +126,21 @@ export default function SystemsPage() {
 
       {/* ── System Logos ── */}
       <div className="w-full flex flex-col justify-center items-center py-16 md:py-24 px-6 gap-8 md:gap-10">
-        <h3 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1] text-center">System For You</h3>
+        <h3 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1] text-center">{data?.acf.section_3_fields.heading}</h3>
         <p className="text-[#434961] max-w-4xl text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] text-center">
-          We currently have dosimetrists that work with MiM Maestro, Varian Eclipse/Aria Treatment Planning System (v15), Philips Pinnacle Treatment Planning System (v16), and Elekta/Mosaic Oncentra Brachytherapy Planning System.
+          {data?.acf?.section_3_fields.description}
         </p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-5xl">
-          {[
-            { src: '/assets/MIM-Maestro-1.png', alt: 'MiM Maestro', label: 'MiM Maestro' },
-            { src: '/assets/varian-7x4-1.png', alt: 'Varian Eclipse/Aria', label: 'Varian Eclipse/Aria' },
-            { src: '/assets/logo-Philips-Healthcare-Pinnacle-radiation-dosimetry-planning.png', alt: 'Philips Pinnacle', label: 'Philips Pinnacle' },
-            { src: '/assets/elekta-oncentra-brachytherapy-radiation-logo-1.png', alt: 'Elekta/Mosaiq Oncentra', label: 'Elekta/Mosaiq Oncentra' },
-          ].map((logo) => (
-            <div key={logo.label} className="flex flex-col justify-between items-center border rounded-2xl border-gray-200 p-4 md:p-6 gap-4">
-              <img src={logo.src} alt={logo.alt} className="w-full max-h-20 object-contain" />
-              <span className="text-[#003777] text-sm md:text-[16px] font-bold -tracking-[0.2px] text-center">{logo.label}</span>
+          {data?.acf?.section_3_fields.systems.map((logo) => (
+            <div key={logo.text} className="flex flex-col justify-between items-center border rounded-2xl border-gray-200 p-4 md:p-6 gap-4">
+              <img src={logo.image.url} alt={logo.image.alt} className="w-full max-h-20 object-contain" />
+              <span className="text-[#003777] text-sm md:text-[16px] font-bold -tracking-[0.2px] text-center">{logo.text}</span>
             </div>
           ))}
         </div>
-        <a href="/contact" className="ip-btn ip-btn-primary w-fit mt-3">Discover More <span>→</span></a>
+        <a href={data?.acf?.section_3_fields.button.url} className="ip-btn ip-btn-primary w-fit mt-3">
+          {data?.acf?.section_3_fields.button.title} <span>→</span>
+        </a>
       </div>
 
       <div className="review-section w-full" style={{ backgroundImage: 'url("/assets/18773521_6022556_Artboard 1.png")', backgroundRepeat: 'no-repeat', backgroundPosition: 'center' }}>
