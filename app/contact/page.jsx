@@ -3,6 +3,10 @@ import PageHero from '@/components/PageHero'
 import SectionReveal from '@/components/SectionReveal'
 import { fetchPageBySlug } from "@/lib/api";
 import ContactForm from "@/components/ContactForm";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import { faLocationDot, faEnvelope, faClock } from "@fortawesome/free-solid-svg-icons";
+import { faFacebookF, faInstagram, faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { canonicalFor } from '@/lib/metadata'
 
 export async function generateMetadata() {
   const data = await fetchPageBySlug("contact-us");
@@ -10,6 +14,9 @@ export async function generateMetadata() {
   return {
     title: data?.yoast_head_json?.title,
     description: data?.yoast_head_json?.description,
+    alternates: {
+      canonical: canonicalFor('/contact'),
+    },
   };
 }
 
@@ -35,10 +42,27 @@ export default async function ContactPage() {
                     <div className="flex flex-col items-center gap-5">
                       <div className="ip-card-icon w-20 h-20 flex items-center justify-center rounded-full bg-[#e6f0ff] text-4xl transition-all duration-500">
                         {/* <FontAwesomeIcon icon={faLocationDot} className="text-[#003777] transition-colors duration-500" /> */}
-                        <img src={card.icon.url} alt={card.icon.alt} className='w-[40px]' />
+                        {
+                          card.type == 'location' && <FontAwesomeIcon icon={faLocationDot} className="text-[#003777] transition-colors duration-500" />
+                        }
+                        {
+                          card.type == 'email' && <FontAwesomeIcon icon={faEnvelope} className="text-[#003777] transition-colors duration-500" />
+                        }
+                        {
+                          card.type == 'hours' && <FontAwesomeIcon icon={faClock} className="text-[#003777] transition-colors duration-500" />
+                        }
+                        {/* <img src={card.icon.url} alt={card.icon.alt} className='w-[40px]' /> */}
                       </div>
                       <h3 className="text-[#003777] text-[22px] md:text-[26px] font-extrabold uppercase tracking-wide transition-colors duration-500">{card.heading}</h3>
-                      <p className="text-[#434961] text-[16px] md:text-[17px] font-medium transition-colors duration-500">{card.description}</p>
+                      {
+                        card.type == 'email' ? (
+                          <a href={`mailto:${card.description}`} className="text-[#434961] text-[16px] md:text-[17px] font-medium transition-colors duration-500 hover:text-[#003777]">
+                            {card.description}
+                          </a>
+                        ) : (
+                          <p className="text-[#434961] text-[16px] md:text-[17px] font-medium transition-colors duration-500">{card.description}</p>
+                        )
+                      }
                     </div>
                   </div>
                 ))
@@ -85,9 +109,20 @@ export default async function ContactPage() {
                 <div className="flex gap-4 mt-2">
                   {
                     data?.acf?.section_2_fields?.social_links.map((link, index) => (
-                      <a key={index} href="#" aria-label="Social media" className="w-12 h-12 rounded-full bg-[#e6f0ff] flex items-center justify-center text-[#003777] hover:bg-[#003777] hover:text-white hover:shadow-lg transition-all duration-400 text-lg">
-                        <img src={link.social_icon.url} alt={link.social_icon.alt} className='w-3.5' />
-                      </a>
+                        <a key={index} href={link.social_link} target="_blank" aria-label="Social media" className="group w-12 h-12 rounded-full bg-[#e6f0ff] flex items-center justify-center text-[#003777] hover:bg-[#003777] hover:shadow-lg transition-all duration-400 text-lg">
+                          {
+                            link.social_name == 'Facebook' && <FontAwesomeIcon icon={faFacebookF} className="text-[#003777] group-hover:text-white transition-colors duration-300" />
+                          }
+                          {
+                            link.social_name == 'Twitter' && <FontAwesomeIcon icon={faTwitter} className="text-[#003777] group-hover:text-white transition-colors duration-300" />
+                          }
+                          {
+                            link.social_name == 'LinkedIn' && <FontAwesomeIcon icon={faLinkedinIn} className="text-[#003777] group-hover:text-white transition-colors duration-300" />
+                          }
+                          {
+                            link.social_name == 'Instagram' && <FontAwesomeIcon icon={faInstagram} className="text-[#003777] group-hover:text-white transition-colors duration-300" />
+                          }
+                        </a>
                     ))
                   }
                 </div>

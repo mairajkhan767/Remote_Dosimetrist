@@ -12,7 +12,7 @@ config.autoAddCss = false
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="overflow-x-hidden">
+      <body>
         <PreloaderProvider>
           <Preloader />
           <Header />

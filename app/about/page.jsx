@@ -1,5 +1,6 @@
 import React from 'react'
 import { fetchPageBySlug } from "@/lib/api";
+import { canonicalFor } from '@/lib/metadata'
 import PageHero from '@/components/PageHero'
 import SectionReveal from '@/components/SectionReveal'
 import GetInTouch from '@/components/GetInTouch'
@@ -12,6 +13,9 @@ export async function generateMetadata() {
   return {
     title: data?.yoast_head_json?.title,
     description: data?.yoast_head_json?.description,
+    alternates: {
+      canonical: canonicalFor('/about'),
+    },
   };
 }
 export default async function AboutPage() {

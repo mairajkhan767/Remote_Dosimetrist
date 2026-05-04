@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faLinkedinIn, faFacebookF, faYoutube, faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
   return (
     <footer className="w-full bg-white relative">
       {/* Content Section */}
@@ -61,8 +62,8 @@ export default function Footer() {
 
       {/* Copyright Bar */}
       <div className="w-full bg-[#003777] py-4 text-center">
-        <p className="text-white text-[10px] tracking-widest font-normal">
-          Copyright © 2025. <span className="font-bold">REMOTE DOSIMETRIST</span>. All Rights Reserved
+        <p className="text-white text-[10px] lg:text-[15px] tracking-widest font-normal">
+          Copyright © {currentYear}. <span className="font-bold">REMOTE DOSIMETRIST</span>. All Rights Reserved
         </p>
       </div>
     </footer>

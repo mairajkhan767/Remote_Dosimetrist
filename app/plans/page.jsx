@@ -4,6 +4,7 @@ import SectionReveal from '@/components/SectionReveal'
 import GetInTouch from '@/components/GetInTouch'
 import ReviewSlider from '@/components/ReviewSlider'
 import { fetchPageBySlug } from "@/lib/api";
+import { canonicalFor } from '@/lib/metadata'
 
 export async function generateMetadata() {
   const data = await fetchPageBySlug("our-plans");
@@ -11,6 +12,9 @@ export async function generateMetadata() {
   return {
     title: data?.yoast_head_json?.title,
     description: data?.yoast_head_json?.description,
+    alternates: {
+      canonical: canonicalFor('/plans'),
+    },
   };
 }
 
