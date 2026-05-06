@@ -3,7 +3,6 @@ import { fetchPageBySlug } from "@/lib/api";
 import { canonicalFor } from '@/lib/metadata'
 
 export const revalidate = 300;
-export const dynamic = 'force-static';
 
 const getHomeData = async () => {
   return await fetchPageBySlug("home");

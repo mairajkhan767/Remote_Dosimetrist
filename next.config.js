@@ -1,13 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  reactStrictMode: true,
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
+  /* config options here */
+  // ensure trailing slashes on all routes
+  output: "standalone",
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
   images: {
+    // disable Next.js Image Optimization API for static export
     unoptimized: true,
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'api-rd.demo-link.tech',
+        pathname: '/**',
+      },
+    ],
   },
-}
+};
 
-module.exports = nextConfig
+export default nextConfig;
