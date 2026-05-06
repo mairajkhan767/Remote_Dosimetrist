@@ -88,7 +88,7 @@ export default function Preloader() {
         muted
         playsInline
         className="object-cover w-full h-full"
-        poster="/assets/preloader-image.png"
+        poster="/assets/preloader-image.webp"
       >
         <source src="/assets/preloader-video.mp4" type="video/mp4" />
       </video>

@@ -9,7 +9,7 @@ import { usePreloader } from './PreloaderContext'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
-export default function HomeClient({bannerData}) {
+export default function HomeClient({ bannerData }) {
   // const API = process.env.NEXT_PUBLIC_API_URL
   // const [bannerData, setBannerData] = useState(null)
   const wrapperRef = useRef(null)
@@ -143,7 +143,7 @@ export default function HomeClient({bannerData}) {
           <div
             className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
             style={{
-              backgroundImage: `url('/assets/fade-overlay.png')`,
+              backgroundImage: `url('/assets/fade-overlay.webp')`,
               backgroundPosition: 'center',
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
@@ -198,7 +198,7 @@ export default function HomeClient({bannerData}) {
         <div className="section-3 w-full min-h-dvh overflow-hidden sticky top-0">
           <video
             className="s-3-video absolute inset-0 h-full w-full object-cover origin-center"
-            poster="/assets/3rd-sec-video-poster.png"
+            poster="/assets/3rd-sec-video-poster.webp"
             autoPlay
             muted
             loop
