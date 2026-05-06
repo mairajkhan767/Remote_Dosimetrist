@@ -16,14 +16,14 @@ export default function RootLayout({ children }) {
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-YYKBF43KHC"
-          strategy="afterInteractive"
+
         />
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-YYKBF43KHC"
-          strategy="afterInteractive"
+
         />
 
-        <Script id="ga4-init" strategy="afterInteractive">
+        <Script id="ga4-init" >
           {`
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
   `}
         </Script>
         <meta name="google-site-verification" content="7_n7SeloGYX-tn3PCX6tDGelNFJxobTu6ChgyLQJC88" />
-        <Script id="gtm" strategy="afterInteractive">
+        <Script id="gtm" >
           {`
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
