@@ -15,20 +15,16 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-YYKBF43KHC"
-
-        />
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-YYKBF43KHC"
+          src="https://www.googletagmanager.com/gtag/js?id=G-TD9VV5JEXC"
 
         />
 
         <Script id="ga4-init" >
           {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-YYKBF43KHC');
+     window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TD9VV5JEXC');
   `}
         </Script>
         <meta name="google-site-verification" content="7_n7SeloGYX-tn3PCX6tDGelNFJxobTu6ChgyLQJC88" />
