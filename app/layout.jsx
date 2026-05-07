@@ -16,10 +16,10 @@ export default function RootLayout({ children }) {
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-TD9VV5JEXC"
-
+          strategy='beforeInteractive'
         />
 
-        <Script id="ga4-init" >
+        <Script id="ga4-init" strategy='beforeInteractive' >
           {`
      window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -28,7 +28,7 @@ export default function RootLayout({ children }) {
   `}
         </Script>
         <meta name="google-site-verification" content="7_n7SeloGYX-tn3PCX6tDGelNFJxobTu6ChgyLQJC88" />
-        <Script id="gtm" >
+        <Script id="gtm" strategy='beforeInteractive' >
           {`
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
