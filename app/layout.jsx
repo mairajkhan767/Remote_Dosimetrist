@@ -10,6 +10,15 @@ import Script from "next/script";
 
 config.autoAddCss = false
 
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Remote Dosimetrist",
+  "url": process.env.NEXT_PUBLIC_SITE_URL,
+  "inLanguage": "en",
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
