@@ -130,14 +130,17 @@ export default function HomeClient({ bannerData }) {
         <div className="w-full h-full flex justify-center items-end pb-10 lg:pb-[50px] 3xl:pb-[179px]">
           <video
             ref={videoRef}
-            style={{ opacity: 0, transition: 'opacity 1s ease-in' }}
-            autoplay
+            style={{ opacity: 0, transition: "opacity 1s ease-in" }}
+            autoPlay
             muted
             loop
-            playsinline
+            playsInline
             preload="none"
           >
-            <source src={bannerData.acf.banner_fields.background_video.url} type="video/mp4" />
+            <source
+              src={bannerData.acf.banner_fields.background_video.url}
+              type="video/mp4"
+            />
           </video>
           <div
             className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
