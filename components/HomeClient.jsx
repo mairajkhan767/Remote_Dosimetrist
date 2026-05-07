@@ -14,6 +14,8 @@ export default function HomeClient({ bannerData }) {
   // const [bannerData, setBannerData] = useState(null)
   const wrapperRef = useRef(null)
   const videoRef = useRef(null)
+  const [showBannerVideo, setShowBannerVideo] = useState(false);
+
   // const { alreadyShown } = usePreloader()
   const [hoverData, setHoverData] = useState({
     heading: 'Head & Neck',
@@ -32,8 +34,18 @@ export default function HomeClient({ bannerData }) {
     wrapperRef.current.style.opacity = 1
     // }
     // if (alreadyShown && videoRef.current) {
-    videoRef.current.style.opacity = 1
+
     // }
+
+    const loadVideo = () => {
+      setShowBannerVideo(true);
+    };
+
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(loadVideo);
+    } else {
+      setTimeout(loadVideo, 2000);
+    }
   }, [])
 
   useGSAP(() => {
@@ -128,9 +140,9 @@ export default function HomeClient({ bannerData }) {
       {/* ── Hero ── */}
       <div className="first-container bg-main-video relative">
         <div className="w-full h-full flex justify-center items-end pb-10 lg:pb-[50px] 3xl:pb-[179px]">
-          <video
+          {showBannerVideo && <video
+            className="object-cover absolute top-0 left-0 w-full h-full pointer-events-none z-0"
             ref={videoRef}
-            style={{ opacity: 0, transition: "opacity 1s ease-in" }}
             autoPlay
             muted
             loop
@@ -141,7 +153,8 @@ export default function HomeClient({ bannerData }) {
               src={bannerData.acf.banner_fields.background_video.url}
               type="video/mp4"
             />
-          </video>
+          </video>}
+
           <div
             className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
             style={{
