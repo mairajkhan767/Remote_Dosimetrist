@@ -1,5 +1,5 @@
 import './globals.css'
-import { config } from '@fortawesome/fontawesome-svg-core'
+// import { config } from '@fortawesome/fontawesome-svg-core'
 import '@fortawesome/fontawesome-svg-core/styles.css'
 import PreloaderProvider from '@/components/PreloaderContext'
 import Preloader from '@/components/Preloader'
@@ -8,7 +8,7 @@ import Footer from '@/components/Footer'
 import Popup from '@/components/Popup'
 import Script from "next/script";
 
-config.autoAddCss = false
+// config.autoAddCss = false
 
 
 const schema = {
