@@ -24,7 +24,7 @@ export default async function HowItWorksPage() {
   return (
     <section className="ip-page-enter ip-grain">
       <PageHero
-         title={data?.acf?.banner_section?.page_title}
+        title={data?.acf?.banner_section?.page_title}
         subtitle={data?.acf?.banner_section?.page_description}
         breadcrumb={data?.title?.rendered}
       />
@@ -45,11 +45,11 @@ export default async function HowItWorksPage() {
               <h2 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">{data?.acf?.section_1_fields?.heading}</h2>
               <div className="ip-section-divider"></div>
               {
-                data?.acf?.section_1_fields?.all_description.map((desc,index) => (
+                data?.acf?.section_1_fields?.all_description.map((desc, index) => (
                   <p className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px]" key={index}>
                     {desc.description}
                   </p>
-                )) 
+                ))
               }
             </div>
           </SectionReveal>
@@ -63,12 +63,12 @@ export default async function HowItWorksPage() {
         <div className="ip-ambient ip-ambient-2" style={{ top: '-5%', right: '-10%' }}></div>
         <div className="ip-edge-accent ip-edge-accent-right"></div>
         <div className="max-w-[1400px] mx-auto px-6 flex flex-col lg:flex-row gap-8 md:gap-16 items-center relative z-10">
-          <SectionReveal direction="right" className="lg:order-2 w-1/4" parallax>
+          <SectionReveal direction="right" className="lg:order-2 w-full lg:w-1/4" parallax>
             <div className="sr-item ip-image-wrap">
               <img src={data?.acf?.section_2_fields?.image.url} alt={data?.acf?.section_2_fields?.image.alt} className="w-full object-cover" />
             </div>
           </SectionReveal>
-          <SectionReveal direction="left" className="lg:order-1 w-9/12">
+          <SectionReveal direction="left" className="lg:order-1 w-full lg:w-9/12">
             <div className="sr-item flex flex-col gap-7 relative">
               <span className="ip-label">{data?.acf?.section_2_fields?.sub_heading}</span>
               <h2 className="text-[#003777] text-2xl md:text-[38px] font-extrabold -tracking-[0.95px] leading-[1.1]">{data?.acf?.section_2_fields?.heading}</h2>
@@ -77,7 +77,7 @@ export default async function HowItWorksPage() {
                 {data?.acf?.section_2_fields?.description}
               </p>
               {
-                data?.acf?.section_2_fields?.methods.map((desc,index) => (
+                data?.acf?.section_2_fields?.methods.map((desc, index) => (
                   <div
                     key={index}
                     className="text-[#434961] text-[16px] md:text-[18px] leading-[28px] md:leading-[32px] -tracking-[0.2px] flex flex-row gap-1"

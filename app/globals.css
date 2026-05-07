@@ -72,40 +72,52 @@ body {
 }
 
 @media (min-width: 1024px) and (max-width: 1440px) {
-  p{
+  p {
     font-size: 18px !important;
   }
-  h1{
+
+  h1 {
     font-size: 60px !important;
   }
-  h2{
+
+  h2 {
     font-size: 30px !important;
   }
-  input[type="text"], input[type="email"], textarea{
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
     padding-block: 5px !important;
   }
+
   .ip-form-input {
     height: 38px !important;
   }
 
-  .s-4-heading-2{
+  .s-4-heading-2 {
     left: unset !important;
   }
 }
 
-@media (min-width: 1441px) and ( max-width: 1600px) {
-  p{
+@media (min-width: 1441px) and (max-width: 1600px) {
+  p {
     font-size: 22px !important;
   }
-  h1{
+
+  h1 {
     font-size: 80px !important;
   }
-  h2{
+
+  h2 {
     font-size: 50px !important;
   }
-  input[type="text"], input[type="email"], textarea{
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
     padding-block: 15px !important;
   }
+
   .ip-form-input {
     height: 38px !important;
   }
@@ -773,12 +785,8 @@ button:focus-visible {
   }
 
   .ip-card-hover-blue:hover .ip-card-icon {
-    background: rgba(255, 255, 255, 0.12) !important;
+    background: white !important;
     box-shadow: 0 0 24px rgba(255, 255, 255, 0.08);
-  }
-
-  .ip-card-hover-blue:hover .ip-card-icon svg {
-    color: #ffffff !important;
   }
 }
 
@@ -1074,6 +1082,7 @@ button:focus-visible {
 /* ===== RESPONSIVE / MOBILE ===== */
 
 @media (max-width: 1023px) {
+
   /* Hero title scales down on tablet/mobile */
   .inner-hero-content h1 {
     font-size: 48px;
@@ -1082,6 +1091,7 @@ button:focus-visible {
 }
 
 @media (max-width: 767px) {
+
   /* PageHero */
   .inner-hero {
     min-height: 52vh;
@@ -1141,13 +1151,14 @@ button:focus-visible {
   }
 }
 
-@media (max-width: 1450px) and (min-width: 1200px){
+@media (max-width: 1450px) and (min-width: 1200px) {
   .review-slider .swiper-slide-active {
     padding-top: 30px;
     padding-bottom: 30px;
     padding-left: 20px;
     padding-right: 20px;
   }
+
   .review-slider .swiper-slide-active .review-main {
     padding: 0px;
   }

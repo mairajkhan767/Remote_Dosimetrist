@@ -66,7 +66,7 @@ function ReviewCard({ review }) {
         <p className="text-gray-600 text-sm lg:text-[22px] leading-relaxed">{review.text}</p>
       </div>
       <div>
-        <h4 className="mt-4 text-lg font-semibold text-gray-600">{review.name}</h4>
+        <p className="mt-4 text-lg font-semibold text-gray-600">{review.name}</p>
       </div>
     </div>
   )

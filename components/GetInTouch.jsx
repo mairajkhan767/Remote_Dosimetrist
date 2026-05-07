@@ -52,8 +52,8 @@ export default function GetInTouch({ data }) {
           <div className="flex flex-col lg:gap-2 gap-6">
             <p className="text-[18px] md:text-[22px] text-white px-5 py-1 bg-[#003777] w-fit">{data.sub_heading}</p>
             <div>
-              <h2 className="text-[32px] md:text-[48px] text-black font-medium leading-tight tracking-0">{data.heading_1}</h2>
-              <h2 className="text-[38px] md:text-[58px] text-black font-medium leading-tight tracking-0">{data.heading_2}</h2>
+              <h3 className="text-[32px] md:text-[48px] text-black font-medium leading-tight tracking-0">{data.heading_1}</h3>
+              <h3 className="text-[38px] md:text-[58px] text-black font-medium leading-tight tracking-0">{data.heading_2}</h3>
             </div>
           </div>
           <div className="flex flex-col w-full gap-5">
