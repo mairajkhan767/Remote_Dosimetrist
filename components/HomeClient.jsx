@@ -14,7 +14,7 @@ export default function HomeClient({ bannerData }) {
   // const [bannerData, setBannerData] = useState(null)
   const wrapperRef = useRef(null)
   const videoRef = useRef(null)
-  const { alreadyShown } = usePreloader()
+  // const { alreadyShown } = usePreloader()
   const [hoverData, setHoverData] = useState({
     heading: 'Head & Neck',
     para: 'Head and neck cancers have often been associated with very difficult and time-consuming radiation',
@@ -28,13 +28,13 @@ export default function HomeClient({ bannerData }) {
   }
 
   useEffect(() => {
-    if (alreadyShown && wrapperRef.current) {
-      wrapperRef.current.style.opacity = 1
-    }
-    if (alreadyShown && videoRef.current) {
-      videoRef.current.style.opacity = 1
-    }
-  }, [alreadyShown])
+    // if (alreadyShown && wrapperRef.current) {
+    wrapperRef.current.style.opacity = 1
+    // }
+    // if (alreadyShown && videoRef.current) {
+    videoRef.current.style.opacity = 1
+    // }
+  }, [])
 
   useGSAP(() => {
     if (!bannerData) return
