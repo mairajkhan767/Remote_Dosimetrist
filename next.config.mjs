@@ -2,7 +2,7 @@
 const nextConfig = {
   /* config options here */
   // ensure trailing slashes on all routes
-  output: "standalone",
+  // output: "standalone",
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   images: {
@@ -15,6 +15,28 @@ const nextConfig = {
         pathname: '/**',
       },
     ],
+  },
+  async headers() {
+    return [
+      {
+        source: "/assets/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/assets/:path*",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+    ];
   },
 };
 
