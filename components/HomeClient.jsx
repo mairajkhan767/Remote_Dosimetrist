@@ -136,9 +136,6 @@ export default function HomeClient({ bannerData }) {
             loop
             playsinline
             preload="none"
-            {...(bannerData?.acf?.banner_fields?.background_video?.url
-              ? { src: bannerData.acf.banner_fields.background_video.url }
-              : {})}
           >
             <source src={bannerData.acf.banner_fields.background_video.url} type="video/mp4" />
           </video>
