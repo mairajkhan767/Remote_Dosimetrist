@@ -129,19 +129,19 @@ export default function HomeClient({ bannerData }) {
       <div className="first-container bg-main-video relative">
         <div className="w-full h-full flex justify-center items-end pb-10 lg:pb-[50px] 3xl:pb-[179px]">
           <video
-            className="object-cover absolute top-0 left-0 w-full h-full pointer-events-none z-0"
             ref={videoRef}
             style={{ opacity: 0, transition: 'opacity 1s ease-in' }}
-            autoPlay
+            autoplay
             muted
             loop
-            playsInline
-            preload="auto"
-            fetchPriority="high"
+            playsinline
+            preload="none"
             {...(bannerData?.acf?.banner_fields?.background_video?.url
               ? { src: bannerData.acf.banner_fields.background_video.url }
               : {})}
-          ></video>
+          >
+            <source src={bannerData.acf.banner_fields.background_video.url} type="video/mp4" />
+          </video>
           <div
             className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
             style={{
@@ -205,11 +205,11 @@ export default function HomeClient({ bannerData }) {
             muted
             loop
             playsInline
+            preload="none"
             style={{ width: '35%', left: '32.5%', height: '65%', top: '37%' }}
-            {...(bannerData?.acf?.section_2_fields?.background_video?.url
-              ? { src: bannerData.acf.section_2_fields.background_video.url }
-              : {})}
-          />
+          >
+            <source src={bannerData.acf.section_2_fields.background_video.url} type="video/mp4" />
+          </video>
           <div className="s-3-video-overlay absolute inset-0 h-full w-full object-cover bg-[#0A388D] opacity-0 z-2 mix-blend-screen"></div>
           <div className="pt-[93px] z-5 relative">
             <div className="s-3-content flex justify-center flex-col items-center relative z-10 gap-[38px] translate-y-[400px]">
