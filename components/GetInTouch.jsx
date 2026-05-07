@@ -80,7 +80,7 @@ export default function GetInTouch({ data }) {
         </form>
         <div className="w-full flex flex-col gap-8">
           <div>
-            <img src={data.image?.url} alt="" className="w-full" />
+            <img loading='lazy' src={data.image?.url} alt={data.image?.alt ?? data.sub_heading} className="w-full" />
           </div>
           <div className="flex flex-col gap-4">
             {data.faqs?.map((faq, index) => (

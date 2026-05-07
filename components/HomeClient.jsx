@@ -136,6 +136,8 @@ export default function HomeClient({ bannerData }) {
             muted
             loop
             playsInline
+            preload="auto"
+            fetchPriority="high"
             {...(bannerData?.acf?.banner_fields?.background_video?.url
               ? { src: bannerData.acf.banner_fields.background_video.url }
               : {})}
@@ -151,7 +153,7 @@ export default function HomeClient({ bannerData }) {
           ></div>
           <div className="hidden absolute lg:top-[200px] 2xl:top-[275px] lg:left-[10px] 4xl:top-[380px] 4xl:left-[210px] 2xl:left-[120px] lg:flex lg:flex-row-reverse lg:gap-[38px]">
             {bannerData?.acf?.banner_fields?.hotspot_image_2?.url && (
-              <img src={bannerData.acf.banner_fields.hotspot_image_2.url} alt="" />
+              <img src={bannerData.acf.banner_fields.hotspot_image_2.url} alt={bannerData.acf.banner_fields.hotspot_image_2.alt ?? bannerData?.acf?.banner_fields?.banner_heading} />
             )}
             <p className="text-[16px] lg:text-[20px] text-[#434961] leading-[24px] w-[280px] content-end text-end mb-[-37px]">
               {bannerData?.acf?.banner_fields?.hotspot_text_2}
@@ -159,7 +161,7 @@ export default function HomeClient({ bannerData }) {
           </div>
           <div className="hidden absolute 4xl:top-[150px] 4xl:right-[16.3%] lg:top-[100px] lg:right-[10.3%] lg:flex lg:gap-[9px]">
             {bannerData?.acf?.banner_fields?.hotspot_image_1?.url && (
-              <img src={bannerData.acf.banner_fields.hotspot_image_1.url} alt="" />
+              <img src={bannerData.acf.banner_fields.hotspot_image_1.url} alt={bannerData?.acf?.banner_fields?.banner_heading ?? bannerData?.acf?.banner_fields?.banner_heading} />
             )}
             <p className="text-[20px] text-[#434961] leading-[24px] w-[200px] content-end mb-[-25px]">
               {bannerData?.acf?.banner_fields?.hotspot_text_1}
@@ -220,13 +222,13 @@ export default function HomeClient({ bannerData }) {
             </div>
             <div className="pt-[61px] flex flex-row items-center 2xl:justify-center gap-[23px] s-3-divs">
               <div className="s-3-div-1 relative group overflow-hidden w-[620px] h-[566px]">
-                <img src={bannerData?.acf?.section_2_fields?.left_box?.background_image?.url} alt="3D Planning" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
+                <img loading='lazy' src={bannerData?.acf?.section_2_fields?.left_box?.background_image?.url} alt="3D Planning" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
                   <h3 className="text-3xl font-bold text-white">{bannerData?.acf?.section_2_fields?.left_box?.heading}</h3>
                 </div>
               </div>
               <div className="s-3-div-2 relative group overflow-hidden translate-y-[800px] w-[620px]">
-                <img src={bannerData?.acf?.section_2_fields?.middle_box?.background_image?.url} alt="VMAT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
+                <img loading='lazy' src={bannerData?.acf?.section_2_fields?.middle_box?.background_image?.url} alt="VMAT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-blue-900/75 flex flex-col items-center justify-center px-6 text-center gap-[36px]">
                   <h3 className="text-4xl font-extrabold text-white">{bannerData?.acf?.section_2_fields?.middle_box?.heading}</h3>
                   <p className="text-blue-100 text-[22px] w-[432px] 2xl:w-[350px]">{bannerData?.acf?.section_2_fields?.middle_box?.description}</p>
@@ -236,7 +238,7 @@ export default function HomeClient({ bannerData }) {
                 </div>
               </div>
               <div className="s-3-div-3 relative group overflow-hidden w-[620px] h-[566px]">
-                <img src={bannerData?.acf?.section_2_fields?.right_box?.background_image?.url} alt="IMRT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
+                <img loading='lazy' src={bannerData?.acf?.section_2_fields?.right_box?.background_image?.url} alt="IMRT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
                 <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
                   <h3 className="text-3xl font-bold text-white">{bannerData?.acf?.section_2_fields?.right_box?.heading}</h3>
                 </div>
@@ -256,13 +258,13 @@ export default function HomeClient({ bannerData }) {
         </div>
         <div className="w-full flex flex-col lg:flex-row lg:gap-2 justify-center items-center px-5 gap-10">
           <div className="w-full relative group overflow-hidden rounded-2xl">
-            <img src="/assets/3D Planning.png" alt="3D Planning" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
+            <img loading='lazy' src="/assets/3D Planning.png" alt="3D Planning" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
             <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
               <h3 className="text-3xl font-bold text-white">{bannerData?.acf?.section_2_fields?.left_box?.heading}</h3>
             </div>
           </div>
           <div className="w-full relative group overflow-hidden rounded-2xl">
-            <img src="/assets/VMRL.png" alt="VMAT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
+            <img loading='lazy' src="/assets/VMRL.png" alt="VMAT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
             <div className="absolute inset-0 bg-blue-900/75 flex flex-col items-center justify-center px-6 text-center gap-[36px]">
               <h3 className="text-4xl font-extrabold text-white uppercase">{bannerData?.acf?.section_2_fields?.middle_box?.heading}</h3>
               <p className="text-blue-100 text-[16px] w-10/12 text-center">{bannerData?.acf?.section_2_fields?.middle_box?.description}</p>
@@ -272,7 +274,7 @@ export default function HomeClient({ bannerData }) {
             </div>
           </div>
           <div className="w-full relative group overflow-hidden rounded-2xl">
-            <img src="/assets/IMRT.png" alt="IMRT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
+            <img loading='lazy' src="/assets/IMRT.png" alt="IMRT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
             <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
               <h3 className="text-3xl font-bold text-white">{bannerData?.acf?.section_2_fields?.right_box?.heading}</h3>
             </div>
@@ -293,7 +295,7 @@ export default function HomeClient({ bannerData }) {
               </h2>
             </div>
             <div className="s-4-bg-image-c w-full h-full flex justify-center absolute left-0 top-0">
-              <img src={bannerData?.acf?.section_3_fields?.background_image?.url} alt="" className="s-4-bg-image scale-105" />
+              <img loading='lazy' src={bannerData?.acf?.section_3_fields?.background_image?.url} alt="" className="s-4-bg-image scale-105" />
             </div>
             <div className="flex flex-row justify-center">
               <h2 className="s-4-heading-2 text-[38px] w-[180px] absolute top-[44%] left-[45.3%] text-white font-extrabold text-center -tracking-[0.95px]">
@@ -322,6 +324,7 @@ export default function HomeClient({ bannerData }) {
                       data-button_title={area.button.title}
                       data-button_url={area.button.url}
                       style={{ width: '250px', height: '150px' }}
+                      loading='lazy'
                     />
                   </div>
                 ))}
@@ -349,7 +352,7 @@ export default function HomeClient({ bannerData }) {
             </a>
           </div>
           <div>
-            <img src={bannerData?.acf?.section_4_fields?.left_bottom_box?.background_image?.url} className="w-full" alt="" />
+            <img loading='lazy' src={bannerData?.acf?.section_4_fields?.left_bottom_box?.background_image?.url} className="w-full" alt="" />
           </div>
         </div>
         <div

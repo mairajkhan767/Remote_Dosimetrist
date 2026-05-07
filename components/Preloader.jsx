@@ -97,7 +97,7 @@ export default function Preloader() {
         className="absolute w-[195.26px] h-[56.69px]"
         ref={logoImg}
         style={{ clipPath: 'inset(0% 100% 0% 0%)' }}
-        alt=""
+        alt="Preloader Logo"
       />
     </div>
   )

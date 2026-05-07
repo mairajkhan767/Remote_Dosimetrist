@@ -50,7 +50,7 @@ function ReviewCard({ review }) {
     <div className="review-main h-full p-6 transition-all duration-300 flex flex-col gap-10">
       <div className="flex flex-col">
         <div className="self-end">
-          <img src={review.image} alt={review.name} className="w-[96px] h-[96px] rounded-full object-cover" />
+          <img loading='lazy' src={review.image} alt={review.name} className="w-[96px] h-[96px] rounded-full object-cover" />
         </div>
         <div className="flex gap-2 text-lg">
           {Array.from({ length: review.rating }).map((_, i) => (
