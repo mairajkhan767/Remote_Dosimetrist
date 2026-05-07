@@ -23,19 +23,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-TD9VV5JEXC"
-          strategy='beforeInteractive'
-        />
-
-        <Script id="ga4-init" strategy='beforeInteractive' >
-          {`
-     window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TD9VV5JEXC');
-  `}
-        </Script>
         <meta name="google-site-verification" content="7_n7SeloGYX-tn3PCX6tDGelNFJxobTu6ChgyLQJC88" />
         <Script id="gtm" strategy='beforeInteractive' >
           {`
@@ -51,6 +38,25 @@ export default function RootLayout({ children }) {
     })(window,document,'script','dataLayer','GTM-M5C8BSRH');
   `}
         </Script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-TD9VV5JEXC"
+          strategy='beforeInteractive'
+        />
+
+        <Script id="ga4-init" strategy='beforeInteractive' >
+          {`
+     window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-TD9VV5JEXC');
+  `}
+        </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(schema),
+          }}
+        />
       </head>
       <body>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5C8BSRH"
