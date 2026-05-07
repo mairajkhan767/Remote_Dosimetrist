@@ -14,7 +14,8 @@ export default function HomeClient({ bannerData }) {
   // const [bannerData, setBannerData] = useState(null)
   const wrapperRef = useRef(null)
   const videoRef = useRef(null)
-  const [showVideo, setShowVideo] = useState(false);
+  const [showBannerVideo, setShowBannerVideo] = useState(false);
+  const [videoReady, setVideoReady] = useState(false);
 
   // const { alreadyShown } = usePreloader()
   const [hoverData, setHoverData] = useState({
@@ -36,16 +37,18 @@ export default function HomeClient({ bannerData }) {
     // if (alreadyShown && videoRef.current) {
 
     // }
+  }, []);
 
-    const loadVideo = () => setShowVideo(true);
+  useEffect(() => {
+    const loadVideo = () => setShowBannerVideo(true);
 
     if ("requestIdleCallback" in window) {
       requestIdleCallback(loadVideo);
     } else {
       setTimeout(loadVideo, 2000);
     }
+  }, []);
 
-  }, [])
 
   useGSAP(() => {
     if (!bannerData) return
@@ -137,91 +140,62 @@ export default function HomeClient({ bannerData }) {
       style={{ opacity: 0, transition: 'opacity 1s ease-in' }}
     >
       {/* ── Hero ── */}
-      <div className="first-container bg-main-video relative overflow-hidden h-screen">
+      <div className="first-container bg-main-video relative">
+        <div className="w-full h-full flex justify-center items-end pb-10 lg:pb-[50px] 3xl:pb-[179px]">
+          {showBannerVideo &&
+            <video
+              ref={videoRef}
+              className="absolute top-0 left-0 w-full h-full object-cover z-0 pointer-events-none transition-opacity duration-1000"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              style={{
+                opacity: videoReady ? 1 : 0,
+              }}
+              onCanPlay={() => setVideoReady(true)}
+            >
+              <source
+                src={bannerData?.acf?.banner_fields?.background_video?.url}
+                type="video/mp4"
+              />
+            </video>}
 
-        {/* ✅ 1. FAST LCP IMAGE (always first paint) */}
-        <img
-          src={bannerData?.acf?.banner_fields?.poster_image?.url}
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover z-0"
-          fetchPriority="high"
-          decoding="async"
-        />
-
-        {/* ✅ 2. VIDEO (lazy mounted AFTER idle) */}
-        {showVideo && (
-          <video
-            ref={videoRef}
-            className="absolute top-0 left-0 w-full h-full object-cover z-0 pointer-events-none transition-opacity duration-1000"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            style={{
-              opacity: videoReady ? 1 : 0,
-            }}
-            onCanPlay={() => setVideoReady(true)}
-          >
-            <source
-              src={bannerData?.acf?.banner_fields?.background_video?.url}
-              type="video/mp4"
-            />
-          </video>
-        )}
-
-        {/* ✅ 3. OVERLAY (use CSS instead of image for speed if possible) */}
-        <div className="absolute inset-0 z-10 pointer-events-none bg-gradient-to-b from-transparent via-black/10 to-black/40" />
-
-        {/* ✅ 4. HOTSPOTS (lazy-safe) */}
-        <div className="hidden lg:flex absolute lg:top-[200px] lg:left-[10px] z-20">
-          {bannerData?.acf?.banner_fields?.hotspot_image_2?.url && (
-            <img
-              src={bannerData.acf.banner_fields.hotspot_image_2.url}
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
-          )}
-          <p className="text-[16px] lg:text-[20px] text-[#434961] w-[280px]">
-            {bannerData?.acf?.banner_fields?.hotspot_text_2}
-          </p>
-        </div>
-
-        <div className="hidden lg:flex absolute lg:top-[100px] lg:right-[10%] z-20">
-          {bannerData?.acf?.banner_fields?.hotspot_image_1?.url && (
-            <img
-              src={bannerData.acf.banner_fields.hotspot_image_1.url}
-              alt=""
-              loading="lazy"
-              decoding="async"
-            />
-          )}
-          <p className="text-[20px] text-[#434961] w-[200px]">
-            {bannerData?.acf?.banner_fields?.hotspot_text_1}
-          </p>
-        </div>
-
-        {/* ✅ 5. HERO TEXT (LCP candidate) */}
-        <div className="relative z-30 flex justify-center items-end h-full pb-10 lg:pb-[50px]">
-          <div className="px-4 sm:px-0 text-center">
-            <h1 className="text-[22px] sm:text-[28px] lg:text-[60px] xl:text-[100px] font-extrabold text-[#003777] leading-tight">
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+            <img className="bg-cover w-full h-full" src="/assets/fade-overlay.webp" alt="Banner Image" fetchPriority="high" />
+          </div>
+          <div className="hidden absolute lg:top-[200px] 2xl:top-[275px] lg:left-[10px] 4xl:top-[380px] 4xl:left-[210px] 2xl:left-[120px] lg:flex lg:flex-row-reverse lg:gap-[38px]">
+            {bannerData?.acf?.banner_fields?.hotspot_image_2?.url && (
+              <img loading="lazy" decoding="async" src={bannerData.acf.banner_fields.hotspot_image_2.url} alt={bannerData.acf.banner_fields.hotspot_image_2.alt ?? bannerData?.acf?.banner_fields?.banner_heading} />
+            )}
+            <p className="text-[16px] lg:text-[20px] text-[#434961] leading-[24px] w-[280px] content-end text-end mb-[-37px]">
+              {bannerData?.acf?.banner_fields?.hotspot_text_2}
+            </p>
+          </div>
+          <div className="hidden absolute 4xl:top-[150px] 4xl:right-[16.3%] lg:top-[100px] lg:right-[10.3%] lg:flex lg:gap-[9px]">
+            {bannerData?.acf?.banner_fields?.hotspot_image_1?.url && (
+              <img loading="lazy"
+                decoding="async" src={bannerData.acf.banner_fields.hotspot_image_1.url} alt={bannerData?.acf?.banner_fields?.banner_heading ?? bannerData?.acf?.banner_fields?.banner_heading} />
+            )}
+            <p className="text-[20px] text-[#434961] leading-[24px] w-[200px] content-end mb-[-25px]">
+              {bannerData?.acf?.banner_fields?.hotspot_text_1}
+            </p>
+          </div>
+          <div className="px-4 sm:px-0 z-10 relative">
+            <h1 className="fCH1 text-[22px] sm:text-[28px] lg:text-[60px] lg:leading-12 text-center leading-7 sm:leading-8 xl:text-[100px] text-[#003777] xl:leading-24 -tracking-[2.5px] font-extrabold">
               {bannerData?.acf?.banner_fields?.banner_heading}
             </h1>
-
-            <p className="mt-5 text-[16px] lg:text-[22px] max-w-[600px] mx-auto">
-              {bannerData?.acf?.section_1_fields?.description}
-            </p>
-
-            <a
-              href={bannerData?.acf?.section_1_fields?.button?.url}
-              className="ip-btn ip-btn-primary mt-5 inline-block"
-            >
-              {bannerData?.acf?.section_1_fields?.button?.title} <span>→</span>
-            </a>
+            <div className="second-c-div flex lg:px-10 lg:hidden justify-center flex-col items-center gap-[10px] pt-[20px]">
+              <p className="w-full px-5 text-center text-[16px] lg:text-[22px] lg:leading-8 leading-5 tracking-[-0.65px]">
+                {bannerData?.acf?.section_1_fields?.description}
+              </p>
+              <a href={bannerData?.acf?.section_1_fields?.button?.url} className="ip-btn ip-btn-primary w-fit mt-3">
+                {bannerData?.acf?.section_1_fields?.button?.title} <span>→</span>
+              </a>
+            </div>
           </div>
         </div>
-
       </div>
 
       {/* ── Tagline ── */}
