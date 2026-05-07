@@ -155,15 +155,9 @@ export default function HomeClient({ bannerData }) {
             />
           </video>}
 
-          <div
-            className="absolute top-0 left-0 w-full h-full pointer-events-none z-0"
-            style={{
-              backgroundImage: `url('/assets/fade-overlay.webp')`,
-              backgroundPosition: 'center',
-              backgroundSize: 'cover',
-              backgroundRepeat: 'no-repeat',
-            }}
-          ></div>
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
+            <img className="bg-cover" src="/assets/fade-overlay.webp" alt="Banner Image" fetchPriority="high" />
+          </div>
           <div className="hidden absolute lg:top-[200px] 2xl:top-[275px] lg:left-[10px] 4xl:top-[380px] 4xl:left-[210px] 2xl:left-[120px] lg:flex lg:flex-row-reverse lg:gap-[38px]">
             {bannerData?.acf?.banner_fields?.hotspot_image_2?.url && (
               <img src={bannerData.acf.banner_fields.hotspot_image_2.url} alt={bannerData.acf.banner_fields.hotspot_image_2.alt ?? bannerData?.acf?.banner_fields?.banner_heading} />
