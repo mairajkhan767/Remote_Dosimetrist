@@ -46,13 +46,13 @@ export default function RootLayout({ children }) {
       <body>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M5C8BSRH"
           height="0" width="0" style={{ display: "none", visibility: "hidden" }}></iframe></noscript>
-        <PreloaderProvider>
-          {/* <Preloader />  */}
-          <Header />
-          <Popup />
-          {children}
-          <Footer />
-        </PreloaderProvider>
+        {/* <PreloaderProvider> */}
+        {/* <Preloader />  */}
+        <Header />
+        <Popup />
+        {children}
+        <Footer />
+        {/* </PreloaderProvider> */}
       </body>
     </html>
   )
