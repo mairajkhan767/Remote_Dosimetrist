@@ -32,7 +32,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={montserrat.variable}>
       <head>
         <meta name="google-site-verification" content="7_n7SeloGYX-tn3PCX6tDGelNFJxobTu6ChgyLQJC88" />
-        <Script id="gtm" strategy='afterInteractive' >
+        <Script id="gtm" strategy='lazyOnload' >
           {`
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
@@ -48,10 +48,10 @@ export default function RootLayout({ children }) {
         </Script>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-TD9VV5JEXC"
-          strategy='afterInteractive'
+          strategy='lazyOnload'
         />
 
-        <Script id="ga4-init" strategy='afterInteractive' >
+        <Script id="ga4-init" strategy='lazyOnload' >
           {`
      window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
