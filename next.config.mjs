@@ -7,7 +7,6 @@ const nextConfig = {
   skipTrailingSlashRedirect: true,
   images: {
     // disable Next.js Image Optimization API for static export
-    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',

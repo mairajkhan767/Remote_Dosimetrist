@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
 
-
-
 @theme {
-  --font-montserrat: "Montserrat", sans-serif;
+  --font-sans: var(--font-montserrat);
 
   --breakpoint-sm: 480px;
   --breakpoint-md: 768px;
@@ -1167,6 +1164,21 @@ button:focus-visible {
 @media (max-width: 600px) {
   .review-slider .swiper-slide-active .review-main {
     padding: 0px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .inner-hero-orb,
+  [class*="orb"],
+  [class*="grain"] {
+    display: none;
+  }
+
+  /* Kill all blur filters on mobile */
+  * {
+    filter: none !important;
+    backdrop-filter: none !important;
   }
 }
 

@@ -7,6 +7,14 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Popup from '@/components/Popup'
 import Script from "next/script";
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-montserrat',
+  preload: true,
+})
 
 // config.autoAddCss = false
 
@@ -21,7 +29,7 @@ const schema = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={montserrat.variable}>
       <head>
         <meta name="google-site-verification" content="7_n7SeloGYX-tn3PCX6tDGelNFJxobTu6ChgyLQJC88" />
         <Script id="gtm" strategy='lazyOnload' >
