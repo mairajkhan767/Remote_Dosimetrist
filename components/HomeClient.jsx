@@ -163,8 +163,16 @@ export default function HomeClient({ bannerData }) {
             </video>}
 
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" className='w-full h-full' width="1920" height="982">
-              <path d="M0 0 C633.6 0 1267.2 0 1920 0 C1920 324.06 1920 648.12 1920 982 C1286.4 982 652.8 982 0 982 C0 657.94 0 333.88 0 0 Z " fill="#FEFEFE" transform="translate(0,0)" />
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+              <defs>
+                <radialGradient id="fade" cx="50%" cy="50%" r="70%">
+                  <stop offset="25%" stop-color="#ffffff" stop-opacity="0" />
+                  <stop offset="55%" stop-color="#ffffff" stop-opacity="0.5" />
+                  <stop offset="90%" stop-color="#ffffff" stop-opacity="0.95" />
+                  <stop offset="100%" stop-color="#ffffff" stop-opacity="1" />
+                </radialGradient>
+              </defs>
+              <rect width="1920" height="1080" fill="url(#fade)" />
             </svg>
           </div>
           <div className="hidden absolute lg:top-[200px] 2xl:top-[275px] lg:left-[10px] 4xl:top-[380px] 4xl:left-[210px] 2xl:left-[120px] lg:flex lg:flex-row-reverse lg:gap-[38px]">
