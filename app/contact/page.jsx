@@ -1,11 +1,13 @@
-import React from 'react'
 import PageHero from '@/components/PageHero'
 import SectionReveal from '@/components/SectionReveal'
 import { fetchPageBySlug } from "@/lib/api";
 import ContactForm from "@/components/ContactForm";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faEnvelope, faClock } from "@fortawesome/free-solid-svg-icons";
-import { faFacebookF, faInstagram, faLinkedinIn, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import {
+  IconLocationDot,
+  IconEnvelope,
+  IconClock,
+  contactSocialIconByName,
+} from '@/components/SiteIcons'
 import { canonicalFor } from '@/lib/metadata'
 
 export async function generateMetadata() {
@@ -41,17 +43,15 @@ export default async function ContactPage() {
                   <div className="sr-item ip-card ip-card-hover-blue p-6 md:p-10 rounded-2xl text-center" key={index}>
                     <div className="flex flex-col items-center gap-5">
                       <div className="ip-card-icon w-20 h-20 flex items-center justify-center rounded-full bg-[#e6f0ff] text-4xl transition-all duration-500">
-                        {/* <FontAwesomeIcon icon={faLocationDot} className="text-[#003777] transition-colors duration-500" /> */}
-                        {
-                          card.type == 'location' && <FontAwesomeIcon icon={faLocationDot} className="text-[#003777] transition-colors duration-500" />
-                        }
-                        {
-                          card.type == 'email' && <FontAwesomeIcon icon={faEnvelope} className="text-[#003777] transition-colors duration-500" />
-                        }
-                        {
-                          card.type == 'hours' && <FontAwesomeIcon icon={faClock} className="text-[#003777] transition-colors duration-500" />
-                        }
-                        {/* <img src={card.icon.url} alt={card.icon.alt} className='w-[40px]' /> */}
+                        {card.type == 'location' && (
+                          <IconLocationDot className="h-10 w-10 text-[#003777] transition-colors duration-500" />
+                        )}
+                        {card.type == 'email' && (
+                          <IconEnvelope className="h-10 w-10 text-[#003777] transition-colors duration-500" />
+                        )}
+                        {card.type == 'hours' && (
+                          <IconClock className="h-10 w-10 text-[#003777] transition-colors duration-500" />
+                        )}
                       </div>
                       <h3 className="text-[#003777] text-[22px] md:text-[26px] font-extrabold uppercase tracking-wide transition-colors duration-500">{card.heading}</h3>
                       {
@@ -108,22 +108,23 @@ export default async function ContactPage() {
                 </div>
                 <div className="flex gap-4 mt-2">
                   {
-                    data?.acf?.section_2_fields?.social_links.map((link, index) => (
-                      <a key={index} href={link.social_link} target="_blank" aria-label="Social media" className="group w-12 h-12 rounded-full bg-[#e6f0ff] flex items-center justify-center text-[#003777] hover:bg-[#003777] hover:shadow-lg transition-all duration-400 text-lg">
-                        {
-                          link.social_name == 'Facebook' && <FontAwesomeIcon icon={faFacebookF} className="text-[#003777] group-hover:text-white transition-colors duration-300" />
-                        }
-                        {
-                          link.social_name == 'Twitter' && <FontAwesomeIcon icon={faTwitter} className="text-[#003777] group-hover:text-white transition-colors duration-300" />
-                        }
-                        {
-                          link.social_name == 'LinkedIn' && <FontAwesomeIcon icon={faLinkedinIn} className="text-[#003777] group-hover:text-white transition-colors duration-300" />
-                        }
-                        {
-                          link.social_name == 'Instagram' && <FontAwesomeIcon icon={faInstagram} className="text-[#003777] group-hover:text-white transition-colors duration-300" />
-                        }
-                      </a>
-                    ))
+                    data?.acf?.section_2_fields?.social_links.map((link, index) => {
+                      const SocialIcon = contactSocialIconByName[link.social_name]
+                      return (
+                        <a
+                          key={index}
+                          href={link.social_link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={link.social_name || 'Social media'}
+                          className="group w-12 h-12 rounded-full bg-[#e6f0ff] flex items-center justify-center text-[#003777] hover:bg-[#003777] hover:shadow-lg transition-all duration-400 text-lg"
+                        >
+                          {SocialIcon ? (
+                            <SocialIcon className="h-[40%] w-auto max-w-[1.25rem] text-[#003777] group-hover:text-white transition-colors duration-300" />
+                          ) : null}
+                        </a>
+                      )
+                    })
                   }
                 </div>
               </div>

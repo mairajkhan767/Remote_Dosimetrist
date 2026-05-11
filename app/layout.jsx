@@ -1,11 +1,9 @@
 import './globals.css'
-// import { config } from '@fortawesome/fontawesome-svg-core'
-import '@fortawesome/fontawesome-svg-core/styles.css'
 import PreloaderProvider from '@/components/PreloaderContext'
 import Preloader from '@/components/Preloader'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
-import Popup from '@/components/Popup'
+import DeferredPopup from '@/components/DeferredPopup'
 import Script from "next/script";
 import { Montserrat } from 'next/font/google'
 
@@ -15,9 +13,6 @@ const montserrat = Montserrat({
   variable: '--font-montserrat',
   preload: true,
 })
-
-// config.autoAddCss = false
-
 
 const schema = {
   "@context": "https://schema.org",
@@ -72,7 +67,7 @@ export default function RootLayout({ children }) {
         {/* <PreloaderProvider> */}
         {/* <Preloader />  */}
         <Header />
-        <Popup />
+        <DeferredPopup />
         {children}
         <Footer />
         {/* </PreloaderProvider> */}

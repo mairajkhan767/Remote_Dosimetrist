@@ -1,7 +1,6 @@
 'use client'
 import Link from 'next/link'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faLinkedinIn, faFacebookF, faYoutube, faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { IconLinkedin, IconFacebook, IconYoutube, IconTwitter } from '@/components/SiteIcons'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -17,11 +16,11 @@ export default function Footer() {
                 <img src="/assets/logo-main.png" alt="Remote Dosimetrist" className="h-16" />
               </Link>
             </div>
-            <div className="flex space-x-6 mt-6">
-              <a href="#" aria-label="LinkedIn" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faLinkedinIn} /></a>
-              <a href="#" aria-label="Facebook" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faFacebookF} /></a>
-              <a href="#" aria-label="YouTube" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faYoutube} /></a>
-              <a href="#" aria-label="Twitter" className="text-[#003777] hover:text-blue-800 text-xl"><FontAwesomeIcon icon={faTwitter} /></a>
+            <div className="flex space-x-8 mt-6">
+              <a href="#" aria-label="LinkedIn" className="text-[#003777] hover:text-blue-800 inline-flex"><IconLinkedin className="h-4.75 w-auto" /></a>
+              <a href="#" aria-label="Facebook" className="text-[#003777] hover:text-blue-800 inline-flex"><IconFacebook className="h-4.75 w-auto" /></a>
+              <a href="#" aria-label="YouTube" className="text-[#003777] hover:text-blue-800 inline-flex"><IconYoutube className="h-4.75 w-auto" /></a>
+              <a href="#" aria-label="Twitter" className="text-[#003777] hover:text-blue-800 inline-flex"><IconTwitter className="h-4.75 w-auto" /></a>
             </div>
           </div>
 

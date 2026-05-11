@@ -1,37 +1,47 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 // import { usePreloader } from './PreloaderContext'
 
 export default function Popup() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
+    const timerTriggeredRef = useRef(false);
     // const { alreadyShown } = usePreloader();
 
     useEffect(() => {
         const alreadyClosed = localStorage.getItem("popupClosed");
         if (alreadyClosed || pathname === "/contact") return;
 
-        let timerTriggered = false;
+        timerTriggeredRef.current = false;
+        let rafId = null;
 
-        const timer = setTimeout(() => {
-            timerTriggered = true;
+        const timer = window.setTimeout(() => {
+            timerTriggeredRef.current = true;
             setIsOpen(true);
         }, 3000);
 
         const onScroll = () => {
-            if (window.scrollY > 1024 && !timerTriggered) {
-                clearTimeout(timer);
-                setIsOpen(true);
-            }
+            if (timerTriggeredRef.current || rafId != null) return;
+            rafId = window.requestAnimationFrame(() => {
+                rafId = null;
+                if (timerTriggeredRef.current) return;
+                if (window.scrollY > 1024) {
+                    window.clearTimeout(timer);
+                    timerTriggeredRef.current = true;
+                    setIsOpen(true);
+                }
+            });
         };
 
-        window.addEventListener("scroll", onScroll);
+        const scrollOpts = { passive: true };
+        window.addEventListener("scroll", onScroll, scrollOpts);
 
         return () => {
-            clearTimeout(timer);
-            window.removeEventListener("scroll", onScroll);
+            window.clearTimeout(timer);
+            if (rafId != null) window.cancelAnimationFrame(rafId);
+            window.removeEventListener("scroll", onScroll, scrollOpts);
         };
     }, [pathname]);
 
@@ -50,7 +60,14 @@ export default function Popup() {
                     ✕
                 </button>
                 <div className="w-full h-50 lg:h-full p-5 relative flex flex-col justify-start items-end">
-                    <img loading="lazy" src="/assets/about-bg.jpg" alt="" className="w-full h-full object-cover" />
+                    <img
+                        loading="lazy"
+                        decoding="async"
+                        fetchPriority="low"
+                        src="/assets/about-bg.jpg"
+                        alt=""
+                        className="w-full h-full object-cover"
+                    />
                 </div>
                 <div className="w-full p-10 flex flex-col gap-10">
                     <h3 className="text-[#003777] text-[22px] md:text-[37px] font-extrabold uppercase tracking-wide leading-[1.1] transition-colors duration-500">
