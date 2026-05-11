@@ -2,7 +2,7 @@
 const nextConfig = {
   /* config options here */
   // ensure trailing slashes on all routes
-  // output: "standalone",
+  output: "standalone",
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   images: {

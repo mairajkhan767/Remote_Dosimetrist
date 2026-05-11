@@ -170,7 +170,7 @@ export default function HomeClient({ bannerData }) {
           }
 
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-            <img src="/assets/fade-overlay.webp" className='w-full h-full object-cover' alt='Video Overlay' loading='lazy' />
+            <img fetchPriority='high' src="/assets/fade-overlay.webp" className='w-full h-full object-cover' alt='Video Overlay' decoding='async' />
             {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="none" className='w-full h-full'>
               <defs>
                 <radialGradient id="fade" cx="50%" cy="50%" r="70%">
