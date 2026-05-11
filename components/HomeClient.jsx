@@ -144,6 +144,7 @@ export default function HomeClient({ bannerData }) {
       {/* ── Hero ── */}
       <div className="first-container bg-main-video relative">
         <div className="w-full h-full flex justify-center items-end pb-10 lg:pb-[50px] 3xl:pb-[179px]">
+          <img loading='eager' fetchPriority='high' decoding='async' src="/assets/banner-video-poster.webp" className='w-full h-full absolute top-0 left-0 object-cover' alt='Banner Video Poster' />
           {showBannerVideo && !mobile &&
             <video
               ref={videoRef}
@@ -163,11 +164,6 @@ export default function HomeClient({ bannerData }) {
                 type="video/mp4"
               />
             </video>}
-          {
-            mobile && (
-              <img loading='eager' fetchPriority='high' decoding='async' src="/assets/banner-video-poster.webp" className='w-full h-full absolute top-0 left-0 object-cover' alt='Banner Video Poster' />
-            )
-          }
 
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
             <img fetchPriority='high' src="/assets/fade-overlay-new.webp" className='w-full h-full object-cover' alt='Video Overlay' decoding='async' />
