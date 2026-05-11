@@ -47,7 +47,7 @@ export default function GetInTouch({ data, faqLimit, faqViewAllHref }) {
   }
 
   return (
-    <div className="bg-[#003777]/9 px-6 md:px-16 lg:px-28 py-12 md:py-20 w-full home-form" id="get-in-touch">
+    <div className="bg-[#003777]/9 px-6 md:px-16 lg:px-28 py-12 md:py-20 w-full home-form relative" id="get-in-touch">
       <div className="flex flex-col lg:flex-row justify-between gap-12 md:gap-16">
         <form onSubmit={handleSubmit} className="w-full flex flex-col lg:gap-4 gap-10 items-start">
           <div className="flex flex-col lg:gap-2 gap-6">
