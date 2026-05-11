@@ -12,7 +12,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 export default function HomeClient({ bannerData }) {
   // const API = process.env.NEXT_PUBLIC_API_URL
   // const [bannerData, setBannerData] = useState(null)
-  const mobile = window.innerWidth <= 768;
+  const [mobile, setMobile] = useState(false);
   const wrapperRef = useRef(null)
   const videoRef = useRef(null)
   const [showBannerVideo, setShowBannerVideo] = useState(false);
@@ -32,6 +32,7 @@ export default function HomeClient({ bannerData }) {
   }
 
   useEffect(() => {
+    setMobile(window.innerWidth <= 768);
     // if (alreadyShown && wrapperRef.current) {
     wrapperRef.current.style.opacity = 1
     // }
