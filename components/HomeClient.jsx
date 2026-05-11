@@ -285,9 +285,9 @@ export default function HomeClient({ bannerData }) {
       {mobile &&
         < div className="w-full flex flex-col justify-center items-center lg:hidden gap-10 py-10">
           <div className="w-full flex flex-col justify-center items-center lg:px-30 gap-5">
-            <h2 className="text-[28px] lg:text-[40px] font-extrabold text-center text-[#003777]">Plans That Help</h2>
+            <h2 className="text-[28px] lg:text-[40px] font-extrabold text-center text-[#003777]">{bannerData?.acf?.section_2_fields?.heading}</h2>
             <p className="w-full text-[16px] lg:text-[22px] px-8 text-center text-black">
-              {bannerData?.acf?.section_2_fields?.heading}
+              {bannerData?.acf?.section_2_fields?.description}
             </p>
           </div>
           <div className="w-full flex flex-col lg:flex-row lg:gap-2 justify-center items-center px-5 gap-10">
@@ -328,6 +328,9 @@ export default function HomeClient({ bannerData }) {
               <h2 className="s-4-heading-1 text-[38px] w-[500px] top-[44%] left-[45.3%] text-white font-extrabold text-center -tracking-[0.95px] opacity-0">
                 {bannerData?.acf?.section_3_fields?.heading}
               </h2>
+              {/* <p className="w-full text-[16px] lg:text-[22px] px-8 text-center text-black">
+                {bannerData?.acf?.section_2_fields?.description}
+              </p> */}
             </div>
             <div className="s-4-bg-image-c w-full h-full flex justify-center absolute left-0 top-0">
               <img loading='lazy' src={bannerData?.acf?.section_3_fields?.background_image?.url} alt="" className="s-4-bg-image scale-105" />
@@ -394,10 +397,10 @@ export default function HomeClient({ bannerData }) {
           className="flex flex-col justify-center lg:justify-start p-10 gap-[32px] rounded-[32px] bg-no-repeat bg-cover bg-bottom w-full lg:w-1/2 relative"
         >
           <img src={bannerData?.acf?.section_4_fields?.right_box?.background_image?.url} alt={bannerData?.acf?.section_4_fields?.right_box?.heading} className='absolute top-0 left-0 object-cover w-full h-full' loading='lazy' />
-          <h2 className="s-5-h2 text-[28px] lg:text-[48px] text-white -tracking-[1.2px] lg:leading-[52px] font-bold lg:w-[500px] lg:opacity-0 lg:translate-y-[500px]">
+          <h2 className="relative s-5-h2 text-[28px] lg:text-[48px] text-white -tracking-[1.2px] lg:leading-[52px] font-bold lg:w-[500px] lg:opacity-0 lg:translate-y-[500px]">
             {bannerData?.acf?.section_4_fields?.right_box?.heading}
           </h2>
-          <p className="s-5-p text-[16px] lg:text-[26px] text-white -tracking-[0.65px] lg:leading-[37px] 4xl:w-[694px] lg:opacity-0 lg:translate-y-[500px]">
+          <p className="relative s-5-p text-[16px] lg:text-[26px] text-white -tracking-[0.65px] lg:leading-[37px] 4xl:w-[694px] lg:opacity-0 lg:translate-y-[500px]">
             {bannerData?.acf?.section_4_fields?.right_box?.description}
           </p>
           <a href={bannerData?.acf?.section_4_fields?.right_box?.button?.url} className="ip-btn ip-btn-outline w-fit">
@@ -408,7 +411,7 @@ export default function HomeClient({ bannerData }) {
 
       {/* ── Reviews & Contact ── */}
       <div
-        className="review-section w-full"
+        className="review-section w-full relative"
       >
         <img loading='lazy' src="/assets/18773521_6022556_Artboard-new.webp" className='w-full h-full object-cover top-0 left-0 absolute' alt='Reviews Background' />
         <ReviewSlider data={bannerData?.acf?.section_5_fields} />
