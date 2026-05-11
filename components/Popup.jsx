@@ -12,15 +12,28 @@ export default function Popup() {
     useEffect(() => {
         const alreadyClosed = localStorage.getItem("popupClosed");
         if (alreadyClosed || pathname === "/contact") return;
-        // if (alreadyShown) {
+
+        let timerTriggered = false;
+
         const timer = setTimeout(() => {
+            timerTriggered = true;
             setIsOpen(true);
         }, 3000);
 
-        return () => clearTimeout(timer);
-        // }
+        const onScroll = () => {
+            if (window.scrollY > 1024 && !timerTriggered) {
+                clearTimeout(timer);
+                setIsOpen(true);
+            }
+        };
 
-    }, []);
+        window.addEventListener("scroll", onScroll);
+
+        return () => {
+            clearTimeout(timer);
+            window.removeEventListener("scroll", onScroll);
+        };
+    }, [pathname]);
 
     const closePopup = () => {
         setIsOpen(false);
