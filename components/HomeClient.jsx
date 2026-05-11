@@ -12,6 +12,7 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 export default function HomeClient({ bannerData }) {
   // const API = process.env.NEXT_PUBLIC_API_URL
   // const [bannerData, setBannerData] = useState(null)
+  const mobile = window.innerWidth <= 768;
   const wrapperRef = useRef(null)
   const videoRef = useRef(null)
   const [showBannerVideo, setShowBannerVideo] = useState(false);
@@ -142,7 +143,7 @@ export default function HomeClient({ bannerData }) {
       {/* ── Hero ── */}
       <div className="first-container bg-main-video relative">
         <div className="w-full h-full flex justify-center items-end pb-10 lg:pb-[50px] 3xl:pb-[179px]">
-          {showBannerVideo &&
+          {showBannerVideo && !mobile &&
             <video
               ref={videoRef}
               className="absolute top-0 left-0 w-full h-full object-cover z-0 pointer-events-none transition-opacity duration-1000"
@@ -161,6 +162,11 @@ export default function HomeClient({ bannerData }) {
                 type="video/mp4"
               />
             </video>}
+          {
+            mobile && (
+              <img loading='eager' fetchPriority='high' src="/assets/banner-video-poster.webp" className='w-full h-full absolute top-0 left-0 object-cover' />
+            )
+          }
 
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">
