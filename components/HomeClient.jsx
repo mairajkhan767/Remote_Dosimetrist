@@ -145,6 +145,7 @@ export default function HomeClient({ bannerData }) {
             priority
             sizes="100vw"
             className="object-cover"
+            fetchPriority='high'
           />
           {showBannerVideo && !mobile &&
             <video
