@@ -170,7 +170,7 @@ export default function HomeClient({ bannerData }) {
           }
 
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-            <img fetchPriority='high' src="/assets/fade-overlay.webp" className='w-full h-full object-cover' alt='Video Overlay' decoding='async' />
+            <img fetchPriority='high' src="/assets/fade-overlay-new.webp" className='w-full h-full object-cover' alt='Video Overlay' decoding='async' />
             {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="none" className='w-full h-full'>
               <defs>
                 <radialGradient id="fade" cx="50%" cy="50%" r="70%">
@@ -392,8 +392,8 @@ export default function HomeClient({ bannerData }) {
         </div>
         <div
           className="flex flex-col justify-center lg:justify-start p-10 gap-[32px] rounded-[32px] bg-no-repeat bg-cover bg-bottom w-full lg:w-1/2"
-          style={{ backgroundImage: `url(${bannerData?.acf?.section_4_fields?.right_box?.background_image?.url})` }}
         >
+          <img src={bannerData?.acf?.section_4_fields?.right_box?.background_image?.url} alt={bannerData?.acf?.section_4_fields?.right_box?.heading} className='absolute top-0 left-0 object-cover w-full h-full' loading='lazy' />
           <h2 className="s-5-h2 text-[28px] lg:text-[48px] text-white -tracking-[1.2px] lg:leading-[52px] font-bold lg:w-[500px] lg:opacity-0 lg:translate-y-[500px]">
             {bannerData?.acf?.section_4_fields?.right_box?.heading}
           </h2>
