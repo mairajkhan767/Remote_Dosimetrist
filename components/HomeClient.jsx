@@ -165,7 +165,7 @@ export default function HomeClient({ bannerData }) {
             </video>}
           {
             mobile && (
-              <img loading='eager' fetchPriority='high' decoding='async' src="/assets/banner-video-poster.webp" className='w-full h-full absolute top-0 left-0 object-cover' />
+              <img loading='eager' fetchPriority='high' decoding='async' src="/assets/banner-video-poster.webp" className='w-full h-full absolute top-0 left-0 object-cover' alt='Banner Video Poster' />
             )
           }
 
