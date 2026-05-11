@@ -43,6 +43,7 @@ export default function Footer() {
               <Link href="/process" className="hover:text-[#003777]">Process</Link>
               <Link href="/systems" className="hover:text-[#003777]">Systems</Link>
               <Link href="/how-it-works" className="hover:text-[#003777]">How it Works</Link>
+              <Link href="/faq/" className="hover:text-[#003777]">FAQ</Link>
               <Link href="/contact" className="hover:text-[#003777]">Contact</Link>
             </div>
           </div>

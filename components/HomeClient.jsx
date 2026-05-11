@@ -420,7 +420,11 @@ export default function HomeClient({ bannerData }) {
       >
         <img loading='lazy' src="/assets/18773521_6022556_Artboard-new.webp" className='w-full h-full object-cover top-0 left-0 absolute' alt='Reviews Background' />
         <ReviewSlider data={bannerData?.acf?.section_5_fields} />
-        <GetInTouch data={bannerData?.acf?.section_6_fields} />
+        <GetInTouch
+          data={bannerData?.acf?.section_6_fields}
+          faqLimit={3}
+          faqViewAllHref="/faq/"
+        />
       </div>
     </section >
   )

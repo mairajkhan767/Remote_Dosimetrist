@@ -1,7 +1,8 @@
 'use client'
 import { useState } from 'react'
+import FaqAccordionList from './FaqAccordionList'
 
-export default function GetInTouch({ data }) {
+export default function GetInTouch({ data, faqLimit, faqViewAllHref }) {
   if (!data) return null
   const [loading, setLoading] = useState(false)
   const [toast, setToast] = useState(null)
@@ -82,11 +83,10 @@ export default function GetInTouch({ data }) {
           <div>
             <img loading='lazy' src={data.image?.url} alt={data.image?.alt ?? data.sub_heading} className="w-full" />
           </div>
-          <div className="flex flex-col gap-4">
-            {data.faqs?.map((faq, index) => (
-              <AccordionItem key={index} question={faq.question} answer={faq.answer} />
-            ))}
-          </div>
+          <FaqAccordionList
+            faqs={faqLimit ? data.faqs?.slice(0, faqLimit) : data.faqs}
+            viewAllHref={faqLimit && faqViewAllHref ? faqViewAllHref : undefined}
+          />
         </div>
       </div>
       {toast && (
@@ -94,29 +94,6 @@ export default function GetInTouch({ data }) {
           {toast}
         </div>
       )}
-    </div>
-  )
-}
-
-function AccordionItem({ question, answer }) {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <div className="border border-gray-500 px-6 md:px-14 py-2 xl:py-4 flex flex-col">
-      <button
-        onClick={() => setOpen(!open)}
-        className="w-full flex justify-between items-center bg-transparent! text-left"
-      >
-        <span className="text-[#003777]">{question}</span>
-        <span className={`text-slate-800 transition-transform duration-300 ${open ? 'rotate-180' : ''}`}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="w-4 h-4">
-            <path fillRule="evenodd" d="M11.78 9.78a.75.75 0 0 1-1.06 0L8 7.06 5.28 9.78a.75.75 0 0 1-1.06-1.06l3.25-3.25a.75.75 0 0 1 1.06 0l3.25 3.25a.75.75 0 0 1 0 1.06Z" clipRule="evenodd" />
-          </svg>
-        </span>
-      </button>
-      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${open ? 'max-h-96' : 'max-h-0'}`}>
-        <div className="text-sm text-black pt-2">{answer}</div>
-      </div>
     </div>
   )
 }
