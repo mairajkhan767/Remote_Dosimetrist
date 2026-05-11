@@ -13,12 +13,12 @@ export default function PageHero({ title, subtitle, breadcrumb }) {
   const { alreadyShown } = usePreloader()
 
   useEffect(
-    ()=>{
+    () => {
       if (alreadyShown && heroRef.current) {
         // heroRef.current.style.opacity = 1;
         gsap.to(heroRef.current, { opacity: 1, duration: 1, ease: 'power3.out' })
       }
-    },[alreadyShown])
+    }, [alreadyShown])
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -110,7 +110,7 @@ export default function PageHero({ title, subtitle, breadcrumb }) {
   }, [])
 
   return (
-    <div className="inner-hero opacity-0" ref={heroRef}>
+    <div className="inner-hero" ref={heroRef}>
       <div className="inner-hero-bg" ref={bgRef}></div>
       <div className="inner-hero-grain"></div>
       <div className="inner-hero-orb inner-hero-orb-1"></div>

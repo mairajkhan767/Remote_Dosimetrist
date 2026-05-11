@@ -2,25 +2,25 @@
 
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { usePreloader } from './PreloaderContext'
+// import { usePreloader } from './PreloaderContext'
 
 export default function Popup() {
     const [isOpen, setIsOpen] = useState(false);
     const pathname = usePathname();
-    const { alreadyShown } = usePreloader();
+    // const { alreadyShown } = usePreloader();
 
     useEffect(() => {
         const alreadyClosed = localStorage.getItem("popupClosed");
         if (alreadyClosed || pathname === "/contact") return;
-        if (alreadyShown) {
-            const timer = setTimeout(() => {
-                setIsOpen(true);
-            }, 3000);
+        // if (alreadyShown) {
+        const timer = setTimeout(() => {
+            setIsOpen(true);
+        }, 3000);
 
-            return () => clearTimeout(timer);
-        }
+        return () => clearTimeout(timer);
+        // }
 
-    }, [alreadyShown]);
+    }, []);
 
     const closePopup = () => {
         setIsOpen(false);
