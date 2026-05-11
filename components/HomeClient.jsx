@@ -391,7 +391,7 @@ export default function HomeClient({ bannerData }) {
           </div>
         </div>
         <div
-          className="flex flex-col justify-center lg:justify-start p-10 gap-[32px] rounded-[32px] bg-no-repeat bg-cover bg-bottom w-full lg:w-1/2"
+          className="flex flex-col justify-center lg:justify-start p-10 gap-[32px] rounded-[32px] bg-no-repeat bg-cover bg-bottom w-full lg:w-1/2 relative"
         >
           <img src={bannerData?.acf?.section_4_fields?.right_box?.background_image?.url} alt={bannerData?.acf?.section_4_fields?.right_box?.heading} className='absolute top-0 left-0 object-cover w-full h-full' loading='lazy' />
           <h2 className="s-5-h2 text-[28px] lg:text-[48px] text-white -tracking-[1.2px] lg:leading-[52px] font-bold lg:w-[500px] lg:opacity-0 lg:translate-y-[500px]">
@@ -409,12 +409,8 @@ export default function HomeClient({ bannerData }) {
       {/* ── Reviews & Contact ── */}
       <div
         className="review-section w-full"
-        style={{
-          backgroundImage: 'url("/assets/18773521_6022556_Artboard 1.png")',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
-        }}
       >
+        <img loading='lazy' src="/assets/18773521_6022556_Artboard-new.webp" className='w-full h-full object-cover top-0 left-0 absolute' alt='Reviews Background' />
         <ReviewSlider data={bannerData?.acf?.section_5_fields} />
         <GetInTouch data={bannerData?.acf?.section_6_fields} />
       </div>
