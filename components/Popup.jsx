@@ -36,11 +36,8 @@ export default function Popup() {
                 <button className="absolute top-2.5 right-5 font-bold text-[20px] cursor-pointer border-none bg-transparent! text-black! z-10" onClick={closePopup}>
                     ✕
                 </button>
-                <div className="w-full h-50 lg:h-full p-5 relative flex flex-col justify-start items-end"
-                    style={{
-                        backgroundImage: 'url(/assets/about-bg.jpg)',
-                        backgroundSize: 'cover'
-                    }}>
+                <div className="w-full h-50 lg:h-full p-5 relative flex flex-col justify-start items-end">
+                    <img loading="lazy" src="/assets/about-bg.jpg" alt="" className="w-full h-full object-cover" />
                 </div>
                 <div className="w-full p-10 flex flex-col gap-10">
                     <h3 className="text-[#003777] text-[22px] md:text-[37px] font-extrabold uppercase tracking-wide leading-[1.1] transition-colors duration-500">
