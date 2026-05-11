@@ -6,7 +6,7 @@ const nextConfig = {
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
   images: {
-    // disable Next.js Image Optimization API for static export
+    formats: ['image/avif', 'image/webp'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -15,23 +15,17 @@ const nextConfig = {
       },
     ],
   },
+  experimental: {
+    optimizePackageImports: ['swiper'],
+  },
   async headers() {
     return [
       {
-        source: "/assets/:path*",
+        source: '/assets/:path*',
         headers: [
           {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
-          },
-        ],
-      },
-      {
-        source: "/assets/:path*",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=31536000, immutable",
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
           },
         ],
       },

@@ -1,11 +1,16 @@
 'use client'
+import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import ReviewSlider from './ReviewSlider'
 import GetInTouch from './GetInTouch'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { useGSAP } from '@gsap/react'
-import { usePreloader } from './PreloaderContext'
+
+const ReviewSlider = dynamic(() => import('./ReviewSlider'), {
+  ssr: false,
+  loading: () => <div className="min-h-[280px] w-full" aria-hidden />,
+})
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
@@ -13,12 +18,10 @@ export default function HomeClient({ bannerData }) {
   // const API = process.env.NEXT_PUBLIC_API_URL
   // const [bannerData, setBannerData] = useState(null)
   const [mobile, setMobile] = useState(false);
-  const wrapperRef = useRef(null)
   const videoRef = useRef(null)
   const [showBannerVideo, setShowBannerVideo] = useState(false);
   const [videoReady, setVideoReady] = useState(false);
 
-  // const { alreadyShown } = usePreloader()
   const [hoverData, setHoverData] = useState({
     heading: 'Head & Neck',
     para: 'Head and neck cancers have often been associated with very difficult and time-consuming radiation',
@@ -32,14 +35,8 @@ export default function HomeClient({ bannerData }) {
   }
 
   useEffect(() => {
-    setMobile(window.innerWidth <= 768);
-    // if (alreadyShown && wrapperRef.current) {
-    wrapperRef.current.style.opacity = 1
-    // }
-    // if (alreadyShown && videoRef.current) {
-
-    // }
-  }, []);
+    setMobile(window.innerWidth <= 768)
+  }, [])
 
   useEffect(() => {
     const loadVideo = () => setShowBannerVideo(true);
@@ -137,14 +134,18 @@ export default function HomeClient({ bannerData }) {
   }, { dependencies: [bannerData] })
 
   return (
-    <section
-      ref={wrapperRef}
-      style={{ opacity: 0, transition: 'opacity 1s ease-in' }}
-    >
+    <section>
       {/* ── Hero ── */}
       <div className="first-container bg-main-video relative">
-        <div className="w-full h-full flex justify-center items-end pb-10 lg:pb-[50px] 3xl:pb-[179px]">
-          <img loading='eager' fetchPriority='high' decoding='async' src="/assets/banner-video-poster.webp" className='w-full h-full absolute top-0 left-0 object-cover' alt='Banner Video Poster' />
+        <div className="relative w-full h-full flex justify-center items-end pb-10 lg:pb-[50px] 3xl:pb-[179px]">
+          <Image
+            src="/assets/banner-video-poster.webp"
+            alt="Banner Video Poster"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
           {showBannerVideo && !mobile &&
             <video
               ref={videoRef}
@@ -165,8 +166,15 @@ export default function HomeClient({ bannerData }) {
               />
             </video>}
 
-          <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-            <img fetchPriority='high' src="/assets/fade-overlay-new.webp" className='w-full h-full object-cover' alt='Video Overlay' decoding='async' />
+          <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-[1]">
+            <Image
+              src="/assets/fade-overlay-new.webp"
+              alt=""
+              fill
+              sizes="100vw"
+              className="object-cover"
+              loading="lazy"
+            />
             {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="none" className='w-full h-full'>
               <defs>
                 <radialGradient id="fade" cx="50%" cy="50%" r="70%">
@@ -179,20 +187,20 @@ export default function HomeClient({ bannerData }) {
               <rect width="1920" height="1080" fill="url(#fade)" />
             </svg> */}
           </div>
-          <div className="hidden absolute lg:top-[200px] 2xl:top-[275px] lg:left-[10px] 4xl:top-[380px] 4xl:left-[210px] 2xl:left-[120px] lg:flex lg:flex-row-reverse lg:gap-[38px]">
+          <div className="hidden absolute lg:top-[200px] 2xl:top-[275px] lg:left-[10px] 4xl:top-[380px] 4xl:left-[210px] 2xl:left-[120px] lg:flex lg:flex-row-reverse lg:gap-[38px] z-10">
             {bannerData?.acf?.banner_fields?.hotspot_image_2?.url && (
               <img loading="lazy" decoding="async" src={bannerData.acf.banner_fields.hotspot_image_2.url} alt={bannerData.acf.banner_fields.hotspot_image_2.alt ?? bannerData?.acf?.banner_fields?.banner_heading} />
             )}
-            <p className="text-[16px] lg:text-[20px] text-[#434961] leading-[24px] w-[280px] content-end text-end mb-[-37px]">
+            <p className="text-[16px] lg:text-[20px] text-[#434961] leading-[24px] w-[280px] content-end text-end mb-[-37px] relative z-10">
               {bannerData?.acf?.banner_fields?.hotspot_text_2}
             </p>
           </div>
-          <div className="hidden absolute 4xl:top-[150px] 4xl:right-[16.3%] lg:top-[100px] lg:right-[10.3%] lg:flex lg:gap-[9px]">
+          <div className="hidden absolute 4xl:top-[150px] 4xl:right-[16.3%] lg:top-[100px] lg:right-[10.3%] lg:flex lg:gap-[9px] z-10">
             {bannerData?.acf?.banner_fields?.hotspot_image_1?.url && (
               <img loading="lazy"
                 decoding="async" src={bannerData.acf.banner_fields.hotspot_image_1.url} alt={bannerData?.acf?.banner_fields?.banner_heading ?? bannerData?.acf?.banner_fields?.banner_heading} />
             )}
-            <p className="text-[20px] text-[#434961] leading-[24px] w-[200px] content-end mb-[-25px]">
+            <p className="text-[20px] text-[#434961] leading-[24px] w-[200px] content-end mb-[-25px] relative z-10">
               {bannerData?.acf?.banner_fields?.hotspot_text_1}
             </p>
           </div>

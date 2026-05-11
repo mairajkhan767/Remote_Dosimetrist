@@ -1,5 +1,6 @@
 'use client'
 import React, { useEffect, useRef, useState } from 'react'
+import Image from 'next/image'
 import Link from 'next/link'
 // import { usePreloader } from './PreloaderContext'
 
@@ -51,8 +52,14 @@ export default function Header() {
 
         {/* Logo */}
         <div className="flex-shrink-0">
-          <Link href="/">
-            <img src="/assets/logo-main.png" alt="Remote Dosimetrist Logo" className="h-10 xl:h-12 w-auto" />
+          <Link href="/" className="relative block h-10 w-[180px] xl:h-12 xl:w-[220px]">
+            <Image
+              src="/assets/logo-main.png"
+              alt="Remote Dosimetrist Logo"
+              fill
+              sizes="(max-width: 1280px) 180px, 220px"
+              className="object-contain object-left"
+            />
           </Link>
         </div>
 
@@ -89,8 +96,14 @@ export default function Header() {
       >
         {/* Mobile menu header row */}
         <div className="flex items-center justify-between px-6 h-20 border-b border-gray-100">
-          <Link href="/" onClick={() => setMenuOpen(false)}>
-            <img src="/assets/logo-main.png" alt="Remote Dosimetrist Logo" className="h-10 w-auto" />
+          <Link href="/" onClick={() => setMenuOpen(false)} className="relative block h-10 w-[180px]">
+            <Image
+              src="/assets/logo-main.png"
+              alt="Remote Dosimetrist Logo"
+              fill
+              sizes="180px"
+              className="object-contain object-left"
+            />
           </Link>
           <button
             className="flex flex-col justify-center gap-[5px] p-2 bg-transparent border-none cursor-pointer rounded-sm"

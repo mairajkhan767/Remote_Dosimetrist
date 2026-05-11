@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import Link from 'next/link'
 import { IconLinkedin, IconFacebook, IconYoutube, IconTwitter } from '@/components/SiteIcons'
 
@@ -12,8 +13,14 @@ export default function Footer() {
           {/* Logo + Social */}
           <div className="flex flex-col justify-center items-center xl:items-start mx-auto w-full max-w-sm">
             <div className="w-full">
-              <Link href="/">
-                <img src="/assets/logo-main.png" alt="Remote Dosimetrist" className="h-16" />
+              <Link href="/" className="relative mx-auto block h-16 w-[220px] xl:mx-0">
+                <Image
+                  src="/assets/logo-main.png"
+                  alt="Remote Dosimetrist"
+                  fill
+                  sizes="220px"
+                  className="object-contain object-left"
+                />
               </Link>
             </div>
             <div className="flex space-x-8 mt-6">
