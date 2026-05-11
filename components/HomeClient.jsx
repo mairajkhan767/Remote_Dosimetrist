@@ -165,12 +165,13 @@ export default function HomeClient({ bannerData }) {
             </video>}
           {
             mobile && (
-              <img loading='eager' fetchPriority='high' src="/assets/banner-video-poster.webp" className='w-full h-full absolute top-0 left-0 object-cover' />
+              <img loading='eager' fetchPriority='high' decoding='async' src="/assets/banner-video-poster.webp" className='w-full h-full absolute top-0 left-0 object-cover' />
             )
           }
 
           <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="none">
+            <img src="/assets/fade-overlay.webp" className='w-full h-full object-cover' alt='Video Overlay' loading='lazy' />
+            {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="none" className='w-full h-full'>
               <defs>
                 <radialGradient id="fade" cx="50%" cy="50%" r="70%">
                   <stop offset="25%" stop-color="#ffffff" stop-opacity="0" />
@@ -180,7 +181,7 @@ export default function HomeClient({ bannerData }) {
                 </radialGradient>
               </defs>
               <rect width="1920" height="1080" fill="url(#fade)" />
-            </svg>
+            </svg> */}
           </div>
           <div className="hidden absolute lg:top-[200px] 2xl:top-[275px] lg:left-[10px] 4xl:top-[380px] 4xl:left-[210px] 2xl:left-[120px] lg:flex lg:flex-row-reverse lg:gap-[38px]">
             {bannerData?.acf?.banner_fields?.hotspot_image_2?.url && (
