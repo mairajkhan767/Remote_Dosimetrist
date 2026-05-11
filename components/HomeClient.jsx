@@ -229,91 +229,93 @@ export default function HomeClient({ bannerData }) {
       </div>
 
       {/* ── Section 3 (Desktop Scroll Animation) ── */}
-      <div className="min-h-[150dvh] hidden lg:block relative">
-        <div className="section-3 w-full min-h-dvh overflow-hidden sticky top-0">
-          <video
-            className="s-3-video absolute inset-0 h-full w-full object-cover origin-center"
-            poster="/assets/3rd-sec-video-poster.webp"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="none"
-            style={{ width: '35%', left: '32.5%', height: '65%', top: '37%' }}
-          >
-            <source src={bannerData.acf.section_2_fields.background_video.url} type="video/mp4" />
-          </video>
-          <div className="s-3-video-overlay absolute inset-0 h-full w-full object-cover bg-[#0A388D] opacity-0 z-2 mix-blend-screen"></div>
-          <div className="pt-[93px] z-5 relative">
-            <div className="s-3-content flex justify-center flex-col items-center relative z-10 gap-[38px] translate-y-[400px]">
-              <h2 className="text-[70px] font-extrabold text-white">
-                {bannerData?.acf?.section_2_fields?.heading}
-              </h2>
-              <p className="w-[532px] text-[26px] text-center text-white">
-                {bannerData?.acf?.section_2_fields?.description}
-              </p>
-            </div>
-            <div className="pt-[61px] flex flex-row items-center 2xl:justify-center gap-[23px] s-3-divs">
-              <div className="s-3-div-1 relative group overflow-hidden w-[620px] h-[566px]">
-                <img loading='lazy' src={bannerData?.acf?.section_2_fields?.left_box?.background_image?.url} alt="3D Planning" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
-                  <h3 className="text-3xl font-bold text-white">{bannerData?.acf?.section_2_fields?.left_box?.heading}</h3>
-                </div>
+      {!mobile &&
+        <div className="min-h-[150dvh] hidden lg:block relative">
+          <div className="section-3 w-full min-h-dvh overflow-hidden sticky top-0">
+            <video
+              className="s-3-video absolute inset-0 h-full w-full object-cover origin-center"
+              poster="/assets/3rd-sec-video-poster.webp"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="none"
+              style={{ width: '35%', left: '32.5%', height: '65%', top: '37%' }}
+            >
+              <source src={bannerData.acf.section_2_fields.background_video.url} type="video/mp4" />
+            </video>
+            <div className="s-3-video-overlay absolute inset-0 h-full w-full object-cover bg-[#0A388D] opacity-0 z-2 mix-blend-screen"></div>
+            <div className="pt-[93px] z-5 relative">
+              <div className="s-3-content flex justify-center flex-col items-center relative z-10 gap-[38px] translate-y-[400px]">
+                <h2 className="text-[70px] font-extrabold text-white">
+                  {bannerData?.acf?.section_2_fields?.heading}
+                </h2>
+                <p className="w-[532px] text-[26px] text-center text-white">
+                  {bannerData?.acf?.section_2_fields?.description}
+                </p>
               </div>
-              <div className="s-3-div-2 relative group overflow-hidden translate-y-[800px] w-[620px]">
-                <img loading='lazy' src={bannerData?.acf?.section_2_fields?.middle_box?.background_image?.url} alt="VMAT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-blue-900/75 flex flex-col items-center justify-center px-6 text-center gap-[36px]">
-                  <h3 className="text-4xl font-extrabold text-white">{bannerData?.acf?.section_2_fields?.middle_box?.heading}</h3>
-                  <p className="text-blue-100 text-[22px] w-[432px] 2xl:w-[350px]">{bannerData?.acf?.section_2_fields?.middle_box?.description}</p>
-                  <a href={bannerData?.acf?.section_2_fields?.middle_box?.button?.url} className="ip-btn ip-btn-primary w-fit mt-3">
-                    {bannerData?.acf?.section_2_fields?.middle_box?.button?.title} <span>→</span>
-                  </a>
+              <div className="pt-[61px] flex flex-row items-center 2xl:justify-center gap-[23px] s-3-divs">
+                <div className="s-3-div-1 relative group overflow-hidden w-[620px] h-[566px]">
+                  <img loading='lazy' src={bannerData?.acf?.section_2_fields?.left_box?.background_image?.url} alt="3D Planning" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
+                    <h3 className="text-3xl font-bold text-white">{bannerData?.acf?.section_2_fields?.left_box?.heading}</h3>
+                  </div>
                 </div>
-              </div>
-              <div className="s-3-div-3 relative group overflow-hidden w-[620px] h-[566px]">
-                <img loading='lazy' src={bannerData?.acf?.section_2_fields?.right_box?.background_image?.url} alt="IMRT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
-                <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
-                  <h3 className="text-3xl font-bold text-white">{bannerData?.acf?.section_2_fields?.right_box?.heading}</h3>
+                <div className="s-3-div-2 relative group overflow-hidden translate-y-[800px] w-[620px]">
+                  <img loading='lazy' src={bannerData?.acf?.section_2_fields?.middle_box?.background_image?.url} alt="VMAT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-blue-900/75 flex flex-col items-center justify-center px-6 text-center gap-[36px]">
+                    <h3 className="text-4xl font-extrabold text-white">{bannerData?.acf?.section_2_fields?.middle_box?.heading}</h3>
+                    <p className="text-blue-100 text-[22px] w-[432px] 2xl:w-[350px]">{bannerData?.acf?.section_2_fields?.middle_box?.description}</p>
+                    <a href={bannerData?.acf?.section_2_fields?.middle_box?.button?.url} className="ip-btn ip-btn-primary w-fit mt-3">
+                      {bannerData?.acf?.section_2_fields?.middle_box?.button?.title} <span>→</span>
+                    </a>
+                  </div>
+                </div>
+                <div className="s-3-div-3 relative group overflow-hidden w-[620px] h-[566px]">
+                  <img loading='lazy' src={bannerData?.acf?.section_2_fields?.right_box?.background_image?.url} alt="IMRT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
+                  <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
+                    <h3 className="text-3xl font-bold text-white">{bannerData?.acf?.section_2_fields?.right_box?.heading}</h3>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-
-      {/* ── Section 3 Mobile ── */}
-      <div className="w-full flex flex-col justify-center items-center lg:hidden gap-10 py-10">
-        <div className="w-full flex flex-col justify-center items-center lg:px-30 gap-5">
-          <h2 className="text-[28px] lg:text-[40px] font-extrabold text-center text-[#003777]">Plans That Help</h2>
-          <p className="w-full text-[16px] lg:text-[22px] px-8 text-center text-black">
-            The Remote Dosimetrist staff can offer the right solution for your cancer center radiation oncology department&apos;s needs.
-          </p>
+      }
+      {mobile &&
+        < div className="w-full flex flex-col justify-center items-center lg:hidden gap-10 py-10">
+          <div className="w-full flex flex-col justify-center items-center lg:px-30 gap-5">
+            <h2 className="text-[28px] lg:text-[40px] font-extrabold text-center text-[#003777]">Plans That Help</h2>
+            <p className="w-full text-[16px] lg:text-[22px] px-8 text-center text-black">
+              {bannerData?.acf?.section_2_fields?.heading}
+            </p>
+          </div>
+          <div className="w-full flex flex-col lg:flex-row lg:gap-2 justify-center items-center px-5 gap-10">
+            <div className="w-full relative group overflow-hidden rounded-2xl">
+              <img loading='lazy' src={bannerData?.acf?.section_2_fields?.left_box?.background_image?.url} alt="3D Planning" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
+                <h3 className="text-3xl font-bold text-white">{bannerData?.acf?.section_2_fields?.left_box?.heading}</h3>
+              </div>
+            </div>
+            <div className="w-full relative group overflow-hidden rounded-2xl">
+              <img loading='lazy' src={bannerData?.acf?.section_2_fields?.middle_box?.background_image?.url} alt="VMAT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-blue-900/75 flex flex-col items-center justify-center px-6 text-center gap-[36px]">
+                <h3 className="text-4xl font-extrabold text-white uppercase">{bannerData?.acf?.section_2_fields?.middle_box?.heading}</h3>
+                <p className="text-blue-100 text-[16px] w-10/12 text-center">{bannerData?.acf?.section_2_fields?.middle_box?.description}</p>
+                <a href={bannerData?.acf?.section_2_fields?.middle_box?.button?.url} className="ip-btn ip-btn-primary w-fit mt-3">
+                  {bannerData?.acf?.section_2_fields?.middle_box?.button?.title} <span>→</span>
+                </a>
+              </div>
+            </div>
+            <div className="w-full relative group overflow-hidden rounded-2xl">
+              <img loading='lazy' src={bannerData?.acf?.section_2_fields?.right_box?.background_image?.url} alt="IMRT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
+              <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
+                <h3 className="text-3xl font-bold text-white">{bannerData?.acf?.section_2_fields?.right_box?.heading}</h3>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="w-full flex flex-col lg:flex-row lg:gap-2 justify-center items-center px-5 gap-10">
-          <div className="w-full relative group overflow-hidden rounded-2xl">
-            <img loading='lazy' src="/assets/3D Planning.png" alt="3D Planning" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
-            <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
-              <h3 className="text-3xl font-bold text-white">{bannerData?.acf?.section_2_fields?.left_box?.heading}</h3>
-            </div>
-          </div>
-          <div className="w-full relative group overflow-hidden rounded-2xl">
-            <img loading='lazy' src="/assets/VMRL.png" alt="VMAT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
-            <div className="absolute inset-0 bg-blue-900/75 flex flex-col items-center justify-center px-6 text-center gap-[36px]">
-              <h3 className="text-4xl font-extrabold text-white uppercase">{bannerData?.acf?.section_2_fields?.middle_box?.heading}</h3>
-              <p className="text-blue-100 text-[16px] w-10/12 text-center">{bannerData?.acf?.section_2_fields?.middle_box?.description}</p>
-              <a href={bannerData?.acf?.section_2_fields?.middle_box?.button?.url} className="ip-btn ip-btn-primary w-fit mt-3">
-                {bannerData?.acf?.section_2_fields?.middle_box?.button?.title} <span>→</span>
-              </a>
-            </div>
-          </div>
-          <div className="w-full relative group overflow-hidden rounded-2xl">
-            <img loading='lazy' src="/assets/IMRT.png" alt="IMRT" className="h-full w-full object-cover scale-105 group-hover:scale-110 transition-transform duration-500" />
-            <div className="absolute inset-0 bg-blue-900/60 flex items-center justify-center">
-              <h3 className="text-3xl font-bold text-white">{bannerData?.acf?.section_2_fields?.right_box?.heading}</h3>
-            </div>
-          </div>
-        </div>
-      </div>
+      }
 
       {/* ── Section 4 (Wheel — Desktop) ── */}
       <div className="min-h-[200dvh] hidden lg:block">
@@ -416,6 +418,6 @@ export default function HomeClient({ bannerData }) {
         <ReviewSlider data={bannerData?.acf?.section_5_fields} />
         <GetInTouch data={bannerData?.acf?.section_6_fields} />
       </div>
-    </section>
+    </section >
   )
 }
